@@ -1,0 +1,33 @@
+{{!-- Page to show details of rooms --}}
+{{#with-rdfa-context class="container" model=model as |ctx|}}
+  <div class="page">
+    <h2 class="h2">{{link-to (t "room overview") "rooms.index"}} &lt; {{t (humanize 'room details')}}</h2>
+    <div class="properties">
+      <div class="properties__title">
+        {{t (humanize 'room data')}}
+        <dl>
+          <dt class="properties__label">{{t "description"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="description"}}</dd>
+          <dt class="properties__label">{{t "locatorDesignator"}}</dt>
+          <dd class="properties__data">{{#ctx.get prop="locatorDesignator" link-to="locator-designators.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+<dt class="properties__label">{{t "rentalUnit"}}</dt>
+          <dd class="properties__data">{{#ctx.get prop="rentalUnit" link-to="rental-units.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+<dt class="properties__label">{{t "type"}}</dt>
+          <dd class="properties__data">{{#ctx.get prop="type" link-to="room-types.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+          <dt class="properties__label">{{t "facilities"}}</dt>
+          <dd class="properties__data">
+            {{#ctx.each prop="facilities" link-to="facilities.show" as |ctx val|}}
+              {{val.stringRep}}
+            {{/ctx.each}}
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Actions to go back to the list-view or edit room if it's an editable application. --}}
+  <div class="actions">
+    {{#link-to "rooms" class="button" title="Return to list" tagName='button'}}{{t "< Return to the list"}}{{/link-to}}
+    
+  </div>
+{{/with-rdfa-context}}

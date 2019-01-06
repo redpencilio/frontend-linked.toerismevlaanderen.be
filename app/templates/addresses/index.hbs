@@ -1,0 +1,57 @@
+{{!-- Page to list addresses --}}
+<div class="content">
+  <h2 class="h2">{{show-models-link}} &lt; {{t (humanize 'addresses')}}</h2>
+  {{#data-table
+     content=model
+     isLoading=isLoadingModel
+     filter=filter
+     sort=sort
+     page=page
+     size=size
+     as |table|}}
+    {{#table.content as |c|}}
+      {{#c.header}}
+        {{th-sortable field='adminUnitLevel1' currentSorting=sort label=(t 'adminUnitLevel1')}}
+{{th-sortable field='adminUnitLevel2' currentSorting=sort label=(t 'adminUnitLevel2')}}
+{{th-sortable field='addressArea' currentSorting=sort label=(t 'addressArea')}}
+{{th-sortable field='houseNumberSuffix' currentSorting=sort label=(t 'houseNumberSuffix')}}
+{{th-sortable field='municipality' currentSorting=sort label=(t 'municipality')}}
+{{th-sortable field='houseNumber' currentSorting=sort label=(t 'houseNumber')}}
+{{th-sortable field='country' currentSorting=sort label=(t 'country')}}
+{{th-sortable field='locatorDesignator' currentSorting=sort label=(t 'locatorDesignator')}}
+{{th-sortable field='locatorName' currentSorting=sort label=(t 'locatorName')}}
+{{th-sortable field='poBox' currentSorting=sort label=(t 'poBox')}}
+{{th-sortable field='postCode' currentSorting=sort label=(t 'postCode')}}
+{{th-sortable field='postName' currentSorting=sort label=(t 'postName')}}
+{{th-sortable field='thoroughfare' currentSorting=sort label=(t 'thoroughfare')}}
+{{th-sortable field='references' currentSorting=sort label=(t 'references')}}
+{{th-sortable field='fullAddress' currentSorting=sort label=(t 'fullAddress')}}
+        
+        <th>{{!-- contains detail view action --}}</th>
+        <th>{{!-- contains detail edit action --}}</th>
+      {{/c.header}}
+      {{#c.body as |row|}}
+        <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.adminUnitLevel1}}>{{row.adminUnitLevel1}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.adminUnitLevel2}}>{{row.adminUnitLevel2}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.addressArea}}>{{row.addressArea}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.houseNumberSuffix}}>{{row.houseNumberSuffix}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.municipality}}>{{row.municipality}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.houseNumber}}>{{row.houseNumber}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.country}}>{{row.country}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.locatorDesignator}}>{{row.locatorDesignator}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.locatorName}}>{{row.locatorName}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.poBox}}>{{row.poBox}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.postCode}}>{{row.postCode}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.postName}}>{{row.postName}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.thoroughfare}}>{{row.thoroughfare}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.references}}>{{row.references}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.fullAddress}}>{{row.fullAddress}}</td>
+        
+        <td>{{link-to (t 'Open') 'addresses.show' row}}</td>
+        <td>{{link-to (t 'Edit') 'addresses.edit' row}}</td>
+      {{/c.body}}
+    {{/table.content}}
+  {{/data-table}}
+
+  
+</div>

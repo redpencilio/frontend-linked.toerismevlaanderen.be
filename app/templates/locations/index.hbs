@@ -1,0 +1,29 @@
+{{!-- Page to list locations --}}
+<div class="content">
+  <h2 class="h2">{{show-models-link}} &lt; {{t (humanize 'locations')}}</h2>
+  {{#data-table
+     content=model
+     isLoading=isLoadingModel
+     filter=filter
+     sort=sort
+     page=page
+     size=size
+     as |table|}}
+    {{#table.content as |c|}}
+      {{#c.header}}
+        
+        
+        <th>{{!-- contains detail view action --}}</th>
+        <th>{{!-- contains detail edit action --}}</th>
+      {{/c.header}}
+      {{#c.body as |row|}}
+        
+        
+        <td>{{link-to (t 'Open') 'locations.show' row}}</td>
+        <td>{{link-to (t 'Edit') 'locations.edit' row}}</td>
+      {{/c.body}}
+    {{/table.content}}
+  {{/data-table}}
+
+  
+</div>

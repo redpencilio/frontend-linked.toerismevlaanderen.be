@@ -1,0 +1,29 @@
+{{!-- Page to list agents --}}
+<div class="content">
+  <h2 class="h2">{{show-models-link}} &lt; {{t (humanize 'agents')}}</h2>
+  {{#data-table
+     content=model
+     isLoading=isLoadingModel
+     filter=filter
+     sort=sort
+     page=page
+     size=size
+     as |table|}}
+    {{#table.content as |c|}}
+      {{#c.header}}
+        
+        
+        <th>{{!-- contains detail view action --}}</th>
+        <th>{{!-- contains detail edit action --}}</th>
+      {{/c.header}}
+      {{#c.body as |row|}}
+        
+        
+        <td>{{link-to (t 'Open') 'agents.show' row}}</td>
+        <td>{{link-to (t 'Edit') 'agents.edit' row}}</td>
+      {{/c.body}}
+    {{/table.content}}
+  {{/data-table}}
+
+  
+</div>

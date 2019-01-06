@@ -1,0 +1,31 @@
+{{!-- Page to list geometries --}}
+<div class="content">
+  <h2 class="h2">{{show-models-link}} &lt; {{t (humanize 'geometries')}}</h2>
+  {{#data-table
+     content=model
+     isLoading=isLoadingModel
+     filter=filter
+     sort=sort
+     page=page
+     size=size
+     as |table|}}
+    {{#table.content as |c|}}
+      {{#c.header}}
+        {{th-sortable field='asGml' currentSorting=sort label=(t 'asGml')}}
+{{th-sortable field='asWkt' currentSorting=sort label=(t 'asWkt')}}
+        
+        <th>{{!-- contains detail view action --}}</th>
+        <th>{{!-- contains detail edit action --}}</th>
+      {{/c.header}}
+      {{#c.body as |row|}}
+        <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.asGml}}>{{row.asGml}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.asWkt}}>{{row.asWkt}}</td>
+        
+        <td>{{link-to (t 'Open') 'geometries.show' row}}</td>
+        <td>{{link-to (t 'Edit') 'geometries.edit' row}}</td>
+      {{/c.body}}
+    {{/table.content}}
+  {{/data-table}}
+
+  
+</div>

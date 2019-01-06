@@ -1,0 +1,31 @@
+{{!-- Page to list points --}}
+<div class="content">
+  <h2 class="h2">{{show-models-link}} &lt; {{t (humanize 'points')}}</h2>
+  {{#data-table
+     content=model
+     isLoading=isLoadingModel
+     filter=filter
+     sort=sort
+     page=page
+     size=size
+     as |table|}}
+    {{#table.content as |c|}}
+      {{#c.header}}
+        {{th-sortable field='latitude' currentSorting=sort label=(t 'latitude')}}
+{{th-sortable field='longitude' currentSorting=sort label=(t 'longitude')}}
+        
+        <th>{{!-- contains detail view action --}}</th>
+        <th>{{!-- contains detail edit action --}}</th>
+      {{/c.header}}
+      {{#c.body as |row|}}
+        <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.latitude}}>{{row.latitude}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.longitude}}>{{row.longitude}}</td>
+        
+        <td>{{link-to (t 'Open') 'points.show' row}}</td>
+        <td>{{link-to (t 'Edit') 'points.edit' row}}</td>
+      {{/c.body}}
+    {{/table.content}}
+  {{/data-table}}
+
+  
+</div>

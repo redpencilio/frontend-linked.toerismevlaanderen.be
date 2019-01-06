@@ -1,0 +1,51 @@
+{{!-- Page to list registrations --}}
+<div class="content">
+  <h2 class="h2">{{show-models-link}} &lt; {{t (humanize 'registrations')}}</h2>
+  {{#data-table
+     content=model
+     isLoading=isLoadingModel
+     filter=filter
+     sort=sort
+     page=page
+     size=size
+     as |table|}}
+    {{#table.content as |c|}}
+      {{#c.header}}
+        
+        {{th-sortable field='isSpecialisationInTimeOf' currentSorting=sort label=(t 'isSpecialisationInTimeOf')}}
+{{th-sortable field='generation' currentSorting=sort label=(t 'generation')}}
+{{th-sortable field='invalidation' currentSorting=sort label=(t 'invalidation')}}
+{{th-sortable field='identifier' currentSorting=sort label=(t 'identifier')}}
+{{th-sortable field='registrationStatus' currentSorting=sort label=(t 'registrationStatus')}}
+{{th-sortable field='type' currentSorting=sort label=(t 'type')}}
+        <th>{{!-- contains detail view action --}}</th>
+        <th>{{!-- contains detail edit action --}}</th>
+      {{/c.header}}
+      {{#c.body as |row|}}
+        
+        {{#with-rdfa-context tagName="td" model=row as |ctx|}}
+           {{#ctx.get prop="isSpecialisationInTimeOf" link-to="registrations.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+         {{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}
+           {{#ctx.get prop="generation" link-to="generations.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+         {{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}
+           {{#ctx.get prop="invalidation" link-to="invalidations.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+         {{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}
+           {{#ctx.get prop="identifier" link-to="identifiers.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+         {{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}
+           {{#ctx.get prop="registrationStatus" link-to="registration-statuses.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+         {{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}
+           {{#ctx.get prop="type" link-to="registration-lodging-types.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+         {{/with-rdfa-context}}
+        <td>{{link-to (t 'Open') 'registrations.show' row}}</td>
+        <td>{{link-to (t 'Edit') 'registrations.edit' row}}</td>
+      {{/c.body}}
+    {{/table.content}}
+  {{/data-table}}
+
+  
+</div>

@@ -1,0 +1,35 @@
+{{!-- Page to list rental-units --}}
+<div class="content">
+  <h2 class="h2">{{show-models-link}} &lt; {{t (humanize 'rental-units')}}</h2>
+  {{#data-table
+     content=model
+     isLoading=isLoadingModel
+     filter=filter
+     sort=sort
+     page=page
+     size=size
+     as |table|}}
+    {{#table.content as |c|}}
+      {{#c.header}}
+        {{th-sortable field='numberOfRooms' currentSorting=sort label=(t 'numberOfRooms')}}
+{{th-sortable field='numberOfSleepingPlaces' currentSorting=sort label=(t 'numberOfSleepingPlaces')}}
+{{th-sortable field='name' currentSorting=sort label=(t 'name')}}
+        {{th-sortable field='location' currentSorting=sort label=(t 'location')}}
+        <th>{{!-- contains detail view action --}}</th>
+        <th>{{!-- contains detail edit action --}}</th>
+      {{/c.header}}
+      {{#c.body as |row|}}
+        <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.numberOfRooms}}>{{row.numberOfRooms}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.numberOfSleepingPlaces}}>{{row.numberOfSleepingPlaces}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.name}}>{{row.name}}</td>
+        {{#with-rdfa-context tagName="td" model=row as |ctx|}}
+           {{#ctx.get prop="location" link-to="geometries.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+         {{/with-rdfa-context}}
+        <td>{{link-to (t 'Open') 'rental-units.show' row}}</td>
+        <td>{{link-to (t 'Edit') 'rental-units.edit' row}}</td>
+      {{/c.body}}
+    {{/table.content}}
+  {{/data-table}}
+
+  
+</div>

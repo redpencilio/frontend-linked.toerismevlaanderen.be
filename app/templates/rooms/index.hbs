@@ -1,0 +1,39 @@
+{{!-- Page to list rooms --}}
+<div class="content">
+  <h2 class="h2">{{show-models-link}} &lt; {{t (humanize 'rooms')}}</h2>
+  {{#data-table
+     content=model
+     isLoading=isLoadingModel
+     filter=filter
+     sort=sort
+     page=page
+     size=size
+     as |table|}}
+    {{#table.content as |c|}}
+      {{#c.header}}
+        {{th-sortable field='description' currentSorting=sort label=(t 'description')}}
+        {{th-sortable field='locatorDesignator' currentSorting=sort label=(t 'locatorDesignator')}}
+{{th-sortable field='rentalUnit' currentSorting=sort label=(t 'rentalUnit')}}
+{{th-sortable field='type' currentSorting=sort label=(t 'type')}}
+        <th>{{!-- contains detail view action --}}</th>
+        <th>{{!-- contains detail edit action --}}</th>
+      {{/c.header}}
+      {{#c.body as |row|}}
+        <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.description}}>{{row.description}}</td>
+        {{#with-rdfa-context tagName="td" model=row as |ctx|}}
+           {{#ctx.get prop="locatorDesignator" link-to="locator-designators.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+         {{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}
+           {{#ctx.get prop="rentalUnit" link-to="rental-units.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+         {{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}
+           {{#ctx.get prop="type" link-to="room-types.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+         {{/with-rdfa-context}}
+        <td>{{link-to (t 'Open') 'rooms.show' row}}</td>
+        <td>{{link-to (t 'Edit') 'rooms.edit' row}}</td>
+      {{/c.body}}
+    {{/table.content}}
+  {{/data-table}}
+
+  
+</div>

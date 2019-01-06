@@ -1,0 +1,37 @@
+{{!-- Page to list registered-organizations --}}
+<div class="content">
+  <h2 class="h2">{{show-models-link}} &lt; {{t (humanize 'registered-organizations')}}</h2>
+  {{#data-table
+     content=model
+     isLoading=isLoadingModel
+     filter=filter
+     sort=sort
+     page=page
+     size=size
+     as |table|}}
+    {{#table.content as |c|}}
+      {{#c.header}}
+        {{th-sortable field='legalName' currentSorting=sort label=(t 'legalName')}}
+{{th-sortable field='legalPersonality' currentSorting=sort label=(t 'legalPersonality')}}
+{{th-sortable field='legalForm' currentSorting=sort label=(t 'legalForm')}}
+{{th-sortable field='legalStatus' currentSorting=sort label=(t 'legalStatus')}}
+        {{th-sortable field='registration' currentSorting=sort label=(t 'registration')}}
+        <th>{{!-- contains detail view action --}}</th>
+        <th>{{!-- contains detail edit action --}}</th>
+      {{/c.header}}
+      {{#c.body as |row|}}
+        <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.legalName}}>{{row.legalName}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.legalPersonality}}>{{row.legalPersonality}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.legalForm}}>{{row.legalForm}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.legalStatus}}>{{row.legalStatus}}</td>
+        {{#with-rdfa-context tagName="td" model=row as |ctx|}}
+           {{#ctx.get prop="registration" link-to="registrations.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+         {{/with-rdfa-context}}
+        <td>{{link-to (t 'Open') 'registered-organizations.show' row}}</td>
+        <td>{{link-to (t 'Edit') 'registered-organizations.edit' row}}</td>
+      {{/c.body}}
+    {{/table.content}}
+  {{/data-table}}
+
+  
+</div>

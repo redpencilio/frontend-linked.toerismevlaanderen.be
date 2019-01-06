@@ -1,0 +1,39 @@
+{{!-- Page to list ratings --}}
+<div class="content">
+  <h2 class="h2">{{show-models-link}} &lt; {{t (humanize 'ratings')}}</h2>
+  {{#data-table
+     content=model
+     isLoading=isLoadingModel
+     filter=filter
+     sort=sort
+     page=page
+     size=size
+     as |table|}}
+    {{#table.content as |c|}}
+      {{#c.header}}
+        {{th-sortable field='ratingValue' currentSorting=sort label=(t 'ratingValue')}}
+{{th-sortable field='description' currentSorting=sort label=(t 'description')}}
+{{th-sortable field='bestRating' currentSorting=sort label=(t 'bestRating')}}
+{{th-sortable field='worstRating' currentSorting=sort label=(t 'worstRating')}}
+{{th-sortable field='issuedDate' currentSorting=sort label=(t 'issuedDate')}}
+        {{th-sortable field='author' currentSorting=sort label=(t 'author')}}
+        <th>{{!-- contains detail view action --}}</th>
+        <th>{{!-- contains detail edit action --}}</th>
+      {{/c.header}}
+      {{#c.body as |row|}}
+        <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.ratingValue}}>{{row.ratingValue}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.description}}>{{row.description}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.bestRating}}>{{row.bestRating}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.worstRating}}>{{row.worstRating}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.issuedDate}}>{{row.issuedDate}}</td>
+        {{#with-rdfa-context tagName="td" model=row as |ctx|}}
+           {{#ctx.get prop="author" link-to="registered-organizations.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+         {{/with-rdfa-context}}
+        <td>{{link-to (t 'Open') 'ratings.show' row}}</td>
+        <td>{{link-to (t 'Edit') 'ratings.edit' row}}</td>
+      {{/c.body}}
+    {{/table.content}}
+  {{/data-table}}
+
+  
+</div>

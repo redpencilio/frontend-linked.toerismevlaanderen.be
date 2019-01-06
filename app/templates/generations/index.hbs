@@ -1,0 +1,31 @@
+{{!-- Page to list generations --}}
+<div class="content">
+  <h2 class="h2">{{show-models-link}} &lt; {{t (humanize 'generations')}}</h2>
+  {{#data-table
+     content=model
+     isLoading=isLoadingModel
+     filter=filter
+     sort=sort
+     page=page
+     size=size
+     as |table|}}
+    {{#table.content as |c|}}
+      {{#c.header}}
+        {{th-sortable field='timestamp' currentSorting=sort label=(t 'timestamp')}}
+{{th-sortable field='activity' currentSorting=sort label=(t 'activity')}}
+        
+        <th>{{!-- contains detail view action --}}</th>
+        <th>{{!-- contains detail edit action --}}</th>
+      {{/c.header}}
+      {{#c.body as |row|}}
+        <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.timestamp}}>{{row.timestamp}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.activity}}>{{row.activity}}</td>
+        
+        <td>{{link-to (t 'Open') 'generations.show' row}}</td>
+        <td>{{link-to (t 'Edit') 'generations.edit' row}}</td>
+      {{/c.body}}
+    {{/table.content}}
+  {{/data-table}}
+
+  
+</div>

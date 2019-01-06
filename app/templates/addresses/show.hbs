@@ -1,0 +1,51 @@
+{{!-- Page to show details of addresses --}}
+{{#with-rdfa-context class="container" model=model as |ctx|}}
+  <div class="page">
+    <h2 class="h2">{{link-to (t "address overview") "addresses.index"}} &lt; {{t (humanize 'address details')}}</h2>
+    <div class="properties">
+      <div class="properties__title">
+        {{t (humanize 'address data')}}
+        <dl>
+          <dt class="properties__label">{{t "adminUnitLevel1"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="adminUnitLevel1"}}</dd>
+<dt class="properties__label">{{t "adminUnitLevel2"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="adminUnitLevel2"}}</dd>
+<dt class="properties__label">{{t "addressArea"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="addressArea"}}</dd>
+<dt class="properties__label">{{t "houseNumberSuffix"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="houseNumberSuffix"}}</dd>
+<dt class="properties__label">{{t "municipality"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="municipality"}}</dd>
+<dt class="properties__label">{{t "houseNumber"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="houseNumber"}}</dd>
+<dt class="properties__label">{{t "country"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="country"}}</dd>
+<dt class="properties__label">{{t "locatorDesignator"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="locatorDesignator"}}</dd>
+<dt class="properties__label">{{t "locatorName"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="locatorName"}}</dd>
+<dt class="properties__label">{{t "poBox"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="poBox"}}</dd>
+<dt class="properties__label">{{t "postCode"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="postCode"}}</dd>
+<dt class="properties__label">{{t "postName"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="postName"}}</dd>
+<dt class="properties__label">{{t "thoroughfare"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="thoroughfare"}}</dd>
+<dt class="properties__label">{{t "references"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="references"}}</dd>
+<dt class="properties__label">{{t "fullAddress"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="fullAddress"}}</dd>
+          
+          
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Actions to go back to the list-view or edit address if it's an editable application. --}}
+  <div class="actions">
+    {{#link-to "addresses" class="button" title="Return to list" tagName='button'}}{{t "< Return to the list"}}{{/link-to}}
+    
+  </div>
+{{/with-rdfa-context}}

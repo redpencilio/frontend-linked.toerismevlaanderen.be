@@ -1,0 +1,28 @@
+{{!-- Page to show details of identifiers --}}
+{{#with-rdfa-context class="container" model=model as |ctx|}}
+  <div class="page">
+    <h2 class="h2">{{link-to (t "identifier overview") "identifiers.index"}} &lt; {{t (humanize 'identifier details')}}</h2>
+    <div class="properties">
+      <div class="properties__title">
+        {{t (humanize 'identifier data')}}
+        <dl>
+          <dt class="properties__label">{{t "notation"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="notation"}}</dd>
+<dt class="properties__label">{{t "issuedBy"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="issuedBy"}}</dd>
+<dt class="properties__label">{{t "issuedDate"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="issuedDate"}}</dd>
+          <dt class="properties__label">{{t "creator"}}</dt>
+          <dd class="properties__data">{{#ctx.get prop="creator" link-to="agents.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+          
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Actions to go back to the list-view or edit identifier if it's an editable application. --}}
+  <div class="actions">
+    {{#link-to "identifiers" class="button" title="Return to list" tagName='button'}}{{t "< Return to the list"}}{{/link-to}}
+    
+  </div>
+{{/with-rdfa-context}}

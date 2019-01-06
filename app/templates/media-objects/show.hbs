@@ -1,0 +1,69 @@
+{{!-- Page to show details of media-objects --}}
+{{#with-rdfa-context class="container" model=model as |ctx|}}
+  <div class="page">
+    <h2 class="h2">{{link-to (t "media-object overview") "media-objects.index"}} &lt; {{t (humanize 'media-object details')}}</h2>
+    <div class="properties">
+      <div class="properties__title">
+        {{t (humanize 'media-object data')}}
+        <dl>
+          <dt class="properties__label">{{t "modifiedOn"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="modifiedOn"}}</dd>
+<dt class="properties__label">{{t "name"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="name"}}</dd>
+<dt class="properties__label">{{t "publicationDate"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="publicationDate"}}</dd>
+<dt class="properties__label">{{t "description"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="description"}}</dd>
+<dt class="properties__label">{{t "caption"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="caption"}}</dd>
+<dt class="properties__label">{{t "contentUrl"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="contentUrl"}}</dd>
+<dt class="properties__label">{{t "exifData"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="exifData"}}</dd>
+<dt class="properties__label">{{t "thumbnailUrl"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="thumbnailUrl"}}</dd>
+          <dt class="properties__label">{{t "exampleOf"}}</dt>
+          <dd class="properties__data">{{#ctx.get prop="exampleOf" link-to="creative-works.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+<dt class="properties__label">{{t "translationOf"}}</dt>
+          <dd class="properties__data">{{#ctx.get prop="translationOf" link-to="creative-works.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+<dt class="properties__label">{{t "license"}}</dt>
+          <dd class="properties__data">{{#ctx.get prop="license" link-to="licenses.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+<dt class="properties__label">{{t "audience"}}</dt>
+          <dd class="properties__data">{{#ctx.get prop="audience" link-to="audiences.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+<dt class="properties__label">{{t "format"}}</dt>
+          <dd class="properties__data">{{#ctx.get prop="format" link-to="file-formats.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+<dt class="properties__label">{{t "width"}}</dt>
+          <dd class="properties__data">{{#ctx.get prop="width" link-to="quantitative-values.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+<dt class="properties__label">{{t "height"}}</dt>
+          <dd class="properties__data">{{#ctx.get prop="height" link-to="quantitative-values.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+<dt class="properties__label">{{t "location"}}</dt>
+          <dd class="properties__data">{{#ctx.get prop="location" link-to="geometries.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+          <dt class="properties__label">{{t "examples"}}</dt>
+          <dd class="properties__data">
+            {{#ctx.each prop="examples" link-to="creative-works.show" as |ctx val|}}
+              {{val.stringRep}}
+            {{/ctx.each}}
+          </dd>
+<dt class="properties__label">{{t "translations"}}</dt>
+          <dd class="properties__data">
+            {{#ctx.each prop="translations" link-to="creative-works.show" as |ctx val|}}
+              {{val.stringRep}}
+            {{/ctx.each}}
+          </dd>
+<dt class="properties__label">{{t "languages"}}</dt>
+          <dd class="properties__data">
+            {{#ctx.each prop="languages" link-to="languages.show" as |ctx val|}}
+              {{val.stringRep}}
+            {{/ctx.each}}
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Actions to go back to the list-view or edit media-object if it's an editable application. --}}
+  <div class="actions">
+    {{#link-to "media-objects" class="button" title="Return to list" tagName='button'}}{{t "< Return to the list"}}{{/link-to}}
+    
+  </div>
+{{/with-rdfa-context}}

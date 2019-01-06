@@ -1,0 +1,39 @@
+{{!-- Page to list contact-points --}}
+<div class="content">
+  <h2 class="h2">{{show-models-link}} &lt; {{t (humanize 'contact-points')}}</h2>
+  {{#data-table
+     content=model
+     isLoading=isLoadingModel
+     filter=filter
+     sort=sort
+     page=page
+     size=size
+     as |table|}}
+    {{#table.content as |c|}}
+      {{#c.header}}
+        {{th-sortable field='honorificPrefix' currentSorting=sort label=(t 'honorificPrefix')}}
+{{th-sortable field='email' currentSorting=sort label=(t 'email')}}
+{{th-sortable field='fax' currentSorting=sort label=(t 'fax')}}
+{{th-sortable field='name' currentSorting=sort label=(t 'name')}}
+{{th-sortable field='page' currentSorting=sort label=(t 'page')}}
+{{th-sortable field='telephone' currentSorting=sort label=(t 'telephone')}}
+        
+        <th>{{!-- contains detail view action --}}</th>
+        <th>{{!-- contains detail edit action --}}</th>
+      {{/c.header}}
+      {{#c.body as |row|}}
+        <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.honorificPrefix}}>{{row.honorificPrefix}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.email}}>{{row.email}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.fax}}>{{row.fax}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.name}}>{{row.name}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.page}}>{{row.page}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.telephone}}>{{row.telephone}}</td>
+        
+        <td>{{link-to (t 'Open') 'contact-points.show' row}}</td>
+        <td>{{link-to (t 'Edit') 'contact-points.edit' row}}</td>
+      {{/c.body}}
+    {{/table.content}}
+  {{/data-table}}
+
+  
+</div>

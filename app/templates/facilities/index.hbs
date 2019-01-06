@@ -1,0 +1,37 @@
+{{!-- Page to list facilities --}}
+<div class="content">
+  <h2 class="h2">{{show-models-link}} &lt; {{t (humanize 'facilities')}}</h2>
+  {{#data-table
+     content=model
+     isLoading=isLoadingModel
+     filter=filter
+     sort=sort
+     page=page
+     size=size
+     as |table|}}
+    {{#table.content as |c|}}
+      {{#c.header}}
+        {{th-sortable field='validThrough' currentSorting=sort label=(t 'validThrough')}}
+{{th-sortable field='validFrom' currentSorting=sort label=(t 'validFrom')}}
+{{th-sortable field='description' currentSorting=sort label=(t 'description')}}
+{{th-sortable field='name' currentSorting=sort label=(t 'name')}}
+        {{th-sortable field='isSpecialisationOf' currentSorting=sort label=(t 'isSpecialisationOf')}}
+        <th>{{!-- contains detail view action --}}</th>
+        <th>{{!-- contains detail edit action --}}</th>
+      {{/c.header}}
+      {{#c.body as |row|}}
+        <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.validThrough}}>{{row.validThrough}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.validFrom}}>{{row.validFrom}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.description}}>{{row.description}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.name}}>{{row.name}}</td>
+        {{#with-rdfa-context tagName="td" model=row as |ctx|}}
+           {{#ctx.get prop="isSpecialisationOf" link-to="facilities.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+         {{/with-rdfa-context}}
+        <td>{{link-to (t 'Open') 'facilities.show' row}}</td>
+        <td>{{link-to (t 'Edit') 'facilities.edit' row}}</td>
+      {{/c.body}}
+    {{/table.content}}
+  {{/data-table}}
+
+  
+</div>

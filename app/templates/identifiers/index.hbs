@@ -1,0 +1,35 @@
+{{!-- Page to list identifiers --}}
+<div class="content">
+  <h2 class="h2">{{show-models-link}} &lt; {{t (humanize 'identifiers')}}</h2>
+  {{#data-table
+     content=model
+     isLoading=isLoadingModel
+     filter=filter
+     sort=sort
+     page=page
+     size=size
+     as |table|}}
+    {{#table.content as |c|}}
+      {{#c.header}}
+        {{th-sortable field='notation' currentSorting=sort label=(t 'notation')}}
+{{th-sortable field='issuedBy' currentSorting=sort label=(t 'issuedBy')}}
+{{th-sortable field='issuedDate' currentSorting=sort label=(t 'issuedDate')}}
+        {{th-sortable field='creator' currentSorting=sort label=(t 'creator')}}
+        <th>{{!-- contains detail view action --}}</th>
+        <th>{{!-- contains detail edit action --}}</th>
+      {{/c.header}}
+      {{#c.body as |row|}}
+        <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.notation}}>{{row.notation}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.issuedBy}}>{{row.issuedBy}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.issuedDate}}>{{row.issuedDate}}</td>
+        {{#with-rdfa-context tagName="td" model=row as |ctx|}}
+           {{#ctx.get prop="creator" link-to="agents.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+         {{/with-rdfa-context}}
+        <td>{{link-to (t 'Open') 'identifiers.show' row}}</td>
+        <td>{{link-to (t 'Edit') 'identifiers.edit' row}}</td>
+      {{/c.body}}
+    {{/table.content}}
+  {{/data-table}}
+
+  
+</div>

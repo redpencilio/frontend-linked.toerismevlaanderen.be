@@ -1,0 +1,23 @@
+{{!-- Page to show details of languages --}}
+{{#with-rdfa-context class="container" model=model as |ctx|}}
+  <div class="page">
+    <h2 class="h2">{{link-to (t "language overview") "languages.index"}} &lt; {{t (humanize 'language details')}}</h2>
+    <div class="properties">
+      <div class="properties__title">
+        {{t (humanize 'language data')}}
+        <dl>
+          <dt class="properties__label">{{t "label"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="label"}}</dd>
+          
+          
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Actions to go back to the list-view or edit language if it's an editable application. --}}
+  <div class="actions">
+    {{#link-to "languages" class="button" title="Return to list" tagName='button'}}{{t "< Return to the list"}}{{/link-to}}
+    
+  </div>
+{{/with-rdfa-context}}

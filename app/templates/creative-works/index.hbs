@@ -1,0 +1,47 @@
+{{!-- Page to list creative-works --}}
+<div class="content">
+  <h2 class="h2">{{show-models-link}} &lt; {{t (humanize 'creative-works')}}</h2>
+  {{#data-table
+     content=model
+     isLoading=isLoadingModel
+     filter=filter
+     sort=sort
+     page=page
+     size=size
+     as |table|}}
+    {{#table.content as |c|}}
+      {{#c.header}}
+        {{th-sortable field='modifiedOn' currentSorting=sort label=(t 'modifiedOn')}}
+{{th-sortable field='name' currentSorting=sort label=(t 'name')}}
+{{th-sortable field='publicationDate' currentSorting=sort label=(t 'publicationDate')}}
+        {{th-sortable field='exampleOf' currentSorting=sort label=(t 'exampleOf')}}
+{{th-sortable field='translationOf' currentSorting=sort label=(t 'translationOf')}}
+{{th-sortable field='license' currentSorting=sort label=(t 'license')}}
+{{th-sortable field='audience' currentSorting=sort label=(t 'audience')}}
+        <th>{{!-- contains detail view action --}}</th>
+        <th>{{!-- contains detail edit action --}}</th>
+      {{/c.header}}
+      {{#c.body as |row|}}
+        <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.modifiedOn}}>{{row.modifiedOn}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.name}}>{{row.name}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.publicationDate}}>{{row.publicationDate}}</td>
+        {{#with-rdfa-context tagName="td" model=row as |ctx|}}
+           {{#ctx.get prop="exampleOf" link-to="creative-works.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+         {{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}
+           {{#ctx.get prop="translationOf" link-to="creative-works.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+         {{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}
+           {{#ctx.get prop="license" link-to="licenses.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+         {{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}
+           {{#ctx.get prop="audience" link-to="audiences.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+         {{/with-rdfa-context}}
+        <td>{{link-to (t 'Open') 'creative-works.show' row}}</td>
+        <td>{{link-to (t 'Edit') 'creative-works.edit' row}}</td>
+      {{/c.body}}
+    {{/table.content}}
+  {{/data-table}}
+
+  
+</div>

@@ -8,7 +8,7 @@ export default Component.extend({
 
   menus: computed(function() {
     let router = getOwner(this).lookup('router:main');
-    let allRoutesList = router.get('currentState.routerJs.recognizer.names');
+    let allRoutesList = router.get('currentState.router.recognizer.names');
     let routeKeys = Object.keys(allRoutesList);
     let filteredKeys = routeKeys.filter(function(item) {
       return item.indexOf('.index') >= 0;

@@ -1,0 +1,109 @@
+{{!-- Page to show details of lodgings --}}
+{{#with-rdfa-context class="container" model=model as |ctx|}}
+  <div class="page">
+    <h2 class="h2">{{link-to (t "lodging overview") "lodgings.index"}} &lt; {{t (humanize 'lodging details')}}</h2>
+    <div class="properties">
+      <div class="properties__title">
+        {{t (humanize 'lodging data')}}
+        <dl>
+          <dt class="properties__label">{{t "numberOfSleepingPlaces"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="numberOfSleepingPlaces"}}</dd>
+<dt class="properties__label">{{t "numberOfRentalUnits"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="numberOfRentalUnits"}}</dd>
+<dt class="properties__label">{{t "alternativeName"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="alternativeName"}}</dd>
+<dt class="properties__label">{{t "name"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="name"}}</dd>
+          <dt class="properties__label">{{t "identifier"}}</dt>
+          <dd class="properties__data">{{#ctx.get prop="identifier" link-to="identifiers.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+<dt class="properties__label">{{t "welcomeLocations"}}</dt>
+          <dd class="properties__data">{{#ctx.get prop="welcomeLocations" link-to="geometries.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+          <dt class="properties__label">{{t "belongsToTouristicRegions"}}</dt>
+          <dd class="properties__data">
+            {{#ctx.each prop="belongsToTouristicRegions" link-to="touristic-regions.show" as |ctx val|}}
+              {{val.stringRep}}
+            {{/ctx.each}}
+          </dd>
+<dt class="properties__label">{{t "capacities"}}</dt>
+          <dd class="properties__data">
+            {{#ctx.each prop="capacities" link-to="quantitative-values.show" as |ctx val|}}
+              {{val.stringRep}}
+            {{/ctx.each}}
+          </dd>
+<dt class="properties__label">{{t "audiences"}}</dt>
+          <dd class="properties__data">
+            {{#ctx.each prop="audiences" link-to="audiences.show" as |ctx val|}}
+              {{val.stringRep}}
+            {{/ctx.each}}
+          </dd>
+<dt class="properties__label">{{t "alternativeExploitations"}}</dt>
+          <dd class="properties__data">
+            {{#ctx.each prop="alternativeExploitations" link-to="lodgings.show" as |ctx val|}}
+              {{val.stringRep}}
+            {{/ctx.each}}
+          </dd>
+<dt class="properties__label">{{t "descriptions"}}</dt>
+          <dd class="properties__data">
+            {{#ctx.each prop="descriptions" link-to="descriptions.show" as |ctx val|}}
+              {{val.stringRep}}
+            {{/ctx.each}}
+          </dd>
+<dt class="properties__label">{{t "facilities"}}</dt>
+          <dd class="properties__data">
+            {{#ctx.each prop="facilities" link-to="facilities.show" as |ctx val|}}
+              {{val.stringRep}}
+            {{/ctx.each}}
+          </dd>
+<dt class="properties__label">{{t "qualityLabels"}}</dt>
+          <dd class="properties__data">
+            {{#ctx.each prop="qualityLabels" link-to="quality-labels.show" as |ctx val|}}
+              {{val.stringRep}}
+            {{/ctx.each}}
+          </dd>
+<dt class="properties__label">{{t "media"}}</dt>
+          <dd class="properties__data">
+            {{#ctx.each prop="media" link-to="media-objects.show" as |ctx val|}}
+              {{val.stringRep}}
+            {{/ctx.each}}
+          </dd>
+<dt class="properties__label">{{t "officialRatings"}}</dt>
+          <dd class="properties__data">
+            {{#ctx.each prop="officialRatings" link-to="ratings.show" as |ctx val|}}
+              {{val.stringRep}}
+            {{/ctx.each}}
+          </dd>
+<dt class="properties__label">{{t "registrations"}}</dt>
+          <dd class="properties__data">
+            {{#ctx.each prop="registrations" link-to="registrations.show" as |ctx val|}}
+              {{val.stringRep}}
+            {{/ctx.each}}
+          </dd>
+<dt class="properties__label">{{t "rentalUnits"}}</dt>
+          <dd class="properties__data">
+            {{#ctx.each prop="rentalUnits" link-to="rental-units.show" as |ctx val|}}
+              {{val.stringRep}}
+            {{/ctx.each}}
+          </dd>
+<dt class="properties__label">{{t "contactPoints"}}</dt>
+          <dd class="properties__data">
+            {{#ctx.each prop="contactPoints" link-to="contact-points.show" as |ctx val|}}
+              {{val.stringRep}}
+            {{/ctx.each}}
+          </dd>
+<dt class="properties__label">{{t "welcomeAddresses"}}</dt>
+          <dd class="properties__data">
+            {{#ctx.each prop="welcomeAddresses" link-to="addresses.show" as |ctx val|}}
+              {{val.stringRep}}
+            {{/ctx.each}}
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Actions to go back to the list-view or edit lodging if it's an editable application. --}}
+  <div class="actions">
+    {{#link-to "lodgings" class="button" title="Return to list" tagName='button'}}{{t "< Return to the list"}}{{/link-to}}
+    
+  </div>
+{{/with-rdfa-context}}

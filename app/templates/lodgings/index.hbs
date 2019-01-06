@@ -1,0 +1,41 @@
+{{!-- Page to list lodgings --}}
+<div class="content">
+  <h2 class="h2">{{show-models-link}} &lt; {{t (humanize 'lodgings')}}</h2>
+  {{#data-table
+     content=model
+     isLoading=isLoadingModel
+     filter=filter
+     sort=sort
+     page=page
+     size=size
+     as |table|}}
+    {{#table.content as |c|}}
+      {{#c.header}}
+        {{th-sortable field='numberOfSleepingPlaces' currentSorting=sort label=(t 'numberOfSleepingPlaces')}}
+{{th-sortable field='numberOfRentalUnits' currentSorting=sort label=(t 'numberOfRentalUnits')}}
+{{th-sortable field='alternativeName' currentSorting=sort label=(t 'alternativeName')}}
+{{th-sortable field='name' currentSorting=sort label=(t 'name')}}
+        {{th-sortable field='identifier' currentSorting=sort label=(t 'identifier')}}
+{{th-sortable field='welcomeLocations' currentSorting=sort label=(t 'welcomeLocations')}}
+        <th>{{!-- contains detail view action --}}</th>
+        <th>{{!-- contains detail edit action --}}</th>
+      {{/c.header}}
+      {{#c.body as |row|}}
+        <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.numberOfSleepingPlaces}}>{{row.numberOfSleepingPlaces}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.numberOfRentalUnits}}>{{row.numberOfRentalUnits}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.alternativeName}}>{{row.alternativeName}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.name}}>{{row.name}}</td>
+        {{#with-rdfa-context tagName="td" model=row as |ctx|}}
+           {{#ctx.get prop="identifier" link-to="identifiers.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+         {{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}
+           {{#ctx.get prop="welcomeLocations" link-to="geometries.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+         {{/with-rdfa-context}}
+        <td>{{link-to (t 'Open') 'lodgings.show' row}}</td>
+        <td>{{link-to (t 'Edit') 'lodgings.edit' row}}</td>
+      {{/c.body}}
+    {{/table.content}}
+  {{/data-table}}
+
+  
+</div>

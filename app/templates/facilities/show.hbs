@@ -1,0 +1,35 @@
+{{!-- Page to show details of facilities --}}
+{{#with-rdfa-context class="container" model=model as |ctx|}}
+  <div class="page">
+    <h2 class="h2">{{link-to (t "facility overview") "facilities.index"}} &lt; {{t (humanize 'facility details')}}</h2>
+    <div class="properties">
+      <div class="properties__title">
+        {{t (humanize 'facility data')}}
+        <dl>
+          <dt class="properties__label">{{t "validThrough"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="validThrough"}}</dd>
+<dt class="properties__label">{{t "validFrom"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="validFrom"}}</dd>
+<dt class="properties__label">{{t "description"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="description"}}</dd>
+<dt class="properties__label">{{t "name"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="name"}}</dd>
+          <dt class="properties__label">{{t "isSpecialisationOf"}}</dt>
+          <dd class="properties__data">{{#ctx.get prop="isSpecialisationOf" link-to="facilities.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+          <dt class="properties__label">{{t "specialisations"}}</dt>
+          <dd class="properties__data">
+            {{#ctx.each prop="specialisations" link-to="facilities.show" as |ctx val|}}
+              {{val.stringRep}}
+            {{/ctx.each}}
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Actions to go back to the list-view or edit facility if it's an editable application. --}}
+  <div class="actions">
+    {{#link-to "facilities" class="button" title="Return to list" tagName='button'}}{{t "< Return to the list"}}{{/link-to}}
+    
+  </div>
+{{/with-rdfa-context}}

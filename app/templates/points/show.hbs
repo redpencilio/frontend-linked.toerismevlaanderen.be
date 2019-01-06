@@ -1,0 +1,25 @@
+{{!-- Page to show details of points --}}
+{{#with-rdfa-context class="container" model=model as |ctx|}}
+  <div class="page">
+    <h2 class="h2">{{link-to (t "point overview") "points.index"}} &lt; {{t (humanize 'point details')}}</h2>
+    <div class="properties">
+      <div class="properties__title">
+        {{t (humanize 'point data')}}
+        <dl>
+          <dt class="properties__label">{{t "latitude"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="latitude"}}</dd>
+<dt class="properties__label">{{t "longitude"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="longitude"}}</dd>
+          
+          
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Actions to go back to the list-view or edit point if it's an editable application. --}}
+  <div class="actions">
+    {{#link-to "points" class="button" title="Return to list" tagName='button'}}{{t "< Return to the list"}}{{/link-to}}
+    
+  </div>
+{{/with-rdfa-context}}

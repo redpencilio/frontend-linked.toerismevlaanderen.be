@@ -1,0 +1,30 @@
+{{!-- Page to show details of registered-organizations --}}
+{{#with-rdfa-context class="container" model=model as |ctx|}}
+  <div class="page">
+    <h2 class="h2">{{link-to (t "registered-organization overview") "registered-organizations.index"}} &lt; {{t (humanize 'registered-organization details')}}</h2>
+    <div class="properties">
+      <div class="properties__title">
+        {{t (humanize 'registered-organization data')}}
+        <dl>
+          <dt class="properties__label">{{t "legalName"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="legalName"}}</dd>
+<dt class="properties__label">{{t "legalPersonality"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="legalPersonality"}}</dd>
+<dt class="properties__label">{{t "legalForm"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="legalForm"}}</dd>
+<dt class="properties__label">{{t "legalStatus"}}</dt>
+          <dd class="properties__data">{{ctx.get prop="legalStatus"}}</dd>
+          <dt class="properties__label">{{t "registration"}}</dt>
+          <dd class="properties__data">{{#ctx.get prop="registration" link-to="registrations.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+          
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Actions to go back to the list-view or edit registered-organization if it's an editable application. --}}
+  <div class="actions">
+    {{#link-to "registered-organizations" class="button" title="Return to list" tagName='button'}}{{t "< Return to the list"}}{{/link-to}}
+    
+  </div>
+{{/with-rdfa-context}}
