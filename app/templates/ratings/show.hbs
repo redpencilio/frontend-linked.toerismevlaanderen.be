@@ -6,16 +6,17 @@
       <div class="properties__title">
         {{t (humanize 'rating data')}}
         <dl>
-          <dt class="properties__label">{{t "ratingValue"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="ratingValue"}}</dd>
-<dt class="properties__label">{{t "description"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="description"}}</dd>
-<dt class="properties__label">{{t "bestRating"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="bestRating"}}</dd>
-<dt class="properties__label">{{t "worstRating"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="worstRating"}}</dd>
-<dt class="properties__label">{{t "issuedDate"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="issuedDate"}}</dd>
+          <dt class="properties__label">{{t "ratingValue"}}</dt> <dd class="properties__data">{{ctx.get prop="ratingValue"}}</dd>
+<dt class="properties__label">{{t "description"}}</dt> <dd class="properties__data">
+                {{#each model.description as |langString|}}
+                  <span property={{model.rdfaBindings.description}} lang="{{langString.language}}" content="{{langString.content}}">
+                    <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                  </span>
+                {{/each}}
+              </dd>
+<dt class="properties__label">{{t "bestRating"}}</dt> <dd class="properties__data">{{ctx.get prop="bestRating"}}</dd>
+<dt class="properties__label">{{t "worstRating"}}</dt> <dd class="properties__data">{{ctx.get prop="worstRating"}}</dd>
+<dt class="properties__label">{{t "issuedDate"}}</dt> <dd class="properties__data">{{ctx.get prop="issuedDate"}}</dd>
           <dt class="properties__label">{{t "author"}}</dt>
           <dd class="properties__data">{{#ctx.get prop="author" link-to="registered-organizations.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
           

@@ -9,7 +9,7 @@ export default Model.extend({
   stringRep: collect.apply(this,['id', 'label']),
 
   uri: attr(),
-  label: attr(),
+  label: attr('language-string-set'),
   geometry: belongsTo('geometry', { inverse: null }),
   containsLocation: hasMany('location', { inverse: null }),
 

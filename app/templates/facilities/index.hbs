@@ -22,13 +22,23 @@
       {{#c.body as |row|}}
         <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.validThrough}}>{{row.validThrough}}</td>
 <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.validFrom}}>{{row.validFrom}}</td>
-<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.description}}>{{row.description}}</td>
-<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.name}}>{{row.name}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}}>
+              {{#each row.description as |langString|}}
+                <span property={{row.rdfaBindings.description}} lang="{{langString.language}}" content="{{langString.content}}">
+                  <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                </span>
+              {{/each}} </td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}}>
+              {{#each row.name as |langString|}}
+                <span property={{row.rdfaBindings.name}} lang="{{langString.language}}" content="{{langString.content}}">
+                  <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                </span>
+              {{/each}} </td>
         {{#with-rdfa-context tagName="td" model=row as |ctx|}}
            {{#ctx.get prop="isSpecialisationOf" link-to="facilities.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
          {{/with-rdfa-context}}
         <td>{{link-to (t 'Open') 'facilities.show' row}}</td>
-        <td>{{link-to (t 'Edit') 'facilities.edit' row}}</td>
+        
       {{/c.body}}
     {{/table.content}}
   {{/data-table}}

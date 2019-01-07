@@ -26,7 +26,7 @@
            {{#ctx.get prop="creator" link-to="agents.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
          {{/with-rdfa-context}}
         <td>{{link-to (t 'Open') 'identifiers.show' row}}</td>
-        <td>{{link-to (t 'Edit') 'identifiers.edit' row}}</td>
+        
       {{/c.body}}
     {{/table.content}}
   {{/data-table}}

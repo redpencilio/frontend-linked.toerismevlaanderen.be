@@ -17,10 +17,15 @@
         <th>{{!-- contains detail edit action --}}</th>
       {{/c.header}}
       {{#c.body as |row|}}
-        <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.label}}>{{row.label}}</td>
+        <td about={{row.uri}} typeof={{row.rdfaBindings.class}}>
+              {{#each row.label as |langString|}}
+                <span property={{row.rdfaBindings.label}} lang="{{langString.language}}" content="{{langString.content}}">
+                  <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                </span>
+              {{/each}} </td>
         
         <td>{{link-to (t 'Open') 'file-formats.show' row}}</td>
-        <td>{{link-to (t 'Edit') 'file-formats.edit' row}}</td>
+        
       {{/c.body}}
     {{/table.content}}
   {{/data-table}}

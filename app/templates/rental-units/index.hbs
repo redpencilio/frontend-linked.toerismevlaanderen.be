@@ -21,12 +21,17 @@
       {{#c.body as |row|}}
         <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.numberOfRooms}}>{{row.numberOfRooms}}</td>
 <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.numberOfSleepingPlaces}}>{{row.numberOfSleepingPlaces}}</td>
-<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.name}}>{{row.name}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}}>
+              {{#each row.name as |langString|}}
+                <span property={{row.rdfaBindings.name}} lang="{{langString.language}}" content="{{langString.content}}">
+                  <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                </span>
+              {{/each}} </td>
         {{#with-rdfa-context tagName="td" model=row as |ctx|}}
            {{#ctx.get prop="location" link-to="geometries.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
          {{/with-rdfa-context}}
         <td>{{link-to (t 'Open') 'rental-units.show' row}}</td>
-        <td>{{link-to (t 'Edit') 'rental-units.edit' row}}</td>
+        
       {{/c.body}}
     {{/table.content}}
   {{/data-table}}

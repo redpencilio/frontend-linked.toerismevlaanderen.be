@@ -6,18 +6,18 @@
       <div class="properties__title">
         {{t (humanize 'contact-point data')}}
         <dl>
-          <dt class="properties__label">{{t "honorificPrefix"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="honorificPrefix"}}</dd>
-<dt class="properties__label">{{t "email"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="email"}}</dd>
-<dt class="properties__label">{{t "fax"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="fax"}}</dd>
-<dt class="properties__label">{{t "name"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="name"}}</dd>
-<dt class="properties__label">{{t "page"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="page"}}</dd>
-<dt class="properties__label">{{t "telephone"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="telephone"}}</dd>
+          <dt class="properties__label">{{t "honorificPrefix"}}</dt> <dd class="properties__data">
+                {{#each model.honorificPrefix as |langString|}}
+                  <span property={{model.rdfaBindings.honorificPrefix}} lang="{{langString.language}}" content="{{langString.content}}">
+                    <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                  </span>
+                {{/each}}
+              </dd>
+<dt class="properties__label">{{t "email"}}</dt> <dd class="properties__data">{{ctx.get prop="email"}}</dd>
+<dt class="properties__label">{{t "fax"}}</dt> <dd class="properties__data">{{ctx.get prop="fax"}}</dd>
+<dt class="properties__label">{{t "name"}}</dt> <dd class="properties__data">{{ctx.get prop="name"}}</dd>
+<dt class="properties__label">{{t "page"}}</dt> <dd class="properties__data">{{ctx.get prop="page"}}</dd>
+<dt class="properties__label">{{t "telephone"}}</dt> <dd class="properties__data">{{ctx.get prop="telephone"}}</dd>
           
           
         </dl>

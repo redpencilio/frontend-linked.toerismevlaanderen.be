@@ -42,7 +42,7 @@
            {{#ctx.get prop="type" link-to="registration-lodging-types.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
          {{/with-rdfa-context}}
         <td>{{link-to (t 'Open') 'registrations.show' row}}</td>
-        <td>{{link-to (t 'Edit') 'registrations.edit' row}}</td>
+        
       {{/c.body}}
     {{/table.content}}
   {{/data-table}}

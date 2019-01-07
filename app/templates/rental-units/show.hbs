@@ -6,12 +6,15 @@
       <div class="properties__title">
         {{t (humanize 'rental-unit data')}}
         <dl>
-          <dt class="properties__label">{{t "numberOfRooms"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="numberOfRooms"}}</dd>
-<dt class="properties__label">{{t "numberOfSleepingPlaces"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="numberOfSleepingPlaces"}}</dd>
-<dt class="properties__label">{{t "name"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="name"}}</dd>
+          <dt class="properties__label">{{t "numberOfRooms"}}</dt> <dd class="properties__data">{{ctx.get prop="numberOfRooms"}}</dd>
+<dt class="properties__label">{{t "numberOfSleepingPlaces"}}</dt> <dd class="properties__data">{{ctx.get prop="numberOfSleepingPlaces"}}</dd>
+<dt class="properties__label">{{t "name"}}</dt> <dd class="properties__data">
+                {{#each model.name as |langString|}}
+                  <span property={{model.rdfaBindings.name}} lang="{{langString.language}}" content="{{langString.content}}">
+                    <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                  </span>
+                {{/each}}
+              </dd>
           <dt class="properties__label">{{t "location"}}</dt>
           <dd class="properties__data">{{#ctx.get prop="location" link-to="geometries.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
           <dt class="properties__label">{{t "facilities"}}</dt>

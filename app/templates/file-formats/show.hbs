@@ -6,8 +6,13 @@
       <div class="properties__title">
         {{t (humanize 'file-format data')}}
         <dl>
-          <dt class="properties__label">{{t "label"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="label"}}</dd>
+          <dt class="properties__label">{{t "label"}}</dt> <dd class="properties__data">
+                {{#each model.label as |langString|}}
+                  <span property={{model.rdfaBindings.label}} lang="{{langString.language}}" content="{{langString.content}}">
+                    <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                  </span>
+                {{/each}}
+              </dd>
           
           
         </dl>

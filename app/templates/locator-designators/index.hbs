@@ -22,7 +22,7 @@
            {{#ctx.get prop="type" link-to="locator-designator-types.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
          {{/with-rdfa-context}}
         <td>{{link-to (t 'Open') 'locator-designators.show' row}}</td>
-        <td>{{link-to (t 'Edit') 'locator-designators.edit' row}}</td>
+        
       {{/c.body}}
     {{/table.content}}
   {{/data-table}}

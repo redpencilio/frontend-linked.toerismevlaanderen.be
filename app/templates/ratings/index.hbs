@@ -22,7 +22,12 @@
       {{/c.header}}
       {{#c.body as |row|}}
         <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.ratingValue}}>{{row.ratingValue}}</td>
-<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.description}}>{{row.description}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}}>
+              {{#each row.description as |langString|}}
+                <span property={{row.rdfaBindings.description}} lang="{{langString.language}}" content="{{langString.content}}">
+                  <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                </span>
+              {{/each}} </td>
 <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.bestRating}}>{{row.bestRating}}</td>
 <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.worstRating}}>{{row.worstRating}}</td>
 <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.issuedDate}}>{{row.issuedDate}}</td>
@@ -30,7 +35,7 @@
            {{#ctx.get prop="author" link-to="registered-organizations.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
          {{/with-rdfa-context}}
         <td>{{link-to (t 'Open') 'ratings.show' row}}</td>
-        <td>{{link-to (t 'Edit') 'ratings.edit' row}}</td>
+        
       {{/c.body}}
     {{/table.content}}
   {{/data-table}}

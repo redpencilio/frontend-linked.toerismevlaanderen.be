@@ -31,24 +31,59 @@
         <th>{{!-- contains detail edit action --}}</th>
       {{/c.header}}
       {{#c.body as |row|}}
-        <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.adminUnitLevel1}}>{{row.adminUnitLevel1}}</td>
-<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.adminUnitLevel2}}>{{row.adminUnitLevel2}}</td>
-<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.addressArea}}>{{row.addressArea}}</td>
+        <td about={{row.uri}} typeof={{row.rdfaBindings.class}}>
+              {{#each row.adminUnitLevel1 as |langString|}}
+                <span property={{row.rdfaBindings.adminUnitLevel1}} lang="{{langString.language}}" content="{{langString.content}}">
+                  <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                </span>
+              {{/each}} </td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}}>
+              {{#each row.adminUnitLevel2 as |langString|}}
+                <span property={{row.rdfaBindings.adminUnitLevel2}} lang="{{langString.language}}" content="{{langString.content}}">
+                  <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                </span>
+              {{/each}} </td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}}>
+              {{#each row.addressArea as |langString|}}
+                <span property={{row.rdfaBindings.addressArea}} lang="{{langString.language}}" content="{{langString.content}}">
+                  <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                </span>
+              {{/each}} </td>
 <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.houseNumberSuffix}}>{{row.houseNumberSuffix}}</td>
-<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.municipality}}>{{row.municipality}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}}>
+              {{#each row.municipality as |langString|}}
+                <span property={{row.rdfaBindings.municipality}} lang="{{langString.language}}" content="{{langString.content}}">
+                  <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                </span>
+              {{/each}} </td>
 <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.houseNumber}}>{{row.houseNumber}}</td>
-<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.country}}>{{row.country}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}}>
+              {{#each row.country as |langString|}}
+                <span property={{row.rdfaBindings.country}} lang="{{langString.language}}" content="{{langString.content}}">
+                  <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                </span>
+              {{/each}} </td>
 <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.locatorDesignator}}>{{row.locatorDesignator}}</td>
-<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.locatorName}}>{{row.locatorName}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}}>
+              {{#each row.locatorName as |langString|}}
+                <span property={{row.rdfaBindings.locatorName}} lang="{{langString.language}}" content="{{langString.content}}">
+                  <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                </span>
+              {{/each}} </td>
 <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.poBox}}>{{row.poBox}}</td>
 <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.postCode}}>{{row.postCode}}</td>
 <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.postName}}>{{row.postName}}</td>
 <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.thoroughfare}}>{{row.thoroughfare}}</td>
 <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.references}}>{{row.references}}</td>
-<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.fullAddress}}>{{row.fullAddress}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}}>
+              {{#each row.fullAddress as |langString|}}
+                <span property={{row.rdfaBindings.fullAddress}} lang="{{langString.language}}" content="{{langString.content}}">
+                  <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                </span>
+              {{/each}} </td>
         
         <td>{{link-to (t 'Open') 'addresses.show' row}}</td>
-        <td>{{link-to (t 'Edit') 'addresses.edit' row}}</td>
+        
       {{/c.body}}
     {{/table.content}}
   {{/data-table}}

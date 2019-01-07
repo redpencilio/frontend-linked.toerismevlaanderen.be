@@ -23,9 +23,19 @@
         <th>{{!-- contains detail edit action --}}</th>
       {{/c.header}}
       {{#c.body as |row|}}
-        <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.text}}>{{row.text}}</td>
+        <td about={{row.uri}} typeof={{row.rdfaBindings.class}}>
+              {{#each row.text as |langString|}}
+                <span property={{row.rdfaBindings.text}} lang="{{langString.language}}" content="{{langString.content}}">
+                  <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                </span>
+              {{/each}} </td>
 <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.modifiedOn}}>{{row.modifiedOn}}</td>
-<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.name}}>{{row.name}}</td>
+<td about={{row.uri}} typeof={{row.rdfaBindings.class}}>
+              {{#each row.name as |langString|}}
+                <span property={{row.rdfaBindings.name}} lang="{{langString.language}}" content="{{langString.content}}">
+                  <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                </span>
+              {{/each}} </td>
 <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.publicationDate}}>{{row.publicationDate}}</td>
         {{#with-rdfa-context tagName="td" model=row as |ctx|}}
            {{#ctx.get prop="exampleOf" link-to="creative-works.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
@@ -40,7 +50,7 @@
            {{#ctx.get prop="audience" link-to="audiences.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
          {{/with-rdfa-context}}
         <td>{{link-to (t 'Open') 'descriptions.show' row}}</td>
-        <td>{{link-to (t 'Edit') 'descriptions.edit' row}}</td>
+        
       {{/c.body}}
     {{/table.content}}
   {{/data-table}}

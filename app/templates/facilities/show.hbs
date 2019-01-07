@@ -6,14 +6,22 @@
       <div class="properties__title">
         {{t (humanize 'facility data')}}
         <dl>
-          <dt class="properties__label">{{t "validThrough"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="validThrough"}}</dd>
-<dt class="properties__label">{{t "validFrom"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="validFrom"}}</dd>
-<dt class="properties__label">{{t "description"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="description"}}</dd>
-<dt class="properties__label">{{t "name"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="name"}}</dd>
+          <dt class="properties__label">{{t "validThrough"}}</dt> <dd class="properties__data">{{ctx.get prop="validThrough"}}</dd>
+<dt class="properties__label">{{t "validFrom"}}</dt> <dd class="properties__data">{{ctx.get prop="validFrom"}}</dd>
+<dt class="properties__label">{{t "description"}}</dt> <dd class="properties__data">
+                {{#each model.description as |langString|}}
+                  <span property={{model.rdfaBindings.description}} lang="{{langString.language}}" content="{{langString.content}}">
+                    <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                  </span>
+                {{/each}}
+              </dd>
+<dt class="properties__label">{{t "name"}}</dt> <dd class="properties__data">
+                {{#each model.name as |langString|}}
+                  <span property={{model.rdfaBindings.name}} lang="{{langString.language}}" content="{{langString.content}}">
+                    <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                  </span>
+                {{/each}}
+              </dd>
           <dt class="properties__label">{{t "isSpecialisationOf"}}</dt>
           <dd class="properties__data">{{#ctx.get prop="isSpecialisationOf" link-to="facilities.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
           <dt class="properties__label">{{t "specialisations"}}</dt>

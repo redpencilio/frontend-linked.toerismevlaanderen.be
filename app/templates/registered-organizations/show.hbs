@@ -6,14 +6,16 @@
       <div class="properties__title">
         {{t (humanize 'registered-organization data')}}
         <dl>
-          <dt class="properties__label">{{t "legalName"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="legalName"}}</dd>
-<dt class="properties__label">{{t "legalPersonality"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="legalPersonality"}}</dd>
-<dt class="properties__label">{{t "legalForm"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="legalForm"}}</dd>
-<dt class="properties__label">{{t "legalStatus"}}</dt>
-          <dd class="properties__data">{{ctx.get prop="legalStatus"}}</dd>
+          <dt class="properties__label">{{t "legalName"}}</dt> <dd class="properties__data">
+                {{#each model.legalName as |langString|}}
+                  <span property={{model.rdfaBindings.legalName}} lang="{{langString.language}}" content="{{langString.content}}">
+                    <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                  </span>
+                {{/each}}
+              </dd>
+<dt class="properties__label">{{t "legalPersonality"}}</dt> <dd class="properties__data">{{ctx.get prop="legalPersonality"}}</dd>
+<dt class="properties__label">{{t "legalForm"}}</dt> <dd class="properties__data">{{ctx.get prop="legalForm"}}</dd>
+<dt class="properties__label">{{t "legalStatus"}}</dt> <dd class="properties__data">{{ctx.get prop="legalStatus"}}</dd>
           <dt class="properties__label">{{t "registration"}}</dt>
           <dd class="properties__data">{{#ctx.get prop="registration" link-to="registrations.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
           
