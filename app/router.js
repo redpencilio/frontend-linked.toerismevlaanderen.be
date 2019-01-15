@@ -11,6 +11,10 @@ Router.map(function() {
     path: '/*wildcard'
   });
 
+  this.route('redirect-id-to-doc', {
+    path: '/id/*wildcard'
+  });
+
   this.route('ratings', {
     path: '/doc/ratings/'
   }, function() {
