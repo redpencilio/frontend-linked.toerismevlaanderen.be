@@ -36,7 +36,7 @@ export default Model.extend({
     alternativeName: "schema:alternativeName",
     name: "schema:name",
     identifier: "adms:identifier",
-    welcomeLocations: "logies:locatie",
+    welcomeLocations: "logies:onthaalLocatie",
     belongsToTouristicRegions: "logies:behoortTotToeristischeRegio",
     capacities: "logies:capaciteit",
     audiences: "schema:audience",

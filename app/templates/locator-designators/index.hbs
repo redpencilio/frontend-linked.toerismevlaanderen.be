@@ -17,11 +17,11 @@
         <th>{{!-- contains detail edit action --}}</th>
       {{/c.header}}
       {{#c.body as |row|}}
-        <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.designator}}>{{row.designator}}</td>
-        {{#with-rdfa-context tagName="td" model=row as |ctx|}}
-           {{#ctx.get prop="type" link-to="locator-designator-types.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
-         {{/with-rdfa-context}}
-        <td>{{link-to (t 'Open') 'locator-designators.show' row}}</td>
+        {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=designator}}{{/with-rdfa-context}}
+                {{#with-rdfa-context tagName="td" model=row as |ctx|}}
+                  {{#ctx.get prop="type" useUri=true link-to="locator-designator-types.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+                {{/with-rdfa-context}}
+                {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{#rdfa/link-to link-to='locator-designators.show' value=row property="foaf:page"}}{{t "Open"}}{{/rdfa/link-to}}{{/with-rdfa-context}}
         
       {{/c.body}}
     {{/table.content}}

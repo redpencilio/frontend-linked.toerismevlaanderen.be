@@ -6,6 +6,8 @@
       <div class="properties__title">
         {{t (humanize 'facility data')}}
         <dl>
+          <dt class="properties__label">URI</dt>
+          <dd class="properties__data">{{#link-to "facilities.show" model href=model.uri}}{{model.uri}}{{/link-to}}</dd>
           <dt class="properties__label">{{t "validThrough"}}</dt> <dd class="properties__data">{{ctx.get prop="validThrough"}}</dd>
 <dt class="properties__label">{{t "validFrom"}}</dt> <dd class="properties__data">{{ctx.get prop="validFrom"}}</dd>
 <dt class="properties__label">{{t "description"}}</dt> <dd class="properties__data">
@@ -23,10 +25,10 @@
                 {{/each}}
               </dd>
           <dt class="properties__label">{{t "isSpecialisationOf"}}</dt>
-          <dd class="properties__data">{{#ctx.get prop="isSpecialisationOf" link-to="facilities.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+          <dd class="properties__data">{{#ctx.get prop="isSpecialisationOf" useUri=true link-to="facilities.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
           <dt class="properties__label">{{t "specialisations"}}</dt>
           <dd class="properties__data">
-            {{#ctx.each prop="specialisations" link-to="facilities.show" as |ctx val|}}
+            {{#ctx.each prop="specialisations" useUri=true link-to="facilities.show" as |ctx val|}}
               {{val.stringRep}}
             {{/ctx.each}}
           </dd>

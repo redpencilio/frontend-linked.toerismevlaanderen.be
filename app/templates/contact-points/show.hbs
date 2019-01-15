@@ -6,6 +6,8 @@
       <div class="properties__title">
         {{t (humanize 'contact-point data')}}
         <dl>
+          <dt class="properties__label">URI</dt>
+          <dd class="properties__data">{{#link-to "contact-points.show" model href=model.uri}}{{model.uri}}{{/link-to}}</dd>
           <dt class="properties__label">{{t "honorificPrefix"}}</dt> <dd class="properties__data">
                 {{#each model.honorificPrefix as |langString|}}
                   <span property={{model.rdfaBindings.honorificPrefix}} lang="{{langString.language}}" content="{{langString.content}}">

@@ -23,33 +23,33 @@
         <th>{{!-- contains detail edit action --}}</th>
       {{/c.header}}
       {{#c.body as |row|}}
-        <td about={{row.uri}} typeof={{row.rdfaBindings.class}}>
-              {{#each row.text as |langString|}}
-                <span property={{row.rdfaBindings.text}} lang="{{langString.language}}" content="{{langString.content}}">
-                  <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
-                </span>
-              {{/each}} </td>
-<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.modifiedOn}}>{{row.modifiedOn}}</td>
-<td about={{row.uri}} typeof={{row.rdfaBindings.class}}>
-              {{#each row.name as |langString|}}
-                <span property={{row.rdfaBindings.name}} lang="{{langString.language}}" content="{{langString.content}}">
-                  <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
-                </span>
-              {{/each}} </td>
-<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.publicationDate}}>{{row.publicationDate}}</td>
         {{#with-rdfa-context tagName="td" model=row as |ctx|}}
-           {{#ctx.get prop="exampleOf" link-to="creative-works.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
-         {{/with-rdfa-context}}
+                {{#each row.text as |langString|}}
+                  <span property={{row.rdfaBindings.text}} lang="{{langString.language}}" content="{{langString.content}}">
+                    <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                  </span>
+                {{/each}} {{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=modifiedOn}}{{/with-rdfa-context}}
 {{#with-rdfa-context tagName="td" model=row as |ctx|}}
-           {{#ctx.get prop="translationOf" link-to="creative-works.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
-         {{/with-rdfa-context}}
+                {{#each row.name as |langString|}}
+                  <span property={{row.rdfaBindings.name}} lang="{{langString.language}}" content="{{langString.content}}">
+                    <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                  </span>
+                {{/each}} {{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=publicationDate}}{{/with-rdfa-context}}
+                {{#with-rdfa-context tagName="td" model=row as |ctx|}}
+                  {{#ctx.get prop="exampleOf" useUri=true link-to="creative-works.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+                {{/with-rdfa-context}}
 {{#with-rdfa-context tagName="td" model=row as |ctx|}}
-           {{#ctx.get prop="license" link-to="licenses.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
-         {{/with-rdfa-context}}
+                  {{#ctx.get prop="translationOf" useUri=true link-to="creative-works.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+                {{/with-rdfa-context}}
 {{#with-rdfa-context tagName="td" model=row as |ctx|}}
-           {{#ctx.get prop="audience" link-to="audiences.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
-         {{/with-rdfa-context}}
-        <td>{{link-to (t 'Open') 'descriptions.show' row}}</td>
+                  {{#ctx.get prop="license" useUri=true link-to="licenses.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+                {{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}
+                  {{#ctx.get prop="audience" useUri=true link-to="audiences.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+                {{/with-rdfa-context}}
+                {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{#rdfa/link-to link-to='descriptions.show' value=row property="foaf:page"}}{{t "Open"}}{{/rdfa/link-to}}{{/with-rdfa-context}}
         
       {{/c.body}}
     {{/table.content}}

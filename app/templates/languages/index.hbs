@@ -17,14 +17,14 @@
         <th>{{!-- contains detail edit action --}}</th>
       {{/c.header}}
       {{#c.body as |row|}}
-        <td about={{row.uri}} typeof={{row.rdfaBindings.class}}>
-              {{#each row.label as |langString|}}
-                <span property={{row.rdfaBindings.label}} lang="{{langString.language}}" content="{{langString.content}}">
-                  <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
-                </span>
-              {{/each}} </td>
-        
-        <td>{{link-to (t 'Open') 'languages.show' row}}</td>
+        {{#with-rdfa-context tagName="td" model=row as |ctx|}}
+                {{#each row.label as |langString|}}
+                  <span property={{row.rdfaBindings.label}} lang="{{langString.language}}" content="{{langString.content}}">
+                    <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                  </span>
+                {{/each}} {{/with-rdfa-context}}
+                
+                {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{#rdfa/link-to link-to='languages.show' value=row property="foaf:page"}}{{t "Open"}}{{/rdfa/link-to}}{{/with-rdfa-context}}
         
       {{/c.body}}
     {{/table.content}}

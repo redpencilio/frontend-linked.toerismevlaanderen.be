@@ -19,18 +19,18 @@
         <th>{{!-- contains detail edit action --}}</th>
       {{/c.header}}
       {{#c.body as |row|}}
-        <td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.numberOfRooms}}>{{row.numberOfRooms}}</td>
-<td about={{row.uri}} typeof={{row.rdfaBindings.class}} property={{row.rdfaBindings.numberOfSleepingPlaces}}>{{row.numberOfSleepingPlaces}}</td>
-<td about={{row.uri}} typeof={{row.rdfaBindings.class}}>
-              {{#each row.name as |langString|}}
-                <span property={{row.rdfaBindings.name}} lang="{{langString.language}}" content="{{langString.content}}">
-                  <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
-                </span>
-              {{/each}} </td>
-        {{#with-rdfa-context tagName="td" model=row as |ctx|}}
-           {{#ctx.get prop="location" link-to="geometries.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
-         {{/with-rdfa-context}}
-        <td>{{link-to (t 'Open') 'rental-units.show' row}}</td>
+        {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=numberOfRooms}}{{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=numberOfSleepingPlaces}}{{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}
+                {{#each row.name as |langString|}}
+                  <span property={{row.rdfaBindings.name}} lang="{{langString.language}}" content="{{langString.content}}">
+                    <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
+                  </span>
+                {{/each}} {{/with-rdfa-context}}
+                {{#with-rdfa-context tagName="td" model=row as |ctx|}}
+                  {{#ctx.get prop="location" useUri=true link-to="geometries.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+                {{/with-rdfa-context}}
+                {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{#rdfa/link-to link-to='rental-units.show' value=row property="foaf:page"}}{{t "Open"}}{{/rdfa/link-to}}{{/with-rdfa-context}}
         
       {{/c.body}}
     {{/table.content}}

@@ -6,11 +6,13 @@
       <div class="properties__title">
         {{t (humanize 'identifier data')}}
         <dl>
+          <dt class="properties__label">URI</dt>
+          <dd class="properties__data">{{#link-to "identifiers.show" model href=model.uri}}{{model.uri}}{{/link-to}}</dd>
           <dt class="properties__label">{{t "notation"}}</dt> <dd class="properties__data">{{ctx.get prop="notation"}}</dd>
 <dt class="properties__label">{{t "issuedBy"}}</dt> <dd class="properties__data">{{ctx.get prop="issuedBy"}}</dd>
 <dt class="properties__label">{{t "issuedDate"}}</dt> <dd class="properties__data">{{ctx.get prop="issuedDate"}}</dd>
           <dt class="properties__label">{{t "creator"}}</dt>
-          <dd class="properties__data">{{#ctx.get prop="creator" link-to="agents.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+          <dd class="properties__data">{{#ctx.get prop="creator" useUri=true link-to="agents.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
           
         </dl>
       </div>

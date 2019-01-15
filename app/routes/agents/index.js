@@ -1,4 +1,3 @@
-import { inject } from '@ember/service';
 import Route from '@ember/routing/route';
 import DataTableRouteMixin from 'ember-data-table/mixins/route';
 

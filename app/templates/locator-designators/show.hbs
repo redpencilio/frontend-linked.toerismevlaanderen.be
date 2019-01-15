@@ -6,9 +6,11 @@
       <div class="properties__title">
         {{t (humanize 'locator-designator data')}}
         <dl>
+          <dt class="properties__label">URI</dt>
+          <dd class="properties__data">{{#link-to "locator-designators.show" model href=model.uri}}{{model.uri}}{{/link-to}}</dd>
           <dt class="properties__label">{{t "designator"}}</dt> <dd class="properties__data">{{ctx.get prop="designator"}}</dd>
           <dt class="properties__label">{{t "type"}}</dt>
-          <dd class="properties__data">{{#ctx.get prop="type" link-to="locator-designator-types.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+          <dd class="properties__data">{{#ctx.get prop="type" useUri=true link-to="locator-designator-types.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
           
         </dl>
       </div>

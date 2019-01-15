@@ -6,6 +6,8 @@
       <div class="properties__title">
         {{t (humanize 'media-object data')}}
         <dl>
+          <dt class="properties__label">URI</dt>
+          <dd class="properties__data">{{#link-to "media-objects.show" model href=model.uri}}{{model.uri}}{{/link-to}}</dd>
           <dt class="properties__label">{{t "modifiedOn"}}</dt> <dd class="properties__data">{{ctx.get prop="modifiedOn"}}</dd>
 <dt class="properties__label">{{t "name"}}</dt> <dd class="properties__data">
                 {{#each model.name as |langString|}}
@@ -33,36 +35,36 @@
 <dt class="properties__label">{{t "exifData"}}</dt> <dd class="properties__data">{{ctx.get prop="exifData"}}</dd>
 <dt class="properties__label">{{t "thumbnailUrl"}}</dt> <dd class="properties__data">{{ctx.get prop="thumbnailUrl"}}</dd>
           <dt class="properties__label">{{t "exampleOf"}}</dt>
-          <dd class="properties__data">{{#ctx.get prop="exampleOf" link-to="creative-works.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+          <dd class="properties__data">{{#ctx.get prop="exampleOf" useUri=true link-to="creative-works.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
 <dt class="properties__label">{{t "translationOf"}}</dt>
-          <dd class="properties__data">{{#ctx.get prop="translationOf" link-to="creative-works.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+          <dd class="properties__data">{{#ctx.get prop="translationOf" useUri=true link-to="creative-works.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
 <dt class="properties__label">{{t "license"}}</dt>
-          <dd class="properties__data">{{#ctx.get prop="license" link-to="licenses.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+          <dd class="properties__data">{{#ctx.get prop="license" useUri=true link-to="licenses.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
 <dt class="properties__label">{{t "audience"}}</dt>
-          <dd class="properties__data">{{#ctx.get prop="audience" link-to="audiences.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+          <dd class="properties__data">{{#ctx.get prop="audience" useUri=true link-to="audiences.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
 <dt class="properties__label">{{t "format"}}</dt>
-          <dd class="properties__data">{{#ctx.get prop="format" link-to="file-formats.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+          <dd class="properties__data">{{#ctx.get prop="format" useUri=true link-to="file-formats.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
 <dt class="properties__label">{{t "width"}}</dt>
-          <dd class="properties__data">{{#ctx.get prop="width" link-to="quantitative-values.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+          <dd class="properties__data">{{#ctx.get prop="width" useUri=true link-to="quantitative-values.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
 <dt class="properties__label">{{t "height"}}</dt>
-          <dd class="properties__data">{{#ctx.get prop="height" link-to="quantitative-values.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+          <dd class="properties__data">{{#ctx.get prop="height" useUri=true link-to="quantitative-values.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
 <dt class="properties__label">{{t "location"}}</dt>
-          <dd class="properties__data">{{#ctx.get prop="location" link-to="geometries.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+          <dd class="properties__data">{{#ctx.get prop="location" useUri=true link-to="geometries.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
           <dt class="properties__label">{{t "examples"}}</dt>
           <dd class="properties__data">
-            {{#ctx.each prop="examples" link-to="creative-works.show" as |ctx val|}}
+            {{#ctx.each prop="examples" useUri=true link-to="creative-works.show" as |ctx val|}}
               {{val.stringRep}}
             {{/ctx.each}}
           </dd>
 <dt class="properties__label">{{t "translations"}}</dt>
           <dd class="properties__data">
-            {{#ctx.each prop="translations" link-to="creative-works.show" as |ctx val|}}
+            {{#ctx.each prop="translations" useUri=true link-to="creative-works.show" as |ctx val|}}
               {{val.stringRep}}
             {{/ctx.each}}
           </dd>
 <dt class="properties__label">{{t "languages"}}</dt>
           <dd class="properties__data">
-            {{#ctx.each prop="languages" link-to="languages.show" as |ctx val|}}
+            {{#ctx.each prop="languages" useUri=true link-to="languages.show" as |ctx val|}}
               {{val.stringRep}}
             {{/ctx.each}}
           </dd>
