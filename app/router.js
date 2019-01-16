@@ -262,6 +262,7 @@ Router.map(function() {
       path: ':id'
     });
   });
+  this.route('dumps');
 });
 
 export default Router;
