@@ -31,30 +31,6 @@ Router.map(function() {
     });
   });
 
-  this.route('descriptions', {
-    path: '/doc/descriptions/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-
-  this.route('creative-works', {
-    path: '/doc/creative-works/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-
-  this.route('facilities', {
-    path: '/doc/facilities/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-
   this.route('registered-organizations', {
     path: '/doc/registered-organizations/'
   }, function() {
@@ -79,24 +55,8 @@ Router.map(function() {
     });
   });
 
-  this.route('media-objects', {
-    path: '/doc/media-objects/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-
   this.route('registrations', {
     path: '/doc/registrations/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-
-  this.route('rooms', {
-    path: '/doc/rooms/'
   }, function() {
     this.route('show', {
       path: ':id'
@@ -119,22 +79,6 @@ Router.map(function() {
     });
   });
 
-  this.route('locations', {
-    path: '/doc/locations/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-
-  this.route('licenses', {
-    path: '/doc/licenses/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-
   this.route('addresses', {
     path: '/doc/addresses/'
   }, function() {
@@ -145,14 +89,6 @@ Router.map(function() {
 
   this.route('contact-points', {
     path: '/doc/contact-points/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-
-  this.route('geometries', {
-    path: '/doc/geometries/'
   }, function() {
     this.route('show', {
       path: ':id'
@@ -175,72 +111,8 @@ Router.map(function() {
     });
   });
 
-  this.route('locator-designators', {
-    path: '/doc/locator-designators/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-
   this.route('points', {
     path: '/doc/points/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-
-  this.route('generations', {
-    path: '/doc/generations/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-
-  this.route('invalidations', {
-    path: '/doc/invalidations/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-
-  this.route('standardized-units', {
-    path: '/doc/standardized-units/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-
-  this.route('audiences', {
-    path: '/doc/audiences/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-
-  this.route('languages', {
-    path: '/doc/languages/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-
-  this.route('file-formats', {
-    path: '/doc/file-formats/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-
-  this.route('locator-designator-types', {
-    path: '/doc/locator-designator-types/'
   }, function() {
     this.route('show', {
       path: ':id'
