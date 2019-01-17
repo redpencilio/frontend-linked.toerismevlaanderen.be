@@ -19,9 +19,9 @@
         <th>{{!-- contains detail edit action --}}</th>
       {{/c.header}}
       {{#c.body as |row|}}
-        {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=email}}{{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=page}}{{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=telephone}}{{/with-rdfa-context}}
+        {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop="email"}}{{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop="page"}}{{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop="telephone"}}{{/with-rdfa-context}}
                 {{#with-rdfa-context tagName="td" model=row as |ctx|}}
                   {{#ctx.get prop="lodging" useUri=true link-to="lodgings.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
                 {{/with-rdfa-context}}

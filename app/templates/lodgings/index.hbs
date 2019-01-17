@@ -21,8 +21,8 @@
         <th>{{!-- contains detail edit action --}}</th>
       {{/c.header}}
       {{#c.body as |row|}}
-        {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=numberOfSleepingPlaces}}{{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=numberOfRentalUnits}}{{/with-rdfa-context}}
+        {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop="numberOfSleepingPlaces"}}{{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop="numberOfRentalUnits"}}{{/with-rdfa-context}}
 {{#with-rdfa-context tagName="td" model=row as |ctx|}}
                 {{#each row.alternativeName as |langString|}}
                   <span property={{row.rdfaBindings.alternativeName}} lang="{{langString.language}}" content="{{langString.content}}">
