@@ -15,12 +15,20 @@
                   </span>
                 {{/each}}
               </dd>
-<dt class="properties__label">{{t "legalPersonality"}}</dt> <dd class="properties__data">{{ctx.get prop="legalPersonality"}}</dd>
-<dt class="properties__label">{{t "legalForm"}}</dt> <dd class="properties__data">{{ctx.get prop="legalForm"}}</dd>
-<dt class="properties__label">{{t "legalStatus"}}</dt> <dd class="properties__data">{{ctx.get prop="legalStatus"}}</dd>
           <dt class="properties__label">{{t "registration"}}</dt>
           <dd class="properties__data">{{#ctx.get prop="registration" useUri=true link-to="registrations.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
-          
+          <dt class="properties__label">{{t "authoredRatings"}}</dt>
+          <dd class="properties__data">
+            {{#ctx.each prop="authoredRatings" useUri=true link-to="ratings.show" as |ctx val|}}
+              {{val.stringRep}}
+            {{/ctx.each}}
+          </dd>
+<dt class="properties__label">{{t "authoredQualityLabels"}}</dt>
+          <dd class="properties__data">
+            {{#ctx.each prop="authoredQualityLabels" useUri=true link-to="quality-labels.show" as |ctx val|}}
+              {{val.stringRep}}
+            {{/ctx.each}}
+          </dd>
         </dl>
       </div>
     </div>

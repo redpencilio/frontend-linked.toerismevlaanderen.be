@@ -9,18 +9,14 @@
           <dt class="properties__label">URI</dt>
           <dd class="properties__data">{{#link-to "registrations.show" model href=model.uri}}{{model.uri}}{{/link-to}}</dd>
           
-          <dt class="properties__label">{{t "isSpecialisationInTimeOf"}}</dt>
-          <dd class="properties__data">{{#ctx.get prop="isSpecialisationInTimeOf" useUri=true link-to="registrations.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
-<dt class="properties__label">{{t "generation"}}</dt>
-          <dd class="properties__data">{{#ctx.get prop="generation" useUri=true link-to="generations.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
-<dt class="properties__label">{{t "invalidation"}}</dt>
-          <dd class="properties__data">{{#ctx.get prop="invalidation" useUri=true link-to="invalidations.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
-<dt class="properties__label">{{t "identifier"}}</dt>
+          <dt class="properties__label">{{t "identifier"}}</dt>
           <dd class="properties__data">{{#ctx.get prop="identifier" useUri=true link-to="identifiers.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
 <dt class="properties__label">{{t "registrationStatus"}}</dt>
           <dd class="properties__data">{{#ctx.get prop="registrationStatus" useUri=true link-to="registration-statuses.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
 <dt class="properties__label">{{t "type"}}</dt>
           <dd class="properties__data">{{#ctx.get prop="type" useUri=true link-to="registration-lodging-types.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+<dt class="properties__label">{{t "lodging"}}</dt>
+          <dd class="properties__data">{{#ctx.get prop="lodging" useUri=true link-to="lodgings.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
           
         </dl>
       </div>

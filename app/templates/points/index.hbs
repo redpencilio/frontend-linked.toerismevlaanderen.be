@@ -11,16 +11,22 @@
      as |table|}}
     {{#table.content as |c|}}
       {{#c.header}}
-        {{th-sortable field='latitude' currentSorting=sort label=(t 'latitude')}}
+        {{th-sortable field='asGml' currentSorting=sort label=(t 'asGml')}}
+{{th-sortable field='asWkt' currentSorting=sort label=(t 'asWkt')}}
+{{th-sortable field='latitude' currentSorting=sort label=(t 'latitude')}}
 {{th-sortable field='longitude' currentSorting=sort label=(t 'longitude')}}
-        
+        {{th-sortable field='isWelcomeAddressOf' currentSorting=sort label=(t 'isWelcomeAddressOf')}}
         <th>{{!-- contains detail view action --}}</th>
         <th>{{!-- contains detail edit action --}}</th>
       {{/c.header}}
       {{#c.body as |row|}}
-        {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=latitude}}{{/with-rdfa-context}}
+        {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=asGml}}{{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=asWkt}}{{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=latitude}}{{/with-rdfa-context}}
 {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=longitude}}{{/with-rdfa-context}}
-                
+                {{#with-rdfa-context tagName="td" model=row as |ctx|}}
+                  {{#ctx.get prop="isWelcomeAddressOf" useUri=true link-to="lodgings.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+                {{/with-rdfa-context}}
                 {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{#rdfa/link-to link-to='points.show' value=row property="foaf:page"}}{{t "Open"}}{{/rdfa/link-to}}{{/with-rdfa-context}}
         
       {{/c.body}}

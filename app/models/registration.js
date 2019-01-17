@@ -9,18 +9,13 @@ export default Model.extend({
   stringRep: collect.apply(this,['id']),
 
   uri: attr(),
-  isSpecialisationInTimeOf: belongsTo('registration', { inverse: null }),
-  generation: belongsTo('generation', { inverse: null }),
-  invalidation: belongsTo('invalidation', { inverse: null }),
-  identifier: belongsTo('identifier', { inverse: null }),
-  registrationStatus: belongsTo('registration-status', { inverse: null }),
-  type: belongsTo('registration-lodging-type', { inverse: null }),
+  identifier: belongsTo('identifier', { inverse: 'registration' }),
+  registrationStatus: belongsTo('registration-status', { inverse: 'registration' }),
+  type: belongsTo('registration-lodging-type', { inverse: 'registration' }),
+  lodging: belongsTo('lodging', { inverse: 'registrations' }),
 
   rdfaBindings: {
     class: "logies:Registratie",
-    isSpecialisationInTimeOf: "generiek:isTijdspecialisatieVan",
-    generation: "prov:qualifiedGeneration",
-    invalidation: "prov:qualifiedInvalidation",
     identifier: "adms:identifier",
     registrationStatus: "logies:registratieStatus",
     type: "dct:type"

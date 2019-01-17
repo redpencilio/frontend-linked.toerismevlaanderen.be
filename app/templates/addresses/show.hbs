@@ -8,28 +8,7 @@
         <dl>
           <dt class="properties__label">URI</dt>
           <dd class="properties__data">{{#link-to "addresses.show" model href=model.uri}}{{model.uri}}{{/link-to}}</dd>
-          <dt class="properties__label">{{t "adminUnitLevel1"}}</dt> <dd class="properties__data">
-                {{#each model.adminUnitLevel1 as |langString|}}
-                  <span property={{model.rdfaBindings.adminUnitLevel1}} lang="{{langString.language}}" content="{{langString.content}}">
-                    <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
-                  </span>
-                {{/each}}
-              </dd>
-<dt class="properties__label">{{t "adminUnitLevel2"}}</dt> <dd class="properties__data">
-                {{#each model.adminUnitLevel2 as |langString|}}
-                  <span property={{model.rdfaBindings.adminUnitLevel2}} lang="{{langString.language}}" content="{{langString.content}}">
-                    <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
-                  </span>
-                {{/each}}
-              </dd>
-<dt class="properties__label">{{t "addressArea"}}</dt> <dd class="properties__data">
-                {{#each model.addressArea as |langString|}}
-                  <span property={{model.rdfaBindings.addressArea}} lang="{{langString.language}}" content="{{langString.content}}">
-                    <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
-                  </span>
-                {{/each}}
-              </dd>
-<dt class="properties__label">{{t "houseNumberSuffix"}}</dt> <dd class="properties__data">{{ctx.get prop="houseNumberSuffix"}}</dd>
+          <dt class="properties__label">{{t "houseNumberSuffix"}}</dt> <dd class="properties__data">{{ctx.get prop="houseNumberSuffix"}}</dd>
 <dt class="properties__label">{{t "municipality"}}</dt> <dd class="properties__data">
                 {{#each model.municipality as |langString|}}
                   <span property={{model.rdfaBindings.municipality}} lang="{{langString.language}}" content="{{langString.content}}">
@@ -45,19 +24,8 @@
                   </span>
                 {{/each}}
               </dd>
-<dt class="properties__label">{{t "locatorDesignator"}}</dt> <dd class="properties__data">{{ctx.get prop="locatorDesignator"}}</dd>
-<dt class="properties__label">{{t "locatorName"}}</dt> <dd class="properties__data">
-                {{#each model.locatorName as |langString|}}
-                  <span property={{model.rdfaBindings.locatorName}} lang="{{langString.language}}" content="{{langString.content}}">
-                    <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
-                  </span>
-                {{/each}}
-              </dd>
-<dt class="properties__label">{{t "poBox"}}</dt> <dd class="properties__data">{{ctx.get prop="poBox"}}</dd>
 <dt class="properties__label">{{t "postCode"}}</dt> <dd class="properties__data">{{ctx.get prop="postCode"}}</dd>
-<dt class="properties__label">{{t "postName"}}</dt> <dd class="properties__data">{{ctx.get prop="postName"}}</dd>
 <dt class="properties__label">{{t "thoroughfare"}}</dt> <dd class="properties__data">{{ctx.get prop="thoroughfare"}}</dd>
-<dt class="properties__label">{{t "references"}}</dt> <dd class="properties__data">{{ctx.get prop="references"}}</dd>
 <dt class="properties__label">{{t "fullAddress"}}</dt> <dd class="properties__data">
                 {{#each model.fullAddress as |langString|}}
                   <span property={{model.rdfaBindings.fullAddress}} lang="{{langString.language}}" content="{{langString.content}}">
@@ -65,7 +33,8 @@
                   </span>
                 {{/each}}
               </dd>
-          
+          <dt class="properties__label">{{t "lodging"}}</dt>
+          <dd class="properties__data">{{#ctx.get prop="lodging" useUri=true link-to="lodgings.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
           
         </dl>
       </div>

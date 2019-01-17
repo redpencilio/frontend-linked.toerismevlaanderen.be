@@ -263,6 +263,15 @@ Router.map(function() {
     });
   });
   this.route('dumps');
+
+  this.route('registration-publication-lodging-types', {
+    path: '/doc/registration-publication-lodging-types/'
+  }, function() {
+    this.route('show', {
+      path: ':id'
+    });
+  });
+
 });
 
 export default Router;

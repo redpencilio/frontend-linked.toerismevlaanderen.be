@@ -6,23 +6,20 @@ import { belongsTo } from 'ember-data/relationships';
 export default Model.extend({
   // A string representation of this model, based on its attributes.
   // This is what mu-cl-resources uses to search on, and how the model will be presented while editing relationships.
-  stringRep: collect.apply(this,['id', 'ratingValue', 'description', 'bestRating', 'worstRating', 'issuedDate']),
+  stringRep: collect.apply(this,['id', 'ratingValue', 'bestRating', 'worstRating']),
 
   uri: attr(),
   ratingValue: attr(),
-  description: attr('language-string-set'),
   bestRating: attr(),
   worstRating: attr(),
-  issuedDate: attr('datetime'),
-  author: belongsTo('registered-organization', { inverse: null }),
+  author: belongsTo('registered-organization', { inverse: 'authoredRatings' }),
+  lodging: belongsTo('lodging', { inverse: 'officialRatings' }),
 
   rdfaBindings: {
     class: "schema:Rating",
     ratingValue: "schema:ratingValue",
-    description: "schema:description",
     bestRating: "schema:bestRating",
     worstRating: "schema:worstRating",
-    issuedDate: "dct:issued",
     author: "schema:author"
   }
 });

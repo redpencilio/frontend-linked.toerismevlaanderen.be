@@ -10,9 +10,12 @@
           <dd class="properties__data">{{#link-to "identifiers.show" model href=model.uri}}{{model.uri}}{{/link-to}}</dd>
           <dt class="properties__label">{{t "notation"}}</dt> <dd class="properties__data">{{ctx.get prop="notation"}}</dd>
 <dt class="properties__label">{{t "issuedBy"}}</dt> <dd class="properties__data">{{ctx.get prop="issuedBy"}}</dd>
-<dt class="properties__label">{{t "issuedDate"}}</dt> <dd class="properties__data">{{ctx.get prop="issuedDate"}}</dd>
           <dt class="properties__label">{{t "creator"}}</dt>
           <dd class="properties__data">{{#ctx.get prop="creator" useUri=true link-to="agents.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+<dt class="properties__label">{{t "lodging"}}</dt>
+          <dd class="properties__data">{{#ctx.get prop="lodging" useUri=true link-to="lodgings.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+<dt class="properties__label">{{t "registration"}}</dt>
+          <dd class="properties__data">{{#ctx.get prop="registration" useUri=true link-to="registrations.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
           
         </dl>
       </div>

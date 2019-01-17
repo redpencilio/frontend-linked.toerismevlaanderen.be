@@ -11,12 +11,11 @@ export default Model.extend({
   uri: attr(),
   unit: attr('language-string-set'),
   value: attr(),
-  standardizedUnit: belongsTo('standardized-unit', { inverse: null }),
+  isCapacityOf: belongsTo('lodging', { inverse: 'capacities' }),
 
   rdfaBindings: {
     class: "schema:QuantitativeValue",
     unit: "schema:unitText",
-    value: "schema:value",
-    standardizedUnit: "schema:unitCode"
+    value: "schema:value"
   }
 });

@@ -1,7 +1,7 @@
 import attr from 'ember-data/attr';
 import Model from 'ember-data/model';
 import { collect } from '@ember/object/computed';
-import { belongsTo } from 'ember-data/relationships';
+import { hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
   // A string representation of this model, based on its attributes.
@@ -10,12 +10,10 @@ export default Model.extend({
 
   uri: attr(),
   label: attr('language-string-set'),
-  registration: belongsTo('registration', { inverse: 'type' }),
-  registrationPublicationTypes: belongsTo('registration-publication-lodging-type', { inverse: 'registrationTypes' }),
+  registrationTypes: hasMany('registration-lodging-type', { inverse: 'registrationPublicationTypes' }),
 
   rdfaBindings: {
-    class: "ext:RegistrationLodgingType",
-    label: "skos:prefLabel",
-    registrationPublicationTypes: "skos:broadMatch"
+    class: "ext:RegistrationPublicationLodgingType",
+    label: "skos:prefLabel"
   }
 });

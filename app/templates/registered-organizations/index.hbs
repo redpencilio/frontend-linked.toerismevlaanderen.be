@@ -12,9 +12,6 @@
     {{#table.content as |c|}}
       {{#c.header}}
         {{th-sortable field='legalName' currentSorting=sort label=(t 'legalName')}}
-{{th-sortable field='legalPersonality' currentSorting=sort label=(t 'legalPersonality')}}
-{{th-sortable field='legalForm' currentSorting=sort label=(t 'legalForm')}}
-{{th-sortable field='legalStatus' currentSorting=sort label=(t 'legalStatus')}}
         {{th-sortable field='registration' currentSorting=sort label=(t 'registration')}}
         <th>{{!-- contains detail view action --}}</th>
         <th>{{!-- contains detail edit action --}}</th>
@@ -26,9 +23,6 @@
                     <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
                   </span>
                 {{/each}} {{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=legalPersonality}}{{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=legalForm}}{{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=legalStatus}}{{/with-rdfa-context}}
                 {{#with-rdfa-context tagName="td" model=row as |ctx|}}
                   {{#ctx.get prop="registration" useUri=true link-to="registrations.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
                 {{/with-rdfa-context}}
