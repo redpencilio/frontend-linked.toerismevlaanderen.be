@@ -23,14 +23,6 @@ Router.map(function() {
     });
   });
 
-  this.route('agents', {
-    path: '/doc/agents/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-
   this.route('registered-organizations', {
     path: '/doc/registered-organizations/'
   }, function() {

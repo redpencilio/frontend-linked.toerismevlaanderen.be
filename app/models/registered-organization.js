@@ -13,6 +13,7 @@ export default Model.extend({
   registration: belongsTo('registration', { inverse: null }),
   authoredRatings: hasMany('rating', { inverse: null }),
   authoredQualityLabels: hasMany('quality-label', { inverse: 'author' }),
+  issuedIdentifiers: hasMany('identifier', { inverse: 'creator' }),
 
   rdfaBindings: {
     class: "regorg:RegisteredOrganization",

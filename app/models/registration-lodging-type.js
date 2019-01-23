@@ -11,11 +11,11 @@ export default Model.extend({
   uri: attr(),
   label: attr('language-string-set'),
   registration: belongsTo('registration', { inverse: 'type' }),
-  registrationPublicationTypes: belongsTo('registration-publication-lodging-type', { inverse: 'registrationTypes' }),
+  registrationPublicationType: belongsTo('registration-publication-lodging-type', { inverse: 'registrationTypes' }),
 
   rdfaBindings: {
     class: "ext:RegistrationLodgingType",
     label: "skos:prefLabel",
-    registrationPublicationTypes: "skos:broadMatch"
+    registrationPublicationType: "skos:broadMatch"
   }
 });

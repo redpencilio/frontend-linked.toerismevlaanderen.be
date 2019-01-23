@@ -11,7 +11,7 @@ export default Model.extend({
   uri: attr(),
   notation: attr(),
   issuedBy: attr(),
-  creator: belongsTo('agent', { inverse: null }),
+  creator: belongsTo('registered-organization', { inverse: 'issuedIdentifiers' }),
   lodging: belongsTo('lodging', { inverse: 'identifier' }),
   registration: belongsTo('registration', { inverse: 'identifier' }),
 

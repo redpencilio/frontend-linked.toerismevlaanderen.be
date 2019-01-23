@@ -10,7 +10,7 @@ export default Model.extend({
 
   uri: attr(),
   label: attr('language-string-set'),
-  registrationTypes: hasMany('registration-lodging-type', { inverse: 'registrationPublicationTypes' }),
+  registrationTypes: hasMany('registration-lodging-type', { inverse: 'registrationPublicationType' }),
 
   rdfaBindings: {
     class: "ext:RegistrationPublicationLodgingType",

@@ -23,7 +23,7 @@
         {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop="notation"}}{{/with-rdfa-context}}
 {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop="issuedBy"}}{{/with-rdfa-context}}
                 {{#with-rdfa-context tagName="td" model=row as |ctx|}}
-                  {{#ctx.get prop="creator" useUri=true link-to="agents.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+                  {{#ctx.get prop="creator" useUri=true link-to="registered-organizations.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
                 {{/with-rdfa-context}}
 {{#with-rdfa-context tagName="td" model=row as |ctx|}}
                   {{#ctx.get prop="lodging" useUri=true link-to="lodgings.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
