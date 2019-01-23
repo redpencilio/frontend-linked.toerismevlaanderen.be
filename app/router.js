@@ -144,6 +144,7 @@ Router.map(function() {
     });
   });
 
+  this.route('sparql');
 });
 
 export default Router;
