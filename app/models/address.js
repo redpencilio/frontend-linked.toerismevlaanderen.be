@@ -15,7 +15,6 @@ export default Model.extend({
   country: attr('language-string-set'),
   postCode: attr(),
   thoroughfare: attr(),
-  fullAddress: attr('language-string-set'),
   lodging: belongsTo('lodging', { inverse: 'welcomeAddresses' }),
 
   rdfaBindings: {
@@ -25,7 +24,6 @@ export default Model.extend({
     houseNumber: "adres:Adresvoorstelling.huisnummer",
     country: "adres:land",
     postCode: "locn:postCode",
-    thoroughfare: "locn:thoroughfare",
-    fullAddress: "locn:fullAddress"
+    thoroughfare: "locn:thoroughfare"
   }
 });

@@ -18,7 +18,7 @@
         {{th-sortable field='identifier' currentSorting=sort label=(t 'identifier')}}
 {{th-sortable field='welcomeLocations' currentSorting=sort label=(t 'welcomeLocations')}}
         <th>{{!-- contains detail view action --}}</th>
-        <th>{{!-- contains detail edit action --}}</th>
+        
       {{/c.header}}
       {{#c.body as |row|}}
         {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop="numberOfSleepingPlaces"}}{{/with-rdfa-context}}

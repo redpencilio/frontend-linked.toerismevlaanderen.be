@@ -17,7 +17,7 @@
 {{th-sortable field='longitude' currentSorting=sort label=(t 'longitude')}}
         {{th-sortable field='isWelcomeAddressOf' currentSorting=sort label=(t 'isWelcomeAddressOf')}}
         <th>{{!-- contains detail view action --}}</th>
-        <th>{{!-- contains detail edit action --}}</th>
+        
       {{/c.header}}
       {{#c.body as |row|}}
         {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop="asGml"}}{{/with-rdfa-context}}

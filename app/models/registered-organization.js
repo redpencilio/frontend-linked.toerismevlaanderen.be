@@ -10,7 +10,7 @@ export default Model.extend({
 
   uri: attr(),
   legalName: attr('language-string-set'),
-  registration: belongsTo('registration', { inverse: null }),
+  registration: belongsTo('identifier', { inverse: null }),
   authoredRatings: hasMany('rating', { inverse: null }),
   authoredQualityLabels: hasMany('quality-label', { inverse: 'author' }),
   issuedIdentifiers: hasMany('identifier', { inverse: 'creator' }),

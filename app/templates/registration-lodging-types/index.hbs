@@ -15,7 +15,7 @@
         {{th-sortable field='registration' currentSorting=sort label=(t 'registration')}}
 {{th-sortable field='registrationPublicationType' currentSorting=sort label=(t 'registrationPublicationType')}}
         <th>{{!-- contains detail view action --}}</th>
-        <th>{{!-- contains detail edit action --}}</th>
+        
       {{/c.header}}
       {{#c.body as |row|}}
         {{#with-rdfa-context tagName="td" model=row as |ctx|}}

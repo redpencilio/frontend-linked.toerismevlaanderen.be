@@ -15,7 +15,7 @@
 {{th-sortable field='value' currentSorting=sort label=(t 'value')}}
         {{th-sortable field='isCapacityOf' currentSorting=sort label=(t 'isCapacityOf')}}
         <th>{{!-- contains detail view action --}}</th>
-        <th>{{!-- contains detail edit action --}}</th>
+        
       {{/c.header}}
       {{#c.body as |row|}}
         {{#with-rdfa-context tagName="td" model=row as |ctx|}}

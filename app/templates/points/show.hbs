@@ -22,7 +22,9 @@
 
   {{!-- Actions to go back to the list-view or edit point if it's an editable application. --}}
   <div class="actions">
-    {{#link-to "points" class="button" title="Return to list" tagName='button'}}{{t "< Return to the list"}}{{/link-to}}
-    
+    <div class="button-group">
+      {{#link-to "points" class="button" title="Return to list" tagName='button'}}{{t "< Return to the list"}}{{/link-to}}
+      
+    </div>
   </div>
 {{/with-rdfa-context}}

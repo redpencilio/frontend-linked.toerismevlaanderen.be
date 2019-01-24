@@ -14,7 +14,7 @@
         {{th-sortable field='label' currentSorting=sort label=(t 'label')}}
         {{th-sortable field='author' currentSorting=sort label=(t 'author')}}
         <th>{{!-- contains detail view action --}}</th>
-        <th>{{!-- contains detail edit action --}}</th>
+        
       {{/c.header}}
       {{#c.body as |row|}}
         {{#with-rdfa-context tagName="td" model=row as |ctx|}}
