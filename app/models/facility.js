@@ -16,12 +16,12 @@ export default Model.extend({
   isSpecialisationOf: belongsTo('facility', { inverse: 'specialisations' }),
   specialisations: hasMany('facility', { inverse: 'isSpecialisationOf' }),
 
-  rdfaBindings: {
+  rdfaBindings: Object.freeze({
     class: "logies:Faciliteit",
     validThrough: "schema:validThrough",
     validFrom: "schema:validFrom",
     description: "schema:description",
     name: "schema:name",
     isSpecialisationOf: "logies:isSpecialisatieVan"
-  }
+  })
 });

@@ -17,10 +17,10 @@ export default Model.extend({
   lodging: belongsTo('lodging', { inverse: null }),
   registration: belongsTo('registration', { inverse: null }),
 
-    rdfaBindings: Object.freeze({
+  rdfaBindings: Object.freeze({
     class: "adms:Identifier",
     notation: "skos:notation",
     issuedBy: "adms:schemaAgency",
     creator: "dct:creator"
-    })
+  })
 });

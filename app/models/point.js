@@ -15,11 +15,11 @@ export default Model.extend({
   longitude: attr(),
   isWelcomeAddressOf: belongsTo('lodging', { inverse: null }),
 
-    rdfaBindings: Object.freeze({
+  rdfaBindings: Object.freeze({
     class: "wgs:Point",
     asGml: "geosparql:asGML",
     asWkt: "geosparql:asWKT",
     latitude: "wgs:lat",
     longitude: "wgs:long"
-    })
+  })
 });

@@ -12,8 +12,8 @@ export default Model.extend({
   label: attr('language-string-set'),
   containsLodgings: hasMany('lodging', { inverse: null }),
 
-    rdfaBindings: Object.freeze({
+  rdfaBindings: Object.freeze({
     class: "logies:ToeristischeRegio",
     label: "skos:prefLabel"
-    })
+  })
 });

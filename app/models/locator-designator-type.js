@@ -10,8 +10,8 @@ export default Model.extend({
   uri: attr(),
   label: attr('language-string-set'),
 
-  rdfaBindings: {
+  rdfaBindings: Object.freeze({
     class: "skos:Concept",
     label: "skos:prefLabel"
-  }
+  })
 });

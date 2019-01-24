@@ -11,9 +11,9 @@ export default Model.extend({
   asGml: attr(),
   asWkt: attr(),
 
-  rdfaBindings: {
+  rdfaBindings: Object.freeze({
     class: "locn:Geometry",
     asGml: "geosparql:asGML",
     asWkt: "geosparql:asWKT"
-  }
+  })
 });

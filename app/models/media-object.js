@@ -29,7 +29,7 @@ export default Model.extend({
   translations: hasMany('creative-work', { inverse: 'translationOf' }),
   languages: hasMany('language', { inverse: null }),
 
-  rdfaBindings: {
+  rdfaBindings: Object.freeze({
     class: "logies:MediaObject",
     modifiedOn: "schema:dateModified",
     name: "schema:name",
@@ -48,5 +48,5 @@ export default Model.extend({
     height: "schema:height",
     location: "logies:locatie",
     languages: "schema:inLanguage"
-  }
+  })
 });

@@ -15,11 +15,11 @@ export default Model.extend({
   lodging: belongsTo('lodging', { inverse: null }),
   responsibleOrganization: belongsTo('registered-organization', { inverse: null }),
 
-    rdfaBindings: Object.freeze({
+  rdfaBindings: Object.freeze({
     class: "logies:Registratie",
     identifier: "adms:identifier",
     registrationStatus: "logies:registratieStatus",
     type: "dct:type",
     responsibleOrganization: "logies:verantwoordelijkeOrganisatie"
-    })
+  })
 });

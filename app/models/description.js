@@ -20,7 +20,7 @@ export default Model.extend({
   examples: hasMany('creative-work', { inverse: null }),
   translations: hasMany('creative-work', { inverse: null }),
 
-  rdfaBindings: {
+  rdfaBindings: Object.freeze({
     class: "logies:Beschrijving",
     text: "schema:value",
     modifiedOn: "schema:dateModified",
@@ -30,5 +30,5 @@ export default Model.extend({
     translationOf: "schema:translationOfWork",
     license: "schema:license",
     audience: "schema:audience"
-  }
+  })
 });

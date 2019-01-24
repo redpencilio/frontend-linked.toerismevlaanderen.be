@@ -16,9 +16,9 @@ export default Model.extend({
   issuedIdentifiers: hasMany('identifier', { inverse: null }),
   registrations: hasMany('registration', { inverse: null }),
 
-    rdfaBindings: Object.freeze({
+  rdfaBindings: Object.freeze({
     class: "regorg:RegisteredOrganization",
     legalName: "regorg:legalName",
     registration: "regorg:registration"
-    })
+  })
 });

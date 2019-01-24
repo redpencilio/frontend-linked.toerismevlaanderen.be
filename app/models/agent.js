@@ -8,9 +8,8 @@ export default Model.extend({
   stringRep: collect.apply(this,['id']),
 
   uri: attr(),
-  
-  rdfaBindings: {
-    class: "dct:Agent",
-    
-  }
+
+  rdfaBindings: Object.freeze({
+    class: "dct:Agent"
+  })
 });

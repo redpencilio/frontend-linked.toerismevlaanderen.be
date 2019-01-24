@@ -12,9 +12,9 @@ export default Model.extend({
   designator: attr(),
   type: belongsTo('locator-designator-type', { inverse: null }),
 
-  rdfaBindings: {
+  rdfaBindings: Object.freeze({
     class: "adres:Locatieaanduiding",
     designator: "adres:Locatieaanduiding.aanduiding",
     type: "adres:Locatieaanduiding.type"
-  }
+  })
 });

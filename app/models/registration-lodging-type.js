@@ -13,9 +13,9 @@ export default Model.extend({
   registration: belongsTo('registration', { inverse: null }),
   registrationPublicationType: belongsTo('registration-publication-lodging-type', { inverse: null }),
 
-    rdfaBindings: Object.freeze({
+  rdfaBindings: Object.freeze({
     class: "skos:Concept",
     label: "skos:prefLabel",
     registrationPublicationType: "skos:broadMatch"
-    })
+  })
 });

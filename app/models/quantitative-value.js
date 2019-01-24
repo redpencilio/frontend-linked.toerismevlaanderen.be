@@ -13,9 +13,9 @@ export default Model.extend({
   value: attr(),
   isCapacityOf: belongsTo('lodging', { inverse: null }),
 
-    rdfaBindings: Object.freeze({
+  rdfaBindings: Object.freeze({
     class: "schema:QuantitativeValue",
     unit: "schema:unitText",
     value: "schema:value"
-    })
+  })
 });

@@ -26,7 +26,7 @@ export default Model.extend({
   contactPoints: hasMany('contact-point', { inverse: null }),
   welcomeAddresses: hasMany('address', { inverse: null }),
 
-    rdfaBindings: Object.freeze({
+  rdfaBindings: Object.freeze({
     class: "logies:Logies",
     numberOfSleepingPlaces: "logies:aantalSlaapplaatsen",
     numberOfRentalUnits: "logies:aantalVerhuureenheden",
@@ -43,5 +43,5 @@ export default Model.extend({
     rentalUnits: "logies:heeftVerhuureenheid",
     contactPoints: "schema:contactPoint",
     welcomeAddresses: "logies:onthaalAdres"
-    })
+  })
 });

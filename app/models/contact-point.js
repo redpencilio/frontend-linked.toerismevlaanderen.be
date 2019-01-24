@@ -16,10 +16,10 @@ export default Model.extend({
   telephone: attr(),
   lodging: belongsTo('lodging', { inverse: null }),
 
-    rdfaBindings: Object.freeze({
+  rdfaBindings: Object.freeze({
     class: "schema:ContactPoint",
     email: "schema:email",
     page: "foaf:page",
     telephone: "schema:telephone"
-    })
+  })
 });

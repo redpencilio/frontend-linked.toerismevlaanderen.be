@@ -15,11 +15,11 @@ export default Model.extend({
   type: belongsTo('room-type', { inverse: null }),
   facilities: hasMany('facility', { inverse: null }),
 
-  rdfaBindings: {
+  rdfaBindings: Object.freeze({
     class: "logies:Ruimte",
     description: "schema:description",
     locatorDesignator: "logies:locatieaanduiding",
     type: "dct:type",
     facilities: "schema:amenityFeature"
-  }
+  })
 });

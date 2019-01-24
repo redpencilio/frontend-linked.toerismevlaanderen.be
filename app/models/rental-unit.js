@@ -11,8 +11,8 @@ export default Model.extend({
   uri: attr(),
   lodgings: hasMany('lodging', { inverse: null }),
 
-    rdfaBindings: Object.freeze({
+  rdfaBindings: Object.freeze({
     class: "logies:Verhuureenheid",
     
-    })
+  })
 });

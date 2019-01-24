@@ -17,7 +17,7 @@ export default Model.extend({
   thoroughfare: attr(),
   lodging: belongsTo('lodging', { inverse: null }),
 
-    rdfaBindings: Object.freeze({
+  rdfaBindings: Object.freeze({
     class: "locn:Address",
     houseNumberSuffix: "adres:Adresvoorstelling.busnummer",
     municipality: "adres:gemeentenaam",
@@ -25,5 +25,5 @@ export default Model.extend({
     country: "adres:land",
     postCode: "locn:postCode",
     thoroughfare: "locn:thoroughfare"
-    })
+  })
 });

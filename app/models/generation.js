@@ -11,9 +11,9 @@ export default Model.extend({
   timestamp: attr('datetime'),
   activity: attr(),
 
-  rdfaBindings: {
+  rdfaBindings: Object.freeze({
     class: "prov:Generation",
     timestamp: "prov:atTime",
     activity: "prov:activity"
-  }
+  })
 });
