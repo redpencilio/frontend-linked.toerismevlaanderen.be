@@ -11,7 +11,7 @@ export default Model.extend({
   label: attr('language-string-set'),
 
   rdfaBindings: {
-    class: "ext:StandardizedUnit",
+    class: "skos:Concept",
     label: "skos:prefLabel"
   }
 });
