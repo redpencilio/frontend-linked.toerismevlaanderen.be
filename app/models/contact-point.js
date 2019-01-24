@@ -1,12 +1,14 @@
 import attr from 'ember-data/attr';
 import Model from 'ember-data/model';
-import { collect } from '@ember/object/computed';
+import { computed } from '@ember/object';
 import { belongsTo } from 'ember-data/relationships';
 
 export default Model.extend({
   // A string representation of this model, based on its attributes.
   // This is what mu-cl-resources uses to search on, and how the model will be presented while editing relationships.
-  stringRep: collect.apply(this,['id', 'email', 'page', 'telephone']),
+  stringRep: computed('email', 'page', 'telephone', function() {
+    return [this.email, this.page, this.telephone].filter(x => x).join(', ');
+  }),
 
   uri: attr(),
   email: attr(),

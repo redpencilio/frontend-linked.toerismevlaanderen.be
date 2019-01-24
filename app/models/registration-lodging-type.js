@@ -11,7 +11,7 @@ export default Model.extend({
   uri: attr(),
   label: attr('language-string-set'),
   registration: belongsTo('registration', { inverse: 'type' }),
-  registrationPublicationType: belongsTo('registration-publication-lodging-type', { inverse: 'registrationTypes' }),
+  registrationPublicationType: belongsTo('registration-publication-lodging-type', { inverse: null }),
 
   rdfaBindings: {
     class: "skos:Concept",

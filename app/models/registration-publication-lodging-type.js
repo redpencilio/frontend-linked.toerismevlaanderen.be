@@ -10,7 +10,7 @@ export default Model.extend({
 
   uri: attr(),
   label: attr('language-string-set'),
-  registrationTypes: hasMany('registration-lodging-type', { inverse: 'registrationPublicationType' }),
+  registrationTypes: hasMany('registration-lodging-type', { inverse: null }),
 
   rdfaBindings: {
     class: "skos:Concept",

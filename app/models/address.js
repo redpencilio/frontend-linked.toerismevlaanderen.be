@@ -6,7 +6,7 @@ import { belongsTo } from 'ember-data/relationships';
 export default Model.extend({
   // A string representation of this model, based on its attributes.
   // This is what mu-cl-resources uses to search on, and how the model will be presented while editing relationships.
-  stringRep: collect.apply(this,['id', 'houseNumberSuffix', 'municipality', 'houseNumber', 'country', 'postCode', 'thoroughfare', 'fullAddress']),
+  stringRep: collect.apply(this,['thoroughfare', 'houseNumber', 'houseNumberSuffix', 'postCode', 'municipality', 'country']),
 
   uri: attr(),
   houseNumberSuffix: attr(),
