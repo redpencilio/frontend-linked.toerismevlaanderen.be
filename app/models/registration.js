@@ -9,15 +9,17 @@ export default Model.extend({
   stringRep: collect.apply(this,['id']),
 
   uri: attr(),
-  identifier: belongsTo('identifier', { inverse: 'registration' }),
-  registrationStatus: belongsTo('registration-status', { inverse: 'registration' }),
-  type: belongsTo('registration-lodging-type', { inverse: 'registration' }),
-  lodging: belongsTo('lodging', { inverse: 'registrations' }),
+  identifier: belongsTo('identifier', { inverse: null }),
+  registrationStatus: belongsTo('registration-status', { inverse: null }),
+  type: belongsTo('registration-lodging-type', { inverse: null }),
+  lodging: belongsTo('lodging', { inverse: null }),
+  responsibleOrganization: belongsTo('registered-organization', { inverse: null }),
 
-  rdfaBindings: {
+    rdfaBindings: Object.freeze({
     class: "logies:Registratie",
     identifier: "adms:identifier",
     registrationStatus: "logies:registratieStatus",
-    type: "dct:type"
-  }
+    type: "dct:type",
+    responsibleOrganization: "logies:verantwoordelijkeOrganisatie"
+    })
 });

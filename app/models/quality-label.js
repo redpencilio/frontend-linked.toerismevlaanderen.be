@@ -10,12 +10,12 @@ export default Model.extend({
 
   uri: attr(),
   label: attr('language-string-set'),
-  author: belongsTo('registered-organization', { inverse: 'authoredQualityLabels' }),
-  lodgings: hasMany('lodging', { inverse: 'qualityLabels' }),
+  author: belongsTo('registered-organization', { inverse: null }),
+  lodgings: hasMany('lodging', { inverse: null }),
 
-  rdfaBindings: {
+  rdfaBindings: Object.freeze({
     class: "logies:Kwaliteitslabel",
     label: "skos:prefLabel",
     author: "schema:author"
-  }
+  })
 });

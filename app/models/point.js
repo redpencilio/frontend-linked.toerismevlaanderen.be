@@ -13,13 +13,13 @@ export default Model.extend({
   asWkt: attr(),
   latitude: attr(),
   longitude: attr(),
-  isWelcomeAddressOf: belongsTo('lodging', { inverse: 'welcomeLocations' }),
+  isWelcomeAddressOf: belongsTo('lodging', { inverse: null }),
 
-  rdfaBindings: {
+    rdfaBindings: Object.freeze({
     class: "wgs:Point",
     asGml: "geosparql:asGML",
     asWkt: "geosparql:asWKT",
     latitude: "wgs:lat",
     longitude: "wgs:long"
-  }
+    })
 });

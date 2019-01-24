@@ -14,12 +14,12 @@ export default Model.extend({
   email: attr(),
   page: attr(),
   telephone: attr(),
-  lodging: belongsTo('lodging', { inverse: 'contactPoints' }),
+  lodging: belongsTo('lodging', { inverse: null }),
 
-  rdfaBindings: {
+    rdfaBindings: Object.freeze({
     class: "schema:ContactPoint",
     email: "schema:email",
     page: "foaf:page",
     telephone: "schema:telephone"
-  }
+    })
 });

@@ -9,10 +9,10 @@ export default Model.extend({
   stringRep: collect.apply(this,['id']),
 
   uri: attr(),
-  lodgings: hasMany('lodging', { inverse: 'rentalUnits' }),
+  lodgings: hasMany('lodging', { inverse: null }),
 
-  rdfaBindings: {
+    rdfaBindings: Object.freeze({
     class: "logies:Verhuureenheid",
     
-  }
+    })
 });

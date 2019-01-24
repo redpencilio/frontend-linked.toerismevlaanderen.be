@@ -10,10 +10,10 @@ export default Model.extend({
 
   uri: attr(),
   label: attr('language-string-set'),
-  containsLodgings: hasMany('lodging', { inverse: 'belongsToTouristicRegions' }),
+  containsLodgings: hasMany('lodging', { inverse: null }),
 
-  rdfaBindings: {
+    rdfaBindings: Object.freeze({
     class: "logies:ToeristischeRegio",
     label: "skos:prefLabel"
-  }
+    })
 });

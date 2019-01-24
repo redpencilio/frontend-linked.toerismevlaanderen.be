@@ -12,8 +12,8 @@ export default Model.extend({
   label: attr('language-string-set'),
   registrationTypes: hasMany('registration-lodging-type', { inverse: null }),
 
-  rdfaBindings: {
+  rdfaBindings: Object.freeze({
     class: "skos:Concept",
     label: "skos:prefLabel"
-  }
+  })
 });

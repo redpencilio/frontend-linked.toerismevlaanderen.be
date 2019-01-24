@@ -17,6 +17,8 @@
           <dd class="properties__data">{{#ctx.get prop="type" useUri=true link-to="registration-lodging-types.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
 <dt class="properties__label">{{t "lodging"}}</dt>
           <dd class="properties__data">{{#ctx.get prop="lodging" useUri=true link-to="lodgings.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
+<dt class="properties__label">{{t "responsibleOrganization"}}</dt>
+          <dd class="properties__data">{{#ctx.get prop="responsibleOrganization" useUri=true link-to="registered-organizations.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
           
         </dl>
       </div>

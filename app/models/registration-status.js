@@ -10,10 +10,10 @@ export default Model.extend({
 
   uri: attr(),
   label: attr('language-string-set'),
-  registration: belongsTo('registration', { inverse: 'registrationStatus' }),
+  registration: belongsTo('registration', { inverse: null }),
 
-  rdfaBindings: {
+  rdfaBindings: Object.freeze({
     class: "skos:Concept",
     label: "skos:prefLabel"
-  }
+  })
 });

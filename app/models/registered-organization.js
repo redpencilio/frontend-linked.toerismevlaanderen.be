@@ -12,12 +12,13 @@ export default Model.extend({
   legalName: attr('language-string-set'),
   registration: belongsTo('identifier', { inverse: null }),
   authoredRatings: hasMany('rating', { inverse: null }),
-  authoredQualityLabels: hasMany('quality-label', { inverse: 'author' }),
-  issuedIdentifiers: hasMany('identifier', { inverse: 'creator' }),
+  authoredQualityLabels: hasMany('quality-label', { inverse: null }),
+  issuedIdentifiers: hasMany('identifier', { inverse: null }),
+  registrations: hasMany('registration', { inverse: null }),
 
-  rdfaBindings: {
+    rdfaBindings: Object.freeze({
     class: "regorg:RegisteredOrganization",
     legalName: "regorg:legalName",
     registration: "regorg:registration"
-  }
+    })
 });

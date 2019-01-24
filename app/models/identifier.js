@@ -13,14 +13,14 @@ export default Model.extend({
   uri: attr(),
   notation: attr(),
   issuedBy: attr(),
-  creator: belongsTo('registered-organization', { inverse: 'issuedIdentifiers' }),
-  lodging: belongsTo('lodging', { inverse: 'identifier' }),
-  registration: belongsTo('registration', { inverse: 'identifier' }),
+  creator: belongsTo('registered-organization', { inverse: null }),
+  lodging: belongsTo('lodging', { inverse: null }),
+  registration: belongsTo('registration', { inverse: null }),
 
-  rdfaBindings: {
+    rdfaBindings: Object.freeze({
     class: "adms:Identifier",
     notation: "skos:notation",
     issuedBy: "adms:schemaAgency",
     creator: "dct:creator"
-  }
+    })
 });

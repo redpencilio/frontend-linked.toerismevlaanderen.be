@@ -12,14 +12,14 @@ export default Model.extend({
   ratingValue: attr(),
   bestRating: attr(),
   worstRating: attr(),
-  author: belongsTo('registered-organization', { inverse: 'authoredRatings' }),
-  lodging: belongsTo('lodging', { inverse: 'officialRatings' }),
+  author: belongsTo('registered-organization', { inverse: null }),
+  lodging: belongsTo('lodging', { inverse: null }),
 
-  rdfaBindings: {
+  rdfaBindings: Object.freeze({
     class: "schema:Rating",
     ratingValue: "schema:ratingValue",
     bestRating: "schema:bestRating",
     worstRating: "schema:worstRating",
     author: "schema:author"
-  }
+  })
 });

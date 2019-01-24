@@ -13,20 +13,20 @@ export default Model.extend({
   numberOfRentalUnits: attr(),
   alternativeName: attr('language-string-set'),
   name: attr('language-string-set'),
-  identifier: belongsTo('identifier', { inverse: 'lodging' }),
-  welcomeLocations: belongsTo('point', { inverse: 'isWelcomeAddressOf' }),
-  belongsToTouristicRegions: hasMany('touristic-region', { inverse: 'containsLodgings' }),
-  capacities: hasMany('quantitative-value', { inverse: 'isCapacityOf' }),
-  alternativeExploitations: hasMany('lodging', { inverse: 'isAlternativeExploitationOf' }),
-  isAlternativeExploitationOf: hasMany('lodging', { inverse: 'alternativeExploitations' }),
-  qualityLabels: hasMany('quality-label', { inverse: 'lodgings' }),
-  officialRatings: hasMany('rating', { inverse: 'lodging' }),
-  registrations: hasMany('registration', { inverse: 'lodging' }),
-  rentalUnits: hasMany('rental-unit', { inverse: 'lodgings' }),
-  contactPoints: hasMany('contact-point', { inverse: 'lodging' }),
-  welcomeAddresses: hasMany('address', { inverse: 'lodging' }),
+  identifier: belongsTo('identifier', { inverse: null }),
+  welcomeLocations: belongsTo('point', { inverse: null }),
+  belongsToTouristicRegions: hasMany('touristic-region', { inverse: null }),
+  capacities: hasMany('quantitative-value', { inverse: null }),
+  alternativeExploitations: hasMany('lodging', { inverse: null }),
+  isAlternativeExploitationOf: hasMany('lodging', { inverse: null }),
+  qualityLabels: hasMany('quality-label', { inverse: null }),
+  officialRatings: hasMany('rating', { inverse: null }),
+  registrations: hasMany('registration', { inverse: null }),
+  rentalUnits: hasMany('rental-unit', { inverse: null }),
+  contactPoints: hasMany('contact-point', { inverse: null }),
+  welcomeAddresses: hasMany('address', { inverse: null }),
 
-  rdfaBindings: {
+    rdfaBindings: Object.freeze({
     class: "logies:Logies",
     numberOfSleepingPlaces: "logies:aantalSlaapplaatsen",
     numberOfRentalUnits: "logies:aantalVerhuureenheden",
@@ -43,5 +43,5 @@ export default Model.extend({
     rentalUnits: "logies:heeftVerhuureenheid",
     contactPoints: "schema:contactPoint",
     welcomeAddresses: "logies:onthaalAdres"
-  }
+    })
 });
