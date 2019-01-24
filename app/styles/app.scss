@@ -3,3 +3,23 @@
 .yasgui-container {
   margin: 0 5px;
 }
+
+.actions {
+  margin: 0 5px;
+}
+
+.page h2,
+.content h2 {
+  margin-left: 5px;
+}
+
+td > span,
+dd > span,
+td > a,
+dd > a {
+  display: block;
+}
+
+.language-string-set__language {
+  color: #999;
+}

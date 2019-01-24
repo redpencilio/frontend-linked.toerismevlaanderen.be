@@ -137,6 +137,7 @@ Router.map(function() {
   });
 
   this.route('sparql');
+  this.route('subjects');
 });
 
 export default Router;
