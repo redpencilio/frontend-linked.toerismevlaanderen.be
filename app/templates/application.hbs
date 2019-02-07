@@ -16,19 +16,14 @@
     </div>
   </div>
   {{#with-rdfa-prefixes-and-vocab}}
-    <header class="content-header content-header--small content-header--half-image u-spacer--large">
+    <header class="content-header content-header--small content-header--has-logo content-header--half-image u-spacer--large">
       <div class="content-header__wrapper">
         <picture class="content-header__bg">
-          <img sizes="50vw" src="//www.vlaanderen.be/sites/default/files/ip_acm/page_banner_wide_alt/header.jpg" srcset="//www.vlaanderen.be/sites/default/files/ip_acm/page_banner_mobile_alt/header.jpg 320w, //www.vlaanderen.be/sites/default/files/ip_acm/page_banner_narrow/header.jpg 1024w, //www.vlaanderen.be/sites/default/files/ip_acm/page_banner_wide_alt/header.jpg 1600w"
-               alt="" title="">
+          <img sizes="50vw" src="images/lod-banner.jpg">
         </picture>
         <div class="layout layout--wide">
           <div class="content-header__content">
             <div class="content-header__logo-wrapper">
-              {{#link-to 'index' class="content-header__entity-logo content-header__entity-logo--right"}}
-                <span class="content-header__entity-logo__prefix">Linked</span>
-                <span class="content-header__entity-logo__title">Open Data</span>
-              {{/link-to}}
               <div class="content-header__logo">
                 <div class="content-header__logo__img">
                   <svg id="leeuw" data-name="leeuw" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.61 31.05">
@@ -37,8 +32,8 @@
                   </svg>
                 </div>
                 <h1 class="content-header__logo__text">
-                  <div class="content-header__logo__title">Vlaanderen</div>
-                  <div class="content-header__logo__tagline">is toerisme</div>
+                  <div class="content-header__logo__title">{{t 'Flanders'}}</div>
+                  <div class="content-header__logo__tagline">{{t 'State of the Art'}}</div>
                 </h1>
               </div>
             </div>
