@@ -1,6 +1,8 @@
 @import 'ember-vo-webuniversum-data-table';
 @import 'openapi';
 
+$has-many-relation-page-size: 20;
+
 .yasgui-container {
   margin: 0 5px;
 }
@@ -29,7 +31,7 @@ dd > a {
   display: none
 }
 
-a + .properties__data__limit {
+a:nth-child(#{$has-many-relation-page-size}) + .properties__data__limit {
   display: block;
   margin-left: 20px;
   margin-top: 5px;
