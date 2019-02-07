@@ -105,31 +105,15 @@ Router.map(function() {
 
   this.route('registration-statuses', {
     path: '/doc/registration-statuses/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
+  }, function() {});
 
   this.route('registration-lodging-types', {
     path: '/doc/registration-lodging-types/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-  this.route('dumps');
+  }, function() {});
 
   this.route('registration-publication-lodging-types', {
     path: '/doc/registration-publication-lodging-types/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-
-  this.route('sparql');
-  this.route('subjects');
+  }, function() {});
 
   this.route('facilities', {
     path: '/doc/facilities/'
