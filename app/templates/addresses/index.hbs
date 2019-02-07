@@ -11,33 +11,33 @@
      as |table|}}
     {{#table.content as |c|}}
       {{#c.header}}
-        {{th-sortable field='houseNumberSuffix' currentSorting=sort label=(t 'houseNumberSuffix')}}
-{{th-sortable field='municipality' currentSorting=sort label=(t 'municipality')}}
+        {{th-sortable field='thoroughfare' currentSorting=sort label=(t 'thoroughfare')}}
 {{th-sortable field='houseNumber' currentSorting=sort label=(t 'houseNumber')}}
-{{th-sortable field='country' currentSorting=sort label=(t 'country')}}
+{{th-sortable field='houseNumberSuffix' currentSorting=sort label=(t 'houseNumberSuffix')}}
 {{th-sortable field='postCode' currentSorting=sort label=(t 'postCode')}}
-{{th-sortable field='thoroughfare' currentSorting=sort label=(t 'thoroughfare')}}
+{{th-sortable field='municipality' currentSorting=sort label=(t 'municipality')}}
+{{th-sortable field='country' currentSorting=sort label=(t 'country')}}
         {{th-sortable field='lodging' currentSorting=sort label=(t 'lodging')}}
         <th>{{!-- contains detail view action --}}</th>
         
       {{/c.header}}
       {{#c.body as |row|}}
-        {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop="houseNumberSuffix"}}{{/with-rdfa-context}}
+        {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop="thoroughfare"}}{{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop="houseNumber"}}{{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop="houseNumberSuffix"}}{{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop="postCode"}}{{/with-rdfa-context}}
 {{#with-rdfa-context tagName="td" model=row as |ctx|}}
                 {{#each row.municipality as |langString|}}
                   <span property={{row.rdfaBindings.municipality}} lang="{{langString.language}}" content="{{langString.content}}">
                     <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
                   </span>
                 {{/each}} {{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop="houseNumber"}}{{/with-rdfa-context}}
 {{#with-rdfa-context tagName="td" model=row as |ctx|}}
                 {{#each row.country as |langString|}}
                   <span property={{row.rdfaBindings.country}} lang="{{langString.language}}" content="{{langString.content}}">
                     <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
                   </span>
                 {{/each}} {{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop="postCode"}}{{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop="thoroughfare"}}{{/with-rdfa-context}}
                 {{#with-rdfa-context tagName="td" model=row as |ctx|}}
                   {{#ctx.get prop="lodging" useUri=true link-to="lodgings.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
                 {{/with-rdfa-context}}

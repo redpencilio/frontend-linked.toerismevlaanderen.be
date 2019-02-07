@@ -9,21 +9,21 @@ export default Model.extend({
   stringRep: collect.apply(this,['thoroughfare', 'houseNumber', 'houseNumberSuffix', 'postCode', 'municipality', 'country']),
 
   uri: attr(),
-  houseNumberSuffix: attr(),
-  municipality: attr('language-string-set'),
-  houseNumber: attr(),
-  country: attr('language-string-set'),
-  postCode: attr(),
   thoroughfare: attr(),
+  houseNumber: attr(),
+  houseNumberSuffix: attr(),
+  postCode: attr(),
+  municipality: attr('language-string-set'),
+  country: attr('language-string-set'),
   lodging: belongsTo('lodging', { inverse: null }),
 
   rdfaBindings: Object.freeze({
     class: "locn:Address",
-    houseNumberSuffix: "adres:Adresvoorstelling.busnummer",
-    municipality: "adres:gemeentenaam",
+    thoroughfare: "locn:thoroughfare",
     houseNumber: "adres:Adresvoorstelling.huisnummer",
-    country: "adres:land",
+    houseNumberSuffix: "adres:Adresvoorstelling.busnummer",
     postCode: "locn:postCode",
-    thoroughfare: "locn:thoroughfare"
+    municipality: "adres:gemeentenaam",
+    country: "adres:land"
   })
 });

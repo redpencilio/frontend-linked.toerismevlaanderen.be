@@ -63,14 +63,6 @@ Router.map(function() {
     });
   });
 
-  this.route('rental-units', {
-    path: '/doc/rental-units/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-
   this.route('addresses', {
     path: '/doc/addresses/'
   }, function() {
@@ -138,6 +130,30 @@ Router.map(function() {
 
   this.route('sparql');
   this.route('subjects');
+
+  this.route('facilities', {
+    path: '/doc/facilities/'
+  }, function() {
+    this.route('show', {
+      path: ':id'
+    });
+  });
+
+  this.route('concepts', {
+    path: '/doc/concepts/'
+  }, function() {
+    this.route('show', {
+      path: ':id'
+    });
+  });
+
+  this.route('conceptschemes', {
+    path: '/doc/conceptschemes/'
+  }, function() {
+    this.route('show', {
+      path: ':id'
+    });
+  });
 });
 
 export default Router;

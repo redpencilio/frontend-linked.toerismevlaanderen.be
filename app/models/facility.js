@@ -9,19 +9,15 @@ export default Model.extend({
   stringRep: collect.apply(this,['name']),
 
   uri: attr(),
-  validThrough: attr('datetime'),
-  validFrom: attr('datetime'),
-  description: attr('language-string-set'),
   name: attr('language-string-set'),
-  isSpecialisationOf: belongsTo('facility', { inverse: 'specialisations' }),
-  specialisations: hasMany('facility', { inverse: 'isSpecialisationOf' }),
+  description: attr('language-string-set'),
+  isSpecialisationOf: belongsTo('facility', { inverse: null }),
+  specialisations: hasMany('facility', { inverse: null }),
 
   rdfaBindings: Object.freeze({
     class: "logies:Faciliteit",
-    validThrough: "schema:validThrough",
-    validFrom: "schema:validFrom",
-    description: "schema:description",
     name: "schema:name",
+    description: "schema:description",
     isSpecialisationOf: "logies:isSpecialisatieVan"
   })
 });

@@ -10,8 +10,8 @@ export default Model.extend({
 
   uri: attr(),
   identifier: belongsTo('identifier', { inverse: null }),
-  registrationStatus: belongsTo('registration-status', { inverse: null }),
-  type: belongsTo('registration-lodging-type', { inverse: null }),
+  registrationStatus: belongsTo('concept', { inverse: null }),
+  type: belongsTo('concept', { inverse: null }),
   lodging: belongsTo('lodging', { inverse: null }),
   responsibleOrganization: belongsTo('registered-organization', { inverse: null }),
 
