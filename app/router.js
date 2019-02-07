@@ -142,6 +142,7 @@ Router.map(function() {
   this.route('tools');
   this.route('sparql');
   this.route('dumps');
+  this.route('openapi');
 });
 
 export default Router;

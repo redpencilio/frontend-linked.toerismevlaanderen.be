@@ -1,0 +1,15 @@
+.swagger-container {
+
+  .topbar,
+  .information-container,
+  .opblock-post,
+  .opblock-patch,
+  .opblock-delete,
+  #operations-tag-creation,
+  #operations-tag-update,
+  #operations-tag-delete,
+  .download-contents {
+    display: none;
+  }
+
+}
