@@ -11,6 +11,6 @@ RUN ember build -prod
 
 FROM semtech/ember-proxy-service:1.4.0
 
-ENV STATIC_FOLDERS_REGEX "^/(assets|font|files|sparql|images)/"
+ENV STATIC_FOLDERS_REGEX "^/(assets|font|files|sparql)/"
 
 COPY --from=builder /app/dist /app

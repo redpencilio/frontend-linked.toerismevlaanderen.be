@@ -8,7 +8,7 @@ const {
 
 export default Controller.extend({
   swaggerConfig: Object.freeze({
-    url: 'openapi.json',
+    url: 'assets/openapi.json',
     deepLinking: false,
     presets: [
       SwaggerUIStandalonePreset,
