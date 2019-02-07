@@ -2,56 +2,12 @@
   <div class="layout layout--wide">
     <div class="grid u-spacer--tb--large">
       <div class="col--12-12 u-spacer--bottom">
-        <h2 class="h2">Logies as Linked Open Data</h2>
-        <p>Overview of the available Linked Open Data resources.</p>
+        <h2 class="h2">Subject pages</h2>
+        <p>Overview of the entity types.</p>
       </div>
-      <ul class="grid u-spacer--tb--large grid--is-stacked js-equal-height-container">
-        <li class="col--4-12 col--6-12--m col--12-12--xs">
-          <a class="doormat js-equal-height" href="https://data.vlaanderen.be/ns/logies">
-            <h2 class="doormat__title" data-clamp="2">{{t "Vocabularium"}}</h2>
-            <div class="doormat__text" data-clamp="3">
-              Definition of the concepts and their semantics in the domain of lodging.
-            </div>
-          </a>
-        </li>
-        <li class="col--4-12 col--6-12--m col--12-12--xs">
-          <a class="doormat js-equal-height" href="https://data.vlaanderen.be/doc/applicatieprofiel/logies-basis/">
-            <h2 class="doormat__title" data-clamp="2">{{t "Application profile"}}</h2>
-            <div class="doormat__text" data-clamp="3">
-              Specification for the exchange of data in the domain of lodging.
-            </div>
-          </a>
-        </li>
-        <li class="col--4-12 col--6-12--m col--12-12--xs">
-          {{#link-to 'subjects' class="doormat js-equal-height"}}
-            <h2 class="doormat__title" data-clamp="2">{{t "Subjects"}}</h2>
-            <div class="doormat__text" data-clamp="3">
-              Subject pages of the concepts in the logies datasets.
-            </div>
-          {{/link-to}}
-        </li>
-        <li class="col--4-12 col--6-12--m col--12-12--xs">
-          {{#link-to 'sparql' class="doormat js-equal-height"}}
-            <h2 class="doormat__title" data-clamp="2">{{t "SPARQL endpoint"}}</h2>
-            <div class="doormat__text" data-clamp="3">
-              Endpoint to query the data using the SPARQL protocol.
-            </div>
-          {{/link-to}}
-        </li>
-        <li class="col--4-12 col--6-12--m col--12-12--xs">
-          {{#link-to 'dumps' class="doormat js-equal-height"}}
-            <h2 class="doormat__title" data-clamp="2">{{t "RDF dumps"}}</h2>
-            <div class="doormat__text" data-clamp="3">
-              Data dumps of the lodging datasets.
-            </div>
-          {{/link-to}}
-        </li>
-      </ul>
+      {{models-overview}}
     </div>
   </div>
 </div>
 
-<div class="region">
-  <div class="layout layout--wide">
-  </div>
-</div>
+{{outlet}}

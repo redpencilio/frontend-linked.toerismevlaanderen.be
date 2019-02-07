@@ -138,6 +138,10 @@ Router.map(function() {
       path: ':id'
     });
   });
+
+  this.route('tools');
+  this.route('sparql');
+  this.route('dumps');
 });
 
 export default Router;
