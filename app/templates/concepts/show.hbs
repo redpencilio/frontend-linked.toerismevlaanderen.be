@@ -21,36 +21,42 @@
             {{#ctx.each prop="conceptSchemes" useUri=true link-to="conceptschemes.show" as |ctx val|}}
               {{val.stringRep}}
             {{/ctx.each}}
+            <span class="properties__data__limit">{{t "Displaying a limited list"}}</span>
           </dd>
 <dt class="properties__label">{{t "topConceptOf"}}</dt>
           <dd class="properties__data">
             {{#ctx.each prop="topConceptOf" useUri=true link-to="conceptschemes.show" as |ctx val|}}
               {{val.stringRep}}
             {{/ctx.each}}
+            <span class="properties__data__limit">{{t "Displaying a limited list"}}</span>
           </dd>
 <dt class="properties__label">{{t "broaderConcepts"}}</dt>
           <dd class="properties__data">
             {{#ctx.each prop="broaderConcepts" useUri=true link-to="concepts.show" as |ctx val|}}
               {{val.stringRep}}
             {{/ctx.each}}
+            <span class="properties__data__limit">{{t "Displaying a limited list"}}</span>
           </dd>
 <dt class="properties__label">{{t "narrowerConcepts"}}</dt>
           <dd class="properties__data">
             {{#ctx.each prop="narrowerConcepts" useUri=true link-to="concepts.show" as |ctx val|}}
               {{val.stringRep}}
             {{/ctx.each}}
+            <span class="properties__data__limit">{{t "Displaying a limited list"}}</span>
           </dd>
 <dt class="properties__label">{{t "broadMatches"}}</dt>
           <dd class="properties__data">
             {{#ctx.each prop="broadMatches" useUri=true link-to="concepts.show" as |ctx val|}}
               {{val.stringRep}}
             {{/ctx.each}}
+            <span class="properties__data__limit">{{t "Displaying a limited list"}}</span>
           </dd>
 <dt class="properties__label">{{t "narrowerMatches"}}</dt>
           <dd class="properties__data">
             {{#ctx.each prop="narrowerMatches" useUri=true link-to="concepts.show" as |ctx val|}}
               {{val.stringRep}}
             {{/ctx.each}}
+            <span class="properties__data__limit">{{t "Displaying a limited list"}}</span>
           </dd>
         </dl>
       </div>

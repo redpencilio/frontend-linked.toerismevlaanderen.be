@@ -21,6 +21,7 @@
             {{#ctx.each prop="containsLodgings" useUri=true link-to="lodgings.show" as |ctx val|}}
               {{val.stringRep}}
             {{/ctx.each}}
+            <span class="properties__data__limit">{{t "Displaying a limited list"}}</span>
           </dd>
         </dl>
       </div>

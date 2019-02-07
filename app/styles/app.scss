@@ -25,6 +25,26 @@ dd > a {
   color: #999;
 }
 
+.properties__data__limit {
+  display: none
+}
+
+a + .properties__data__limit {
+  display: block;
+  margin-left: 20px;
+  margin-top: 5px;
+  color: #666;
+  font-size: 0.9em;
+  font-style: italic;
+
+  &:before {
+    content: '(';
+  }
+
+  &:after {
+    content: ')';
+  }
+}
 
 /* Webuniversum tweaks */
 header.content-header,
