@@ -139,6 +139,22 @@ Router.map(function() {
     });
   });
 
+  this.route('descriptions', {
+    path: '/doc/descriptions/'
+  }, function() {
+    this.route('show', {
+      path: ':id'
+    });
+  });
+
+  this.route('media-objects', {
+    path: '/doc/media-objects/'
+  }, function() {
+    this.route('show', {
+      path: ':id'
+    });
+  });
+
   this.route('tools');
   this.route('sparql');
   this.route('dumps');

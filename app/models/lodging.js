@@ -24,6 +24,8 @@ export default Model.extend({
   registrations: hasMany('registration', { inverse: null }),
   officialRatings: hasMany('rating', { inverse: null }),
   qualityLabels: hasMany('quality-label', { inverse: null }),
+  descriptions: hasMany('description', { inverse: null }),
+  media: hasMany('media-object', { inverse: null }),
 
   rdfaBindings: Object.freeze({
     class: "logies:Logies",
@@ -40,6 +42,8 @@ export default Model.extend({
     alternativeExploitations: "logies:heeftAlternatieveUitbating",
     registrations: "logies:heeftRegistratie",
     officialRatings: "schema:starRating",
-    qualityLabels: "logies:heeftKwaliteitslabel"
+    qualityLabels: "logies:heeftKwaliteitslabel",
+    descriptions: "logies:heeftBeschrijving",
+    media: "logies:heeftMedia"
   })
 });

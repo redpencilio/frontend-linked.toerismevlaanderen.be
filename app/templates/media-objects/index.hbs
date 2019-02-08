@@ -11,73 +11,14 @@
      as |table|}}
     {{#table.content as |c|}}
       {{#c.header}}
-        {{th-sortable field='modifiedOn' currentSorting=sort label=(t 'modifiedOn')}}
-{{th-sortable field='name' currentSorting=sort label=(t 'name')}}
-{{th-sortable field='publicationDate' currentSorting=sort label=(t 'publicationDate')}}
-{{th-sortable field='description' currentSorting=sort label=(t 'description')}}
-{{th-sortable field='caption' currentSorting=sort label=(t 'caption')}}
-{{th-sortable field='contentUrl' currentSorting=sort label=(t 'contentUrl')}}
-{{th-sortable field='exifData' currentSorting=sort label=(t 'exifData')}}
-{{th-sortable field='thumbnailUrl' currentSorting=sort label=(t 'thumbnailUrl')}}
-        {{th-sortable field='exampleOf' currentSorting=sort label=(t 'exampleOf')}}
-{{th-sortable field='translationOf' currentSorting=sort label=(t 'translationOf')}}
-{{th-sortable field='license' currentSorting=sort label=(t 'license')}}
-{{th-sortable field='audience' currentSorting=sort label=(t 'audience')}}
-{{th-sortable field='format' currentSorting=sort label=(t 'format')}}
-{{th-sortable field='width' currentSorting=sort label=(t 'width')}}
-{{th-sortable field='height' currentSorting=sort label=(t 'height')}}
-{{th-sortable field='location' currentSorting=sort label=(t 'location')}}
+        {{th-sortable field='contentUrl' currentSorting=sort label=(t 'contentUrl')}}
+        
         <th>{{!-- contains detail view action --}}</th>
-        <th>{{!-- contains detail edit action --}}</th>
+        
       {{/c.header}}
       {{#c.body as |row|}}
-        {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=modifiedOn}}{{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}
-                {{#each row.name as |langString|}}
-                  <span property={{row.rdfaBindings.name}} lang="{{langString.language}}" content="{{langString.content}}">
-                    <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
-                  </span>
-                {{/each}} {{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=publicationDate}}{{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}
-                {{#each row.description as |langString|}}
-                  <span property={{row.rdfaBindings.description}} lang="{{langString.language}}" content="{{langString.content}}">
-                    <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
-                  </span>
-                {{/each}} {{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}
-                {{#each row.caption as |langString|}}
-                  <span property={{row.rdfaBindings.caption}} lang="{{langString.language}}" content="{{langString.content}}">
-                    <span class="language-string-set__content">"{{langString.content}}"</span><span class="language-string-set__language">@{{langString.language}}</span>
-                  </span>
-                {{/each}} {{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=contentUrl}}{{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=exifData}}{{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=thumbnailUrl}}{{/with-rdfa-context}}
-                {{#with-rdfa-context tagName="td" model=row as |ctx|}}
-                  {{#ctx.get prop="exampleOf" useUri=true link-to="creative-works.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
-                {{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}
-                  {{#ctx.get prop="translationOf" useUri=true link-to="creative-works.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
-                {{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}
-                  {{#ctx.get prop="license" useUri=true link-to="licenses.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
-                {{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}
-                  {{#ctx.get prop="audience" useUri=true link-to="audiences.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
-                {{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}
-                  {{#ctx.get prop="format" useUri=true link-to="file-formats.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
-                {{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}
-                  {{#ctx.get prop="width" useUri=true link-to="quantitative-values.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
-                {{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}
-                  {{#ctx.get prop="height" useUri=true link-to="quantitative-values.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
-                {{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}
-                  {{#ctx.get prop="location" useUri=true link-to="geometries.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
-                {{/with-rdfa-context}}
+        {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop="contentUrl"}}{{/with-rdfa-context}}
+                
                 {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{#rdfa/link-to link-to='media-objects.show' value=row property="foaf:page"}}{{t "Open"}}{{/rdfa/link-to}}{{/with-rdfa-context}}
         
       {{/c.body}}
