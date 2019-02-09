@@ -53,3 +53,30 @@ header.content-header,
 header.content-header .content-header__entity-logo {
   background-color: #eee;
 }
+
+header.content-header--small .content-header__wrapper > .layout {
+  padding: 15px 0;
+  min-height: 0;
+}
+
+header.content-header .content-header__application {
+  display: inline;
+
+  a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #373636;
+    font-size: 1.125em;
+    font-weight: 400;
+  }
+}
+
+footer.iwgf2 {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.main-content {
+  padding-bottom: 50px;
+}

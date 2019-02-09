@@ -1,21 +1,6 @@
 <div class="container">
-  <div class="temporary-header">
-    <div class="grid">
-      <div class="col--9-12 col--1-1-s">
-        {{#link-to 'index' class="temporary-header__logo"}}{{/link-to}}
-        <div class="temporary-header__vlaanderen">Vlaanderen</div>
-        <div class="temporary-header__name u-hidden-mobile">
-          <p>linked.toerismevlaanderen.be</p>
-        </div>
-      </div>
-      <div class="col--3-12 u-align-right u-hidden-mobile">
-        <div class="temporary-header__info">
-          <p>Linked Open Data</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  {{#with-rdfa-prefixes-and-vocab}}
+  {{vo-header}}
+  {{#with-rdfa-prefixes-and-vocab class="main-content"}}
     <header class="content-header content-header--small content-header--has-logo content-header--half-image u-spacer--large">
       <div class="content-header__wrapper">
         <picture class="content-header__bg">
@@ -35,6 +20,7 @@
                   <div class="content-header__logo__title">{{t 'Flanders'}}</div>
                   <div class="content-header__logo__tagline">{{t 'State of the Art'}}</div>
                 </h1>
+                <div class="content-header__application">{{#link-to 'index'}}Linked Open Data{{/link-to}}</div>
               </div>
             </div>
           </div>
@@ -44,3 +30,4 @@
     {{outlet}}
   {{/with-rdfa-prefixes-and-vocab}}
 </div>
+{{vo-footer}}
