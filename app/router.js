@@ -111,8 +111,8 @@ Router.map(function() {
     path: '/doc/registration-lodging-types/'
   }, function() {});
 
-  this.route('registration-publication-lodging-types', {
-    path: '/doc/registration-publication-lodging-types/'
+  this.route('registration-lodging-categories', {
+    path: '/doc/registration-lodging-categories/'
   }, function() {});
 
   this.route('facilities', {

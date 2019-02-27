@@ -12,7 +12,7 @@
     {{#table.content as |c|}}
       {{#c.header}}
         {{th-sortable field='label' currentSorting=sort label=(t 'label')}}
-        {{th-sortable field='broadMatches' currentSorting=sort label=(t 'registrationPublicationType')}}
+        {{th-sortable field='broadMatches' currentSorting=sort label=(t 'registrationLodgingCategory')}}
         <th>{{!-- contains detail view action --}}</th>
 
       {{/c.header}}
@@ -24,7 +24,7 @@
             </span>
           {{/each}} {{/with-rdfa-context}}
           {{#with-rdfa-context tagName="td" model=row as |ctx|}}
-            {{#ctx.each prop="broadMatches" useUri=true link-to="concepts.show" as |ctx val|}}
+            {{#ctx.each prop="narrowerMatches" useUri=true link-to="concepts.show" as |ctx val|}}
               {{val.stringRep}}
             {{/ctx.each}}
           {{/with-rdfa-context}}

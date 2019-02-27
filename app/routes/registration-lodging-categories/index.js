@@ -5,7 +5,7 @@ export default Route.extend(DataTableRouteMixin,{
   modelName: 'concept',
   mergeQueryOptions() {
     return {
-      'filter[concept-schemes][:id:]': 'd59411cd-6d71-44d9-a0b3-cf958d89858d'
+      'filter[concept-schemes][:id:]': '9d6a2610-5e27-4a26-93c8-d4a21e1e90e5'
     };
   }
 });

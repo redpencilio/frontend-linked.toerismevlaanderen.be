@@ -1,6 +1,6 @@
 {{!-- Page to list concepts --}}
 <div class="content">
-  <h2 class="h2">{{show-models-link}} &lt; {{t (humanize 'registration-publication-lodging-types')}}</h2>
+  <h2 class="h2">{{show-models-link}} &lt; {{t (humanize 'registration-lodging-categories')}}</h2>
   {{#data-table
        content=model
        isLoading=isLoadingModel
@@ -24,7 +24,7 @@
             </span>
           {{/each}} {{/with-rdfa-context}}
           {{#with-rdfa-context tagName="td" model=row as |ctx|}}
-            {{#ctx.each prop="narrowerMatches" useUri=true link-to="concepts.show" as |ctx val|}}
+            {{#ctx.each prop="broadMatches" useUri=true link-to="concepts.show" as |ctx val|}}
               {{val.stringRep}}
             {{/ctx.each}}
           {{/with-rdfa-context}}
