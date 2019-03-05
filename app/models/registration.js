@@ -12,6 +12,7 @@ export default Model.extend({
   identifier: belongsTo('identifier', { inverse: null }),
   registrationStatus: belongsTo('concept', { inverse: null }),
   type: belongsTo('concept', { inverse: null }),
+  category: belongsTo('concept', { inverse: null }),
   lodging: belongsTo('lodging', { inverse: null }),
   responsibleOrganization: belongsTo('registered-organization', { inverse: null }),
 
@@ -20,6 +21,7 @@ export default Model.extend({
     identifier: "adms:identifier",
     registrationStatus: "logies:registratieStatus",
     type: "dct:type",
+    category: "ext:tvlCategory",
     responsibleOrganization: "logies:verantwoordelijkeOrganisatie"
   })
 });

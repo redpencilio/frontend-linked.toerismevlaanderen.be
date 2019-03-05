@@ -15,6 +15,7 @@
         {{th-sortable field='identifier' currentSorting=sort label=(t 'identifier')}}
 {{th-sortable field='registrationStatus' currentSorting=sort label=(t 'registrationStatus')}}
 {{th-sortable field='type' currentSorting=sort label=(t 'type')}}
+{{th-sortable field='category' currentSorting=sort label=(t 'category')}}
 {{th-sortable field='lodging' currentSorting=sort label=(t 'lodging')}}
 {{th-sortable field='responsibleOrganization' currentSorting=sort label=(t 'responsibleOrganization')}}
         <th>{{!-- contains detail view action --}}</th>
@@ -30,6 +31,9 @@
                 {{/with-rdfa-context}}
 {{#with-rdfa-context tagName="td" model=row as |ctx|}}
                   {{#ctx.get prop="type" useUri=true link-to="concepts.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+                {{/with-rdfa-context}}
+{{#with-rdfa-context tagName="td" model=row as |ctx|}}
+                  {{#ctx.get prop="category" useUri=true link-to="concepts.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
                 {{/with-rdfa-context}}
 {{#with-rdfa-context tagName="td" model=row as |ctx|}}
                   {{#ctx.get prop="lodging" useUri=true link-to="lodgings.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
