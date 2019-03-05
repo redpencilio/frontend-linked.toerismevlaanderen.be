@@ -12,20 +12,20 @@
     {{#table.content as |c|}}
       {{#c.header}}
         {{th-sortable field='timestamp' currentSorting=sort label=(t 'timestamp')}}
-{{th-sortable field='activity' currentSorting=sort label=(t 'activity')}}
-        
+        {{th-sortable field='registration' currentSorting=sort label=(t 'registration')}}
         <th>{{!-- contains detail view action --}}</th>
-        <th>{{!-- contains detail edit action --}}</th>
+
       {{/c.header}}
       {{#c.body as |row|}}
-        {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=timestamp}}{{/with-rdfa-context}}
-{{#with-rdfa-context tagName="td" model=row as |ctx|}}{{ctx.get prop=activity}}{{/with-rdfa-context}}
-                
+        {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{#ctx.get prop="timestamp" as |ctx val|}}{{val}}{{/ctx.get}}{{/with-rdfa-context}}
+                {{#with-rdfa-context tagName="td" model=row as |ctx|}}
+                  {{#ctx.get prop="registration" useUri=true link-to="registrations.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}
+                {{/with-rdfa-context}}
                 {{#with-rdfa-context tagName="td" model=row as |ctx|}}{{#rdfa/link-to link-to='invalidations.show' value=row property="foaf:page"}}{{t "Open"}}{{/rdfa/link-to}}{{/with-rdfa-context}}
-        
+
       {{/c.body}}
     {{/table.content}}
   {{/data-table}}
 
-  
+
 </div>
