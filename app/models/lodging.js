@@ -14,7 +14,7 @@ export default Model.extend({
   numberOfSleepingPlaces: attr(),
   numberOfRentalUnits: attr(),
   identifier: belongsTo('identifier', { inverse: null }),
-  welcomeLocation: belongsTo('point', { inverse: null }),
+  welcomeLocation: belongsTo('geometry', { inverse: null }),
   welcomeAddresses: hasMany('address', { inverse: null }),
   belongsToTouristicRegions: hasMany('touristic-region', { inverse: null }),
   contactPoints: hasMany('contact-point', { inverse: null }),

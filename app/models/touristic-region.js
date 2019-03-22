@@ -6,7 +6,7 @@ import { hasMany } from 'ember-data/relationships';
 export default Model.extend({
   // A string representation of this model, based on its attributes.
   // This is what mu-cl-resources uses to search on, and how the model will be presented while editing relationships.
-  stringRep: collect.apply(this,['label']),
+  stringRep: collect.apply(this,['id', 'label']),
 
   uri: attr(),
   label: attr('language-string-set'),
@@ -14,6 +14,6 @@ export default Model.extend({
 
   rdfaBindings: Object.freeze({
     class: "logies:ToeristischeRegio",
-    label: "skos:prefLabel"
+    label: "rdfs:label"
   })
 });

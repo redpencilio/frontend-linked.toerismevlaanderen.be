@@ -95,14 +95,6 @@ Router.map(function() {
     });
   });
 
-  this.route('points', {
-    path: '/doc/points/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-
   this.route('registration-statuses', {
     path: '/doc/registration-statuses/'
   }, function() {});
@@ -155,26 +147,18 @@ Router.map(function() {
     });
   });
 
+  this.route('geometries', {
+    path: '/doc/geometries/'
+  }, function() {
+    this.route('show', {
+      path: ':id'
+    });
+  });
+
   this.route('tools');
   this.route('sparql');
   this.route('dumps');
   this.route('openapi');
-
-  this.route('generations', {
-    path: '/doc/generations/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
-
-  this.route('invalidations', {
-    path: '/doc/invalidations/'
-  }, function() {
-    this.route('show', {
-      path: ':id'
-    });
-  });
 });
 
 export default Router;

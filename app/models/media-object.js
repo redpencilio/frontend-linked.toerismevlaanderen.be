@@ -13,7 +13,7 @@ export default Model.extend({
   lodgings: hasMany('lodging', { inverse: null }),
 
   rdfaBindings: Object.freeze({
-    class: "logies:MediaObject",
+    class: "schema:MediaObject",
     contentUrl: "schema:contentUrl"
   })
 });
