@@ -9,6 +9,7 @@ export default Model.extend({
   stringRep: collect.apply(this,['id']),
 
   uri: attr(),
+  issuedDate: attr('datetime'),
   identifier: belongsTo('identifier', { inverse: null }),
   registrationStatus: belongsTo('concept', { inverse: null }),
   type: belongsTo('concept', { inverse: null }),
@@ -18,6 +19,7 @@ export default Model.extend({
 
   rdfaBindings: Object.freeze({
     class: "logies:Registratie",
+    issuedDate: "dct:issued",
     identifier: "adms:identifier",
     registrationStatus: "logies:registratieStatus",
     type: "dct:type",

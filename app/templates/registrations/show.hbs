@@ -8,7 +8,7 @@
         <dl>
           <dt class="properties__label">URI</dt>
           <dd class="properties__data">{{#link-to "registrations.show" model href=model.uri}}{{model.uri}}{{/link-to}}</dd>
-          
+          <dt class="properties__label">{{t "issuedDate"}}</dt> <dd class="properties__data">{{#ctx.get prop="issuedDate" as |ctx val|}}{{val}}{{/ctx.get}}</dd>
           <dt class="properties__label">{{t "identifier"}}</dt>
           <dd class="properties__data">{{#ctx.get prop="identifier" useUri=true link-to="identifiers.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
 <dt class="properties__label">{{t "registrationStatus"}}</dt>
@@ -21,7 +21,7 @@
           <dd class="properties__data">{{#ctx.get prop="lodging" useUri=true link-to="lodgings.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
 <dt class="properties__label">{{t "responsibleOrganization"}}</dt>
           <dd class="properties__data">{{#ctx.get prop="responsibleOrganization" useUri=true link-to="registered-organizations.show" as |ctx val|}}{{val.stringRep}}{{/ctx.get}}</dd>
-          
+
         </dl>
       </div>
     </div>
@@ -31,7 +31,7 @@
   <div class="actions">
     <div class="button-group">
       {{#link-to "registrations" class="button" title="Return to list" tagName='button'}}{{t "< Return to the list"}}{{/link-to}}
-      
+
     </div>
   </div>
 {{/with-rdfa-context}}
