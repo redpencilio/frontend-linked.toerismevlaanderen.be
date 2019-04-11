@@ -20,8 +20,8 @@
   "devDependencies": {
     "@ember/jquery": "^0.5.2",
     "@ember/optional-features": "^0.6.3",
-    "@lblod/ember-vo-webuniversum": "^0.19.3",
-    "@lblod/ember-vo-webuniversum-data-table": "^0.2.10",
+    "@lblod/ember-vo-webuniversum": "^0.20.3",
+    "@lblod/ember-vo-webuniversum-data-table": "^0.2.11",
     "broccoli-asset-rev": "^2.7.0",
     "ember-ajax": "^5.0.0",
     "ember-changeset": "^1.6.0",
