@@ -2,10 +2,13 @@
   "name": "frontend-tvl-subject-pages",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for frontend-tvl-subject-pages goes here",
-  "repository": "",
+  "description": "Subject pages for Linked Data of Tourism Flanders",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redpencilio/frontend-linked.toerismevlaanderen.be.git"
+  },
   "license": "MIT",
-  "author": "",
+  "author": "redpencil.io",
   "directories": {
     "doc": "doc",
     "test": "tests"
