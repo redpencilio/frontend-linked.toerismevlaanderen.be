@@ -1,1 +1,37 @@
 @import "ember-appuniversum";
+
+/* ember-appuniversum overwrites */
+.au-c-content-header {
+  background-color: var(--au-gray-200);
+
+  .au-c-content-header__wrapper {
+    padding-top: 2.4rem;
+    padding-bottom: 2.4rem;
+  }
+
+  .au-c-brand {
+    background-color: var(--au-gray-200);
+
+    .au-c-brand__logo {
+      background-color: var(--au-gray-200);
+      width: 8rem;
+      height: 8rem;
+
+      &::before {
+        border-top: 9rem solid var(--au-gray-200);
+      }
+    }
+
+    .au-c-brand__main {
+      font-size: var(--au-h3);
+    }
+
+    .au-c-brand__tagline {
+      font-size: var(--au-h4);
+    }
+  }
+}
+
+.au-c-content-header__bg::after {
+  border-bottom: 40rem solid var(--au-gray-200);
+}
