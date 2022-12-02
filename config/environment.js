@@ -6,6 +6,12 @@ module.exports = function (environment) {
     environment,
     rootURL: '/',
     locationType: 'history',
+    fastboot: {
+      // Note: fastboot interprets the string as regex based on the leading '/'
+      // Using a regex like /.../ (not wrapped as string) causes an error in
+      // ember-get-config/embroider since that's not valid JSON and cannot be serialized
+      hostWhitelist: ['/^localhost(:[0-9]*)?/', '{{FASTBOOT_HOST}}'],
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
