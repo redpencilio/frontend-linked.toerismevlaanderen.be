@@ -1,0 +1,21 @@
+<div class="au-o-grid">
+  <div class="au-o-grid__item au-u-1-2">
+    <AuCard @textCenter={{true}} as |card|>
+      <card.header>
+        <AuHeading @level="2" @skin="4">
+          SPARQL endpoint
+        </AuHeading>
+        <p>Doorzoek de toeristische data aan de hand van SPARQL queries</p>
+      </card.header>
+      <card.content>
+      </card.content>
+      <card.footer>
+        <AuLink
+          @route="sparql"
+          @skin="button">
+          Ga naar SPARQL endpoint
+        </AuLink>
+      </card.footer>
+    </AuCard>
+  </div>
+</div>

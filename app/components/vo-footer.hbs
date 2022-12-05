@@ -1,20 +1,5 @@
-<footer class="iwgf2 iw2-retina-disabled iw2-no-mobile  iw2-mobile-supported iw2-responsive iwgf2-expandable iw2-js iw2-desktop-mode-active iw2-window-closed" aria-live="off" role="contentinfo">
-  {{#unless this.isExpanded}}
-    <div class="iwgf2-bar" style="display: block;">
-      <div class="iw2-layout iw2-default-breakpoint">
-        <div class="iw2-wrapper iw2-default-margin">
-          <div class="iw2-inner-wrapper">
-            <div class="iwgf2-label-small">
-              <p>This is an official website of the government of Flanders</p>
-            </div>
-            <div class="iwgf2-drawer-toggle" {{on "click" this.toggleExpanded}}>
-              <a class="iwgf2-drawer-toggle-show iw2-exclude-from-outbound-link-tracking" href="#"><span>More info</span></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  {{else}}
+<footer class="iwgf2 iw2-retina-disabled iw2-no-mobile  iw2-mobile-supported iw2-responsive iwgf2-expandable iw2-js iw2-desktop-mode-active iw2-window-closed" aria-live="off">
+  {{#if this.isExpanded}}
     <div class="iwgf2-drawer" style="display: block;" tabindex="-1">
       <div class="iw2-layout iw2-default-breakpoint">
         <div class="iw2-wrapper iw2-default-margin">
@@ -53,5 +38,20 @@
         </div>
       </div>
     </div>
-  {{/unless}}
+  {{else}}
+    <div class="iwgf2-bar" style="display: block;">
+      <div class="iw2-layout iw2-default-breakpoint">
+        <div class="iw2-wrapper iw2-default-margin">
+          <div class="iw2-inner-wrapper">
+            <div class="iwgf2-label-small">
+              <p>This is an official website of the government of Flanders</p>
+            </div>
+            <div class="iwgf2-drawer-toggle" {{on "click" this.toggleExpanded}}>
+              <a class="iwgf2-drawer-toggle-show iw2-exclude-from-outbound-link-tracking" href="#"><span>More info</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/if}}
 </footer>

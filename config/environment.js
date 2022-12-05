@@ -6,6 +6,14 @@ module.exports = function (environment) {
     environment,
     rootURL: '/',
     locationType: 'history',
+    metis: {
+      baseUrl: 'http://linked.toerismevlaanderen.be/',
+    },
+    yasgui: {
+      // NOTE: look at app/modifiers/yasgui.js when changing this variable
+      defaultQuery: 'EMBER_YASGUI_DEFAULT_QUERY',
+      extraPrefixes: 'EMBER_YASGUI_EXTRA_PREFIXES',
+    },
     fastboot: {
       // Note: fastboot interprets the string as regex based on the leading '/'
       // Using a regex like /.../ (not wrapped as string) causes an error in
