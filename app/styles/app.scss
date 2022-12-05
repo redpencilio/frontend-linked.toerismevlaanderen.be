@@ -31,6 +31,10 @@
       font-size: var(--au-h4);
     }
   }
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .au-c-content-header__bg::after {

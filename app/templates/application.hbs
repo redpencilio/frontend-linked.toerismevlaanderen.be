@@ -1,13 +1,13 @@
 {{page-title "Toerisme Vlaanderen | Linked Open Data"}}
 
-<VoHeader />
+<AuApp>
+  <VoHeader />
 
-<main id="main" class="au-c-main-container">
-  <div class="au-c-main-container__content au-c-main-container__content--scroll" id="content">
-    <div>
+  <AuMainContainer as |Container|>
+    <Container.content @scroll={{true}}>
       {{outlet}}
-    </div>
-  </div>
-</main>
+    </Container.content>
+  </AuMainContainer>
 
-<VoFooter />
+  <VoFooter />
+</AuApp>
