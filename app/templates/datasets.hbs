@@ -1,0 +1,29 @@
+{{page-title "Datasets"}}
+
+<div class="au-o-layout">
+  <div class="au-o-region">
+
+    <div class="au-u-margin-top-large au-u-margin-bottom">
+      <AuHeading @level="2" @skin="2">
+        Datasets
+      </AuHeading>
+      <p class="au-u-para-lead">
+        Overview of the downloadable datasets
+      </p>
+    </div>
+
+    {{#if this.model}}
+      <div class="au-u-max-width-tiny">
+        <AuFileCard
+          @filename={{this.model.title}}
+          @fileSize={{this.model.humanReadableSize}}
+          @downloadLink={{this.model.namedDownloadLink}}
+        />
+      </div>
+    {{else}}
+      <p class="au-u-para">
+        There are currently no datasets available for download.
+      </p>
+    {{/if}}
+  </div>
+</div>

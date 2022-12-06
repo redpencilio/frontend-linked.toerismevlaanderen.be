@@ -8,6 +8,12 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
-  metisFallbackRoute(this);
   this.route('sparql');
+  this.route('datasets');
+
+  // Alias routes for backwards compatibility
+  this.route('dumps'); // alias for datasets
+  this.route('tools'); // alias for index
+
+  metisFallbackRoute(this);
 });
