@@ -1,15 +1,23 @@
 {{page-title "SPARQL Endpoint"}}
 
-<AuHeading @level="1" @skin="1">
-  SPARQL endpoint
-</AuHeading>
-{{#if this.fastboot.isFastBoot}}
-  <AuHeading @level="2" @skin="4">Aan het laden </AuHeading>
-  <AuLoader />
-{{else}}
-  <p>
-    Ga zelf aan de slag. Gebruik SPARQL queries om informatie te doorzoeken die ontsloten werd door Toerisme Vlaanderen.
-  </p>
-  <div {{yasgui}} class="au-u-margin-top"></div>
-  {{outlet}}
-{{/if}}
+<div class="au-o-layout">
+  <div class="au-o-region">
+
+    <div class="au-u-margin-top-large au-u-margin-bottom">
+      <AuHeading @level="2" @skin="2">
+        SPARQL endpoint
+      </AuHeading>
+      <p class="au-u-para-lead">
+        Explore the published data using SPARQL queries
+      </p>
+    </div>
+
+    {{#if this.fastboot.isFastBoot}}
+      <p class="au-u-h-functional">Aan het laden...</p>
+      <AuLoader />
+    {{else}}
+      <div {{yasgui}}></div>
+      {{outlet}}
+    {{/if}}
+  </div>
+</div>

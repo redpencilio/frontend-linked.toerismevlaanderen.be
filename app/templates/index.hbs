@@ -1,22 +1,77 @@
 <div class="au-o-layout">
   <div class="au-o-region">
+
+    <div class="au-u-margin-top-huge au-u-margin-bottom-large">
+      <AuHeading @level="2" @skin="2">
+        Logies as Linked Open Data
+      </AuHeading>
+      <p class="au-u-para-lead">
+        Overview of the available Linked Open Data resources.
+      </p>
+    </div>
     <div class="au-o-grid">
       <div class="au-o-grid__item au-u-1-2">
-        <AuCard @textCenter={{true}} as |card|>
+        <AuCard @textCenter={{true}} @shadow={{true}} @standOut={{true}} as |card|>
+          <card.header>
+            <AuHeading @level="2" @skin="4">
+              Vocabularium
+            </AuHeading>
+            <p>OSLO Logies vocabularium</p>
+          </card.header>
+          <card.content>
+            <p class="au-u-para-small">
+              Definition of the concepts and their semantics in the domain of lodging
+            </p>
+          </card.content>
+          <card.footer>
+            <AuLinkExternal
+              href="https://data.vlaanderen.be/ns/logies"
+              @skin="button">
+              Go to vocabularium
+            </AuLinkExternal>
+          </card.footer>
+        </AuCard>
+      </div>
+      <div class="au-o-grid__item au-u-1-2">
+        <AuCard @textCenter={{true}} @shadow={{true}} @standOut={{true}} as |card|>
+          <card.header>
+            <AuHeading @level="2" @skin="4">
+              Application profile
+            </AuHeading>
+            <p>OSLO Logies Basis application profile</p>
+          </card.header>
+          <card.content>
+            <p class="au-u-para-small">
+              Specification for the exchange of data in the domain of lodging
+            </p>
+          </card.content>
+          <card.footer>
+            <AuLinkExternal
+              href="https://data.vlaanderen.be/doc/applicatieprofiel/logies-basis/"
+              @skin="button">
+              Go to application profile
+            </AuLinkExternal>
+          </card.footer>
+        </AuCard>
+      </div>
+      <div class="au-o-grid__item au-u-1-2">
+        <AuCard @textCenter={{true}} @shadow={{true}} @standOut={{true}} as |card|>
           <card.header>
             <AuHeading @level="2" @skin="4">
               SPARQL endpoint
             </AuHeading>
-            <p>Ga zelf aan de slag</p>
+            <p>Get started yourself</p>
           </card.header>
           <card.content>
-            <p>Doorzoek de toeristische data aan de hand van SPARQL queries</p>
+            <p class="au-u-para-small">
+              Explore touristic data using the SPARQL protocol
+            </p>
           </card.content>
           <card.footer>
             <AuLink
               @route="sparql"
               @skin="button">
-              Ga naar SPARQL endpoint
+              Go to SPARQL endpoint
             </AuLink>
           </card.footer>
         </AuCard>
