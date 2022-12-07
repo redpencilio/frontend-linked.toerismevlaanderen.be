@@ -7,8 +7,10 @@ const defaultQuery =
     ? env.yasgui.defaultQuery
     : `PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX logies: <https://data.vlaanderen.be/ns/logies#Logies>
+
 SELECT * WHERE {
-  ?sub ?pred ?obj .
+  ?sub a logies:Logies ; ?p ?o .
 }
 LIMIT 10
 `;
