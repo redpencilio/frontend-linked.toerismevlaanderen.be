@@ -6,5 +6,5 @@ export default class DataDumpModel extends Model {
   @attr('datetime') created;
   @attr('datetime') modified;
 
-  @belongsTo('file', { inverse: 'dataDumps' }) file;
+  @belongsTo('file', { inverse: 'dataDumps', async: true }) file;
 }

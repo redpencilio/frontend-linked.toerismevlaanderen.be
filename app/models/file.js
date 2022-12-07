@@ -8,7 +8,7 @@ export default class FileModel extends Model {
   @attr('datetime') created;
   @attr('datetime') modified;
 
-  @hasMany('data-dump', { inverse: 'file' }) dataDumps;
+  @hasMany('data-dump', { inverse: 'file', async: true }) dataDumps;
 
   get downloadLink() {
     return `/files/${this.id}/download`;
