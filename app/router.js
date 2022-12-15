@@ -10,6 +10,7 @@ export default class Router extends EmberRouter {
 Router.map(function () {
   this.route('sparql');
   this.route('datasets');
+  this.route('lodgings');
 
   // Alias routes for backwards compatibility
   this.route('dumps'); // alias for datasets

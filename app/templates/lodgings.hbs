@@ -1,0 +1,47 @@
+{{page-title "Lodgings"}}
+
+<div
+  {{did-insert this.translatePaginationLabels}}
+  {{did-update this.translatePaginationLabels this.page}}
+  {{did-update this.translatePaginationLabels this.size}}>
+  <AuDataTable
+    @content={{this.model}}
+    @noDataMessage="No lodgings found"
+    @page={{this.page}}
+    @size={{this.size}}
+    @sort={{this.sort}} as |Table|>
+    <Table.content as |TableContent|>
+      <TableContent.header>
+        <AuDataTableThSortable
+          @field="name"
+          @currentSorting={{this.sort}}
+          @label="Name"
+          @class="data-table__header-title" />
+        <AuDataTableThSortable
+          @field="alternativeName"
+          @currentSorting={{this.sort}}
+          @label="Alternative name"
+          @class="data-table__header-title" />
+        <th>{{!-- Link to subject page --}}</th>
+      </TableContent.header>
+      {{#if this.isLoadingModel}}
+        <tbody>
+          <tr>
+            <td colspan="3">Loading...</td>
+          </tr>
+        </tbody>
+      {{else}}
+        <TableContent.body as |lodging|>
+          <td>{{lodging.name}}</td>
+          <td>{{lodging.alternativeName}}</td>
+          <td>
+            <LinkToSubject @uri={{lodging.uri}} class="au-c-button au-c-button--tertiary">
+              View
+            </LinkToSubject>
+          </td>
+        </TableContent.body>
+      {{/if}}
+    </Table.content>
+  </AuDataTable>
+</div>
+{{outlet}}

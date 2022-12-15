@@ -31,6 +31,7 @@
   "devDependencies": {
     "@appuniversum/ember-appuniversum": "^2.1.0",
     "@ember/optional-features": "^2.0.0",
+    "@ember/render-modifiers": "^2.0.4",
     "@ember/test-helpers": "^2.8.1",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
@@ -49,7 +50,7 @@
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.2",
     "ember-cli-update": "^1.0.1",
-    "ember-data": "~4.7.3",
+    "ember-data": "~4.8.3",
     "ember-fetch": "^8.1.2",
     "ember-load-initializers": "^2.1.2",
     "ember-modifier": "^3.2.7",

@@ -80,6 +80,28 @@
         <AuCard @textCenter={{true}} @shadow={{true}} @standOut={{true}} as |card|>
           <card.header>
             <AuHeading @level="2" @skin="4">
+              Subjects
+            </AuHeading>
+            <p>Subject pages annotated with RDFa</p>
+          </card.header>
+          <card.content>
+            <p class="au-u-para-small">
+              Browse through the annotated subject pages of the published data
+            </p>
+          </card.content>
+          <card.footer>
+            <AuLink
+              @route="lodgings"
+              @skin="button">
+              Go to subjects
+            </AuLink>
+          </card.footer>
+        </AuCard>
+      </div>
+      <div class="au-o-grid__item au-u-1-2">
+        <AuCard @textCenter={{true}} @shadow={{true}} @standOut={{true}} as |card|>
+          <card.header>
+            <AuHeading @level="2" @skin="4">
               Datasets
             </AuHeading>
             <p>Data dumps in RDF format</p>
