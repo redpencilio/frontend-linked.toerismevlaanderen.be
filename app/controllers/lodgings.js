@@ -8,7 +8,9 @@ export default class LodgingsController extends Controller {
   @tracked isLoadingModel = false;
 
   translatePaginationLabels(element) {
-    const nodes = element.querySelectorAll('.au-c-pagination__list-item .au-c-button');
+    const nodes = element.querySelectorAll(
+      '.au-c-pagination__list-item .au-c-button'
+    );
     nodes.forEach((node) => {
       node.childNodes.forEach((node) => {
         if (node.textContent.includes('vorige')) {
