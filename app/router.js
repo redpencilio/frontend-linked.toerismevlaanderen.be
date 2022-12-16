@@ -12,9 +12,5 @@ Router.map(function () {
   this.route('datasets');
   this.route('lodgings');
 
-  // Alias routes for backwards compatibility
-  this.route('dumps'); // alias for datasets
-  this.route('tools'); // alias for index
-
   metisFallbackRoute(this);
 });
