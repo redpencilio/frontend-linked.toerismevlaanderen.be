@@ -1,4 +1,4 @@
-FROM madnificent/ember:3.4.1 as builder
+FROM madnificent/ember:4.3.0 as builder
 
 LABEL maintainer="info@redpencil.io"
 
@@ -9,8 +9,11 @@ COPY . .
 RUN ember build -prod
 
 
-FROM semtech/ember-proxy-service:1.4.0
+FROM semtech/static-file-service:0.2.0
 
-ENV STATIC_FOLDERS_REGEX "^/(assets|font|files|sparql)/"
+ENV EMBER_ENABLE_SIGNATURES=""
+ENV EMBER_ENABLE_IMPERSONATION=""
 
-COPY --from=builder /app/dist /app
+COPY ./proxy/compression.conf /config/compression.conf
+
+COPY --from=builder /app/dist /data
