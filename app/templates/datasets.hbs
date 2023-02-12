@@ -15,9 +15,9 @@
     {{#if this.model}}
       <div class="au-u-max-width-tiny">
         <AuFileCard
-          @filename={{this.model.title}}
-          @fileSize={{this.model.humanReadableSize}}
-          @downloadLink={{this.model.namedDownloadLink}}
+          @filename={{@model.title}}
+          @fileSize={{@model.file.humanReadableSize}}
+          @downloadLink={{@model.file.namedDownloadLink}}
         />
       </div>
     {{else}}

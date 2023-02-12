@@ -5,11 +5,11 @@ export default class DatasetsRoute extends Route {
   @service store;
 
   async model() {
-    const dumps = await this.store.query('data-dump', {
+    const datasets = await this.store.query('dataset', {
       page: { size: 1 },
-      sort: '-created',
-      'filter[:exact:title]': 'Logies',
+      sort: '-modified',
+      include: 'file'
     });
-    return dumps[0];
+    return datasets[0];
   }
 }

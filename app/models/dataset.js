@@ -1,10 +1,10 @@
 import Model, { attr, belongsTo } from '@ember-data/model';
 
-export default class DataDumpModel extends Model {
+export default class Dataset extends Model {
   @attr title;
   @attr description;
   @attr('datetime') created;
   @attr('datetime') modified;
 
-  @belongsTo('file', { inverse: 'dataDumps', async: true }) file;
+  @belongsTo('file', { inverse: 'datasets', async: true }) file;
 }

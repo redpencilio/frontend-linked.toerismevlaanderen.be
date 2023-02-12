@@ -8,14 +8,14 @@ export default class FileModel extends Model {
   @attr('datetime') created;
   @attr('datetime') modified;
 
-  @hasMany('data-dump', { inverse: 'file', async: true }) dataDumps;
+  @hasMany('dataset', { inverse: 'file', async: true }) datasets;
 
   get downloadLink() {
     return `/files/${this.id}/download`;
   }
 
   get namedDownloadLink() {
-    return `${this.downloadLink}?name=${encodeURIComponent(this.name)}`;
+    return `${this.downloadLink}?name=${encodeURIComponent(this.filename)}`;
   }
 
   get humanReadableSize() {
