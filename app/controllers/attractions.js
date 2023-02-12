@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
 
-export default class LodgingsController extends Controller {
+export default class AttractionsController extends Controller {
   @tracked sort = 'name';
   @tracked size = 20;
   @tracked page = 0;

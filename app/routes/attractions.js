@@ -2,7 +2,7 @@ import { action } from '@ember/object';
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 
-export default class LodgingsRoute extends Route {
+export default class AttractionsRoute extends Route {
   queryParams = {
     page: { refreshModel: true },
     size: { refreshModel: true },
@@ -12,7 +12,7 @@ export default class LodgingsRoute extends Route {
   @service store;
 
   model(params) {
-    return this.store.query('lodging', {
+    return this.store.query('tourist-attraction', {
       page: {
         size: params.size,
         number: params.page,

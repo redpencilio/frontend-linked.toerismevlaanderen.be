@@ -1,4 +1,4 @@
-{{page-title "Lodgings"}}
+{{page-title "Attractions"}}
 
 <div
   {{did-insert this.translatePaginationLabels}}
@@ -6,7 +6,7 @@
   {{did-update this.translatePaginationLabels this.size}}>
   <AuDataTable
     @content={{this.model}}
-    @noDataMessage="No lodgings found"
+    @noDataMessage="No attractions found"
     @page={{this.page}}
     @size={{this.size}}
     @sort={{this.sort}} as |Table|>
@@ -31,11 +31,11 @@
           </tr>
         </tbody>
       {{else}}
-        <TableContent.body as |lodging|>
-          <td>{{lodging.name}}</td>
-          <td>{{lodging.alternativeName}}</td>
+        <TableContent.body as |attraction|>
+          <td>{{attraction.name}}</td>
+          <td>{{attraction.alternativeName}}</td>
           <td>
-            <LinkToSubject @uri={{lodging.uri}} class="au-c-button au-c-button--tertiary">
+            <LinkToSubject @uri={{attraction.uri}} class="au-c-button au-c-button--tertiary">
               View
             </LinkToSubject>
           </td>

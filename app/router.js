@@ -10,7 +10,7 @@ export default class Router extends EmberRouter {
 Router.map(function () {
   this.route('sparql');
   this.route('datasets');
-  this.route('lodgings');
+  this.route('attractions');
 
   metisFallbackRoute(this);
 });
