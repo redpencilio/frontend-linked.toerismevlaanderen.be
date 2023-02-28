@@ -1,4 +1,4 @@
-import Model, { attr, belongsTo } from '@ember-data/model';
+import Model, { attr, belongsTo, hasMany } from '@ember-data/model';
 
 export default class Dataset extends Model {
   @attr title;
@@ -6,5 +6,6 @@ export default class Dataset extends Model {
   @attr('datetime') created;
   @attr('datetime') modified;
 
-  @belongsTo('file', { inverse: 'datasets', async: true }) file;
+  @belongsTo('concept', { inverse: 'datasets', async: true }) type;
+  @hasMany('file', { inverse: 'datasets', async: true }) distributions;
 }

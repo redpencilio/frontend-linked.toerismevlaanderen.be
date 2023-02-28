@@ -14,11 +14,13 @@
 
     {{#if this.model}}
       <div class="au-u-max-width-tiny">
-        <AuFileCard
-          @filename={{@model.title}}
-          @fileSize={{@model.file.humanReadableSize}}
-          @downloadLink={{@model.file.namedDownloadLink}}
-        />
+        {{#let (object-at 0 @model.distributions) as |file|}}
+          <AuFileCard
+            @filename={{@model.type.label}}
+            @fileSize={{file.humanReadableSize}}
+            @downloadLink={{file.namedDownloadLink}}
+          />
+        {{/let}}
       </div>
     {{else}}
       <p class="au-u-para">
