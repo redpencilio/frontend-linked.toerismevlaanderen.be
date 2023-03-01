@@ -1,0 +1,13 @@
+{{page-title "Login"}}
+
+<div class="au-o-layout">
+  <div class="au-o-region">
+    {{#if this.session.isAuthenticated}}
+      <MuLogout />
+    {{else}}
+      <MuLogin />
+    {{/if}}
+  </div>
+</div>
+
+{{outlet}}
