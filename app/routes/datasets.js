@@ -8,7 +8,7 @@ export default class DatasetsRoute extends Route {
     const datasets = await this.store.query('dataset', {
       page: { size: 1 },
       sort: '-modified',
-      include: 'distributions'
+      include: 'distributions',
     });
     return datasets[0];
   }
