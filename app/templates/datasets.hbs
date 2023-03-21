@@ -12,20 +12,22 @@
       </p>
     </div>
 
-    {{#if this.model}}
-      <div class="au-u-max-width-tiny">
-        {{#let (object-at 0 @model.distributions) as |file|}}
-          <AuFileCard
-            @filename={{@model.type.label}}
-            @fileSize={{file.humanReadableSize}}
-            @downloadLink={{file.namedDownloadLink}}
-          />
-        {{/let}}
-      </div>
-    {{else}}
-      <p class="au-u-para">
-        There are currently no datasets available for download.
-      </p>
-    {{/if}}
+    <div class="au-u-flex au-u-flex--spaced au-u-flex--wrap">
+      {{#each @model as |dataset|}}
+        <div class="au-u-max-width-tiny">
+          {{#let (object-at 0 dataset.distributions) as |file|}}
+            <AuFileCard
+              @filename={{dataset.type.label}}
+              @fileSize={{concat (uppercase file.extension) ", " file.humanReadableSize}}
+              @downloadLink={{file.namedDownloadLink}}
+            />
+          {{/let}}
+        </div>
+      {{else}}
+        <p class="au-u-para">
+          There are currently no datasets available for download.
+        </p>
+      {{/each}}
+    </div>
   </div>
 </div>
