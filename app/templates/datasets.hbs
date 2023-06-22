@@ -17,7 +17,7 @@
         <div class="au-u-max-width-tiny">
           {{#let (object-at 0 dataset.distributions) as |file|}}
             <AuFileCard
-              @filename={{dataset.type.label}}
+              @filename={{or dataset.title dataset.type.label}}
               @fileSize={{concat (uppercase file.extension) ", " file.humanReadableSize}}
               @downloadLink={{file.namedDownloadLink}}
             />
