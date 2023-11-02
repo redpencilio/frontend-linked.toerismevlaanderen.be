@@ -11,14 +11,14 @@ module.exports = function (environment) {
     },
     yasgui: {
       // NOTE: look at app/modifiers/yasgui.js when changing this variable
-      defaultQuery: 'EMBER_YASGUI_DEFAULT_QUERY',
-      extraPrefixes: 'EMBER_YASGUI_EXTRA_PREFIXES',
+      defaultQuery: '{{YASGUI_DEFAULT_QUERY}}',
+      extraPrefixes: '{{YASGUI_EXTRA_PREFIXES}}',
     },
     fastboot: {
       // Note: fastboot interprets the string as regex based on the leading '/'
       // Using a regex like /.../ (not wrapped as string) causes an error in
       // ember-get-config/embroider since that's not valid JSON and cannot be serialized
-      hostWhitelist: ['/^localhost(:[0-9]*)?/', '{{FASTBOOT_HOST}}'],
+      hostWhitelist: ['/^localhost(:[0-9]*)?/', 'backend', '{{FASTBOOT_HOST}}'],
     },
     EmberENV: {
       FEATURES: {
