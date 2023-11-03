@@ -18,7 +18,7 @@ module.exports = function (environment) {
       // Note: fastboot interprets the string as regex based on the leading '/'
       // Using a regex like /.../ (not wrapped as string) causes an error in
       // ember-get-config/embroider since that's not valid JSON and cannot be serialized
-      hostWhitelist: ['/^localhost(:[0-9]*)?/', 'backend', '{{FASTBOOT_HOST}}'],
+      hostWhitelist: ['{{FASTBOOT_HOST}}'],
     },
     EmberENV: {
       FEATURES: {
@@ -34,6 +34,7 @@ module.exports = function (environment) {
   };
 
   if (environment === 'development') {
+    ENV.fastboot.hostWhitelist = ['/^localhost(:[0-9]*)?/'];
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
