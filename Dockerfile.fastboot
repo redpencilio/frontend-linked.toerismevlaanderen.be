@@ -9,6 +9,6 @@ RUN npm install
 COPY . .
 RUN ember build --environment production
 
-FROM redpencil/fastboot-app-server:1.1.0
+FROM redpencil/fastboot-app-server:feature-bump-fastboot-server
 
 COPY --from=builder /app/dist /app
