@@ -1,71 +1,57 @@
 <div class="au-o-layout">
   <div class="au-o-region">
+    <div class="au-u-margin-top-huge au-u-margin-bottom-large">
+      <AuHeading @level="1" @skin="1">
+        Your journey starts with Open Data
+      </AuHeading>
+
+      <AuContent class="au-u-margin-top">
+        <p>
+          Welcome to the Tourism Flanders Open Data Portal, your gateway to exploring Flanders through diverse datasets featuring touristic products.
+        </p>
+        <p>
+          Stay informed with regularly updated information via query endpoints, integratable APIs and downloadable datasets. Whether you're a researcher, developer, or a curious traveler, delve into Flanders' richness and beauty with us.
+        </p>
+      </AuContent>
+    </div>
 
     <div class="au-u-margin-top-huge au-u-margin-bottom-large">
       <AuHeading @level="2" @skin="2">
-        Logies as Linked Open Data
+        Explore the data
       </AuHeading>
       <p class="au-u-para-lead">
-        Overview of the available Linked Open Data resources
+        Dive deep into the riches of Tourism Flanders' Open Data
       </p>
     </div>
-    <div class="au-o-grid">
-      <div class="au-o-grid__item au-u-1-2">
+    <div class="au-o-grid au-u-margin-bottom-huge">
+      <div class="au-o-grid__item au-u-1-3@medium">
         <AuCard @textCenter={{true}} @shadow={{true}} @standOut={{true}} as |card|>
           <card.header>
-            <AuHeading @level="2" @skin="4">
-              Vocabularium
+            <AuHeading @level="3" @skin="3">
+              Touristic products
             </AuHeading>
-            <p>OSLO Logies vocabularium</p>
           </card.header>
           <card.content>
-            <p class="au-u-para-small">
-              Definition of the concepts and their semantics in the domain of lodging
-            </p>
+            <p>Browse through the annotated subject pages of touristic products</p>
           </card.content>
           <card.footer>
-            <AuLinkExternal
-              href="https://data.vlaanderen.be/ns/logies"
+            <AuLink
+              @route="attractions"
               @skin="button">
-              Go to vocabularium
-            </AuLinkExternal>
+              Go to products
+            </AuLink>
           </card.footer>
         </AuCard>
       </div>
-      <div class="au-o-grid__item au-u-1-2">
+      <div class="au-o-grid__item au-u-1-3@medium">
         <AuCard @textCenter={{true}} @shadow={{true}} @standOut={{true}} as |card|>
           <card.header>
-            <AuHeading @level="2" @skin="4">
-              Application profile
-            </AuHeading>
-            <p>OSLO Logies Basis application profile</p>
-          </card.header>
-          <card.content>
-            <p class="au-u-para-small">
-              Specification for the exchange of data in the domain of lodging
-            </p>
-          </card.content>
-          <card.footer>
-            <AuLinkExternal
-              href="https://data.vlaanderen.be/doc/applicatieprofiel/logies-basis/"
-              @skin="button">
-              Go to application profile
-            </AuLinkExternal>
-          </card.footer>
-        </AuCard>
-      </div>
-      <div class="au-o-grid__item au-u-1-2">
-        <AuCard @textCenter={{true}} @shadow={{true}} @standOut={{true}} as |card|>
-          <card.header>
-            <AuHeading @level="2" @skin="4">
+            <AuHeading @level="3" @skin="3">
               SPARQL endpoint
             </AuHeading>
-            <p>Get started yourself</p>
           </card.header>
           <card.content>
-            <p class="au-u-para-small">
-              Explore touristic data using the SPARQL protocol
-            </p>
+            <p>Explore touristic products using the SPARQL 1.1 protocol</p>
           </card.content>
           <card.footer>
             <AuLink
@@ -76,40 +62,15 @@
           </card.footer>
         </AuCard>
       </div>
-      <div class="au-o-grid__item au-u-1-2">
+      <div class="au-o-grid__item au-u-1-3@medium">
         <AuCard @textCenter={{true}} @shadow={{true}} @standOut={{true}} as |card|>
           <card.header>
-            <AuHeading @level="2" @skin="4">
-              Subjects
-            </AuHeading>
-            <p>Subject pages annotated with RDFa</p>
-          </card.header>
-          <card.content>
-            <p class="au-u-para-small">
-              Browse through the annotated subject pages of the published data
-            </p>
-          </card.content>
-          <card.footer>
-            <AuLink
-              @route="attractions"
-              @skin="button">
-              Go to subjects
-            </AuLink>
-          </card.footer>
-        </AuCard>
-      </div>
-      <div class="au-o-grid__item au-u-1-2">
-        <AuCard @textCenter={{true}} @shadow={{true}} @standOut={{true}} as |card|>
-          <card.header>
-            <AuHeading @level="2" @skin="4">
+            <AuHeading @level="3" @skin="3">
               Datasets
             </AuHeading>
-            <p>Data dumps in RDF format</p>
           </card.header>
           <card.content>
-            <p class="au-u-para-small">
-              Download dumps of the touristic attraction datasets
-            </p>
+            <p>Downloadable data dumps in RDF format</p>
           </card.content>
           <card.footer>
             <AuLink
@@ -121,5 +82,56 @@
         </AuCard>
       </div>
     </div>
+
+
+    <div class="au-u-margin-top-huge au-u-margin-bottom-large">
+      <AuHeading @level="2" @skin="2">
+        Read and learn
+      </AuHeading>
+      <p class="au-u-para-lead">
+        Discover how to use and incorporate our data in your world
+      </p>
+    </div>
+
+    <AuContent class="au-u-margin-top-large">
+      <AuHeading @level="3" @skin="3">
+        Let's get started
+      </AuHeading>
+      <p>
+        We created some <AuLink @route="examples">practical examples</AuLink> to query the data. Dive into the examples to understand the mechanics of querying with SPARQL or fetching data through JSON:API requests. It's a straightforward, hands-on approach to acquainting yourself with the functionalities of our APIs.
+      </p>
+    </AuContent>
+
+    <AuContent class="au-u-margin-top-large">
+      <AuHeading @level="3" @skin="3">
+        Data model
+      </AuHeading>
+      <p>
+        All data published on the Tourism Flanders Open Data Portal is compliant with <AuLinkExternal @href="https://data.vlaanderen.be/">the OSLO standard of the Flemish government</AuLinkExternal>. The <AuLinkExternal @href="https://data.vlaanderen.be/ns/logies">Logies vocabularium</AuLinkExternal> and accompanying <AuLinkExternal @href="https://data.vlaanderen.be/doc/applicatieprofiel/logies-basis/">Logies Basis application profile</AuLinkExternal> are most relevant in the context of tourism.
+      </p>
+      <p>
+        The vocabulary serves as the underlying structure for our published data. It provides a clear and organized framework for understanding the information you encounter. It's not just about data; it's about meaningful relationships and connections between terms allowing you to navigate and interpret the information with simplicity and clarity.
+      </p>
+    </AuContent>
+
+    <AuContent class="au-u-margin-top-large">
+      <AuHeading @level="3" @skin="3">
+        Data access
+      </AuHeading>
+      <p>
+        Explore the flexibility of accessing our published data through various ways tailored to your preferences.
+      </p>
+      <ul>
+        <li>
+          Engage with the information seamlessly by utilizing our <strong>SPARQL endpoint</strong> <AuLink @route="sparql" @text="SPARQL endpoint" @icon="external-link" @hideText={{true}} @skin="primary" /> enabling you to send queries for a dynamic and interactive experience
+        </li>
+        <li>
+          Alternatively, embrace the simplicity of our <strong>JSON:API compliant API</strong> <AuLink @route="examples" @text="JSON:API" @icon="external-link" @hideText={{true}} @skin="primary" /> providing a standardized interface for effortless integration into your applications</li>
+        <li>For those who prefer offline exploration, we offer <strong>downloadable datasets</strong> <AuLink @route="datasets" @text="Datasets" @icon="external-link" @hideText={{true}} @skin="primary" />, ensuring accessibility even when offline.</li>
+      </ul>
+      <p>
+        Whichever method suits your needs, our commitment to accessibility and versatility allows you to consume the published data in a way that aligns with your workflow and objectives.
+      </p>
+    </AuContent>
   </div>
 </div>

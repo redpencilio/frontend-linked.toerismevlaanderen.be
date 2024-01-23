@@ -1,0 +1,53 @@
+{{page-title "Examples"}}
+
+<div class="au-o-layout">
+  <div class="au-o-region">
+    <div class="au-u-margin-top-large au-u-margin-bottom">
+      <AuHeading @level="1" @skin="1">
+        Let's get started
+      </AuHeading>
+      <p class="au-u-para-lead">
+        Sample SPARQL queries and JSON:API requests
+      </p>
+    </div>
+
+    <AuContent>
+      <p>
+        This page provides some practical examples to query the data. Dive into the examples to understand the mechanics of querying with SPARQL or fetching data through JSON:API requests. It's a straightforward, hands-on approach to acquainting yourself with the functionalities of our APIs.
+      </p>
+    </AuContent>
+  </div>
+
+  <div class="au-o-region">
+    {{#each this.examples as |example i|}}
+      <AuContent>
+        <AuHeading @level="3" @skin="3">
+          Example {{add i 1}}: {{example.title}}
+        </AuHeading>
+
+        {{#if example.sparql}}
+          <AuHeading @level="4" @skin="4">
+            SPARQL
+          </AuHeading>
+          <pre class="au-u-margin-top-none">
+            <code class="language-plaintext" {{highlight}}>{{example.sparql}}</code>
+          </pre>
+        {{/if}}
+
+        {{#if example.json}}
+          <AuHeading @level="4" @skin="4" class="au-u-margin-top-none">
+            JSON:API
+          </AuHeading>
+          <pre class="au-u-margin-top-none">
+            <code class="language-bash" {{highlight}}>
+curl -X GET -H "Accept: application/vnd.api+json" \
+  "{{example.json}}"
+            </code>
+          </pre>
+        {{/if}}
+      </AuContent>
+    {{/each}}
+  </div>
+</div>
+
+{{outlet}}

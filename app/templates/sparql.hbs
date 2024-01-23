@@ -2,13 +2,12 @@
 
 <div class="au-o-layout">
   <div class="au-o-region">
-
     <div class="au-u-margin-top-large au-u-margin-bottom">
-      <AuHeading @level="2" @skin="2">
+      <AuHeading @level="1" @skin="1">
         SPARQL endpoint
       </AuHeading>
       <p class="au-u-para-lead">
-        Explore the published data using SPARQL queries
+        Explore the published data using SPARQL 1.1 queries
       </p>
     </div>
 
@@ -19,5 +18,37 @@
       <div {{yasgui}}></div>
       {{outlet}}
     {{/if}}
+  </div>
+
+  <div class="au-o-region">
+    <AuContent class="au-u-margin-top-large">
+      <AuHeading @level="3" @skin="3">
+        Data model
+      </AuHeading>
+      <p>
+        All data published on the Tourism Flanders Open Data Portal is compliant with <AuLinkExternal @href="https://data.vlaanderen.be/">the OSLO standard of the Flemish government</AuLinkExternal>. The <AuLinkExternal @href="https://data.vlaanderen.be/ns/logies">Logies vocabularium</AuLinkExternal> and accompanying <AuLinkExternal @href="https://data.vlaanderen.be/doc/applicatieprofiel/logies-basis/">Logies Basis application profile</AuLinkExternal> are most relevant in the context of tourism.
+      </p>
+      <p>
+        Example queries can be found <AuLink @route="examples">here</AuLink>.
+      </p>
+    </AuContent>
+
+    <AuContent class="au-u-margin-top-large">
+      <AuHeading @level="3" @skin="3">
+        Restrictions
+      </AuHeading>
+      <p>
+        The SPARQL endpoint has the following constraints:
+      </p>
+      <ul>
+        <li>SPARQL queries can only be sent via <AuLinkExternal @href="https://www.w3.org/TR/2013/REC-sparql11-protocol-20130321/#query-via-get">HTTP GET with percent encoded query parameters</AuLinkExternal></li>
+        <li>Only <AuLinkExternal @href="https://www.w3.org/TR/2013/REC-sparql11-query-20130321/#select">SPARQL SELECT queries</AuLinkExternal> are supported.</li>
+        <li>The SPARQL query must comply to <AuLinkExternal @href="https://www.w3.org/TR/sparql11-query/#sparqlGrammar">the SPARQL EBNF format</AuLinkExternal>.</li>
+        <li>query results can only be obtained in <AuLinkExternal @href="https://www.w3.org/TR/sparql11-results-json/">the application/sparql-results+json format</AuLinkExternal></li>
+      </ul>
+      <p>
+        SPARQL update queries will not return an error message, but the requested data manipulations will not be performed since users only have readonly access to the data.
+      </p>
+    </AuContent>
   </div>
 </div>

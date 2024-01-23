@@ -4,6 +4,6 @@ module.exports = function (/*environment*/) {
       return Object.assign({}, defaultGlobals, {
         BACKEND_URL: 'http://host/',
       });
-    }
+    },
   };
 };

@@ -12,6 +12,7 @@ Router.map(function () {
   this.route('sparql');
   this.route('datasets');
   this.route('attractions');
+  this.route('examples');
 
   metisFallbackRoute(this);
 });
