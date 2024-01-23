@@ -14,7 +14,6 @@ module.exports = function (defaults) {
 
   app.import('node_modules/highlight.js/styles/default.min.css');
   app.import('node_modules/@triply/yasgui/build/yasgui.min.css');
-  app.import('node_modules/highlightjs-sparql/dist/sparql.min.js');
 
   return app.toTree();
 };
