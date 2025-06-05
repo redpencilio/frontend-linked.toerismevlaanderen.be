@@ -15,13 +15,13 @@
     <div class="au-u-flex au-u-flex--spaced au-u-flex--wrap">
       {{#each @model as |dataset|}}
         <div class="au-u-max-width-tiny">
-          {{#let (object-at 0 dataset.distributions) as |file|}}
+          {{#each dataset.distributions as |file|}}
             <AuFileCard
               @filename={{or dataset.title dataset.type.label}}
               @fileSize={{concat (uppercase file.extension) ", " file.humanReadableSize}}
               @downloadLink={{file.namedDownloadLink}}
             />
-          {{/let}}
+          {{/each}}
         </div>
       {{else}}
         <p class="au-u-para">

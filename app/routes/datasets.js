@@ -1,5 +1,6 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
+import { compare } from '@ember/utils';
 
 export default class DatasetsRoute extends Route {
   @service store;
@@ -14,7 +15,7 @@ export default class DatasetsRoute extends Route {
     // Get the latest version for each dataset type
     const datasets = (
       await Promise.all(
-        datasetTypes.toArray().map(async (datasetType) => {
+        datasetTypes.map(async (datasetType) => {
           return (
             await Promise.all(
               ['ttl', 'csv'].map(async (extension) => {
@@ -35,7 +36,7 @@ export default class DatasetsRoute extends Route {
 
     return datasets
       .filter((d) => d)
-      .sortBy('modified')
+      .sort((a, b) => compare(a.modified, b.modified))
       .reverse();
   }
 }
