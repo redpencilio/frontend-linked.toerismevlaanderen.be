@@ -11,9 +11,6 @@ RUN ember build -prod
 
 FROM semtech/static-file-service:0.2.0
 
-ENV EMBER_ENABLE_SIGNATURES=""
-ENV EMBER_ENABLE_IMPERSONATION=""
-
 COPY ./proxy/compression.conf /config/compression.conf
 
 COPY --from=builder /app/dist /data
