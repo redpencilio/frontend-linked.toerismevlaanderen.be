@@ -11,6 +11,10 @@ module.exports = function (defaults) {
     sassOptions: {
       includePaths: ['node_modules/@appuniversum/ember-appuniversum'],
     },
+    emberData: {
+      deprecations: {
+        DEPRECATE_STORE_EXTENDS_EMBER_OBJECT: false
+      }
     },
   });
 
