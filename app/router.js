@@ -13,7 +13,9 @@ Router.map(function () {
   this.route('datasets');
   this.route('attractions');
   this.route('examples');
-
+  this.route('docs', function () {
+    this.route('model');
+  });
   externalRoute(this);
   fallbackRoute(this);
 });

@@ -1,0 +1,245 @@
+{{page-title "Data model"}}
+
+<div class="au-o-layout">
+  <div class="au-o-region">
+
+    <div class="au-u-margin-top-large">
+      <AuHeading @level="1" @skin="1">
+        Data model
+      </AuHeading>
+      <p class="au-u-para-lead">
+        Standardized semantic models built by the community
+      </p>
+    </div>
+
+    <AuContent class="au-u-margin-top-large">
+      <p>
+        All data published on the Tourism Flanders Open Data Portal is compliant with <AuLinkExternal href="https://data.vlaanderen.be/">the OSLO standard of the Flemish government</AuLinkExternal>. The <AuLinkExternal href="https://data.vlaanderen.be/ns/logies">Logies vocabularium</AuLinkExternal> and accompanying <AuLinkExternal href="https://data.vlaanderen.be/doc/applicatieprofiel/logies-basis/">Logies Basis application profile</AuLinkExternal> are most relevant in the context of tourism.
+      </p>
+      <p>
+        The vocabulary serves as the underlying structure for our published data. It provides a clear and organized framework for understanding the information you encounter. It's not just about data; it's about meaningful relationships and connections between terms allowing you to navigate and interpret the information with simplicity and clarity.
+      </p>
+    </AuContent>
+
+    <AuContent class="au-u-margin-top-large">
+      <AuHeading @level="3" @skin="3">Logies and registrations</AuHeading>
+      <p>
+        The central class in the data model is <AuLinkExternal href="https://data.vlaanderen.be/doc/applicatieprofiel/logies-basis/#Logies">Logies</AuLinkExternal>, representing any construction, facility, space or land that offers tourists accommodation for one or more nights. Each logies record carries a commercial name and a unique identifier. Most details of the logies (location, capacity, contact information, ...) are covered by related entities.
+      </p>
+      <p>
+        Official recognitions by Tourism Flanders are captured in the <AuLinkExternal href="https://data.vlaanderen.be/doc/applicatieprofiel/logies-basis/#Registratie">Registratie</AuLinkExternal> class. A registration holds its own identifier, a status from a controlled vocabulary, a type category as assigned by the responsible organisation, and optional creation and termination dates. Through this registration, you can determine whether an accommodation is currently recognised, suspended or revoked.
+      </p>
+    </AuContent>
+
+    <AuContent class="au-u-margin-top-large">
+      <AuHeading @level="3" @skin="3">Quality labels</AuHeading>
+      <p>
+        The <AuLinkExternal href="https://data.vlaanderen.be/doc/applicatieprofiel/logies-basis/#Kwaliteitslabel">Kwaliteitslabel</AuLinkExternal> class records labels granted to an accommodation when it meets specific conditions set by a certifying body. Each label has a name and an issuing organisation.
+      </p>
+      <p>
+        The following quality labels are available on this portal:
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Label</th>
+            <th>Organisation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Green Key</td>
+            <td>GoodPlanet Belgium</td>
+          </tr>
+          <tr>
+            <td>Kampeerlabel</td>
+            <td>Toerisme Vlaanderen</td>
+          </tr>
+          <tr>
+            <td>Opgenomen in icoonfietsroutes</td>
+            <td>Toerisme Vlaanderen</td>
+          </tr>
+          <tr>
+            <td>Toegankelijkheidslabel A</td>
+            <td>Toerisme Vlaanderen</td>
+          </tr>
+          <tr>
+            <td>Toegankelijkheidslabel A+</td>
+            <td>Toerisme Vlaanderen</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        To retrieve all Logies with an accessibility label via SPARQL:
+      </p>
+      <pre class="au-u-margin-top-none au-u-margin-bottom-none"><code class="language-plaintext" {{highlight}}>PREFIX mu: &lt;http://mu.semte.ch/vocabularies/core/&gt;
+PREFIX schema: &lt;http://schema.org/&gt;
+PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
+PREFIX logies: &lt;https://data.vlaanderen.be/ns/logies#&gt;
+
+SELECT ?uri ?name ?accessibilityLabel
+WHERE {
+  ?uri a logies:Logies ;
+    schema:name ?name ;
+    logies:heeftKwaliteitslabel ?label .
+  ?label skos:prefLabel ?accessibilityLabel .
+  VALUES ?accessibilityLabel {
+    "Toegankelijkheidslabel A"@nl
+    "Toegankelijkheidslabel A+"@nl
+  }
+}</code></pre>
+    </AuContent>
+
+    <AuContent class="au-u-margin-top-large">
+      <AuHeading @level="3" @skin="3">Capacities</AuHeading>
+      <p>
+        Capacity figures are expressed using the <AuLinkExternal href="https://data.vlaanderen.be/doc/applicatieprofiel/logies-basis/#Kwantitatieve%20waarde">KwantitatieveWaarde</AuLinkExternal> (quantitative value) structure, which combines a numeric value, a human-readable unit description, and a standardised unit code. Capacities are attached to a Logies covering metrics such as the total number of sleeping places or the number of rooms available.
+      </p>
+      <p>
+        The following capacities are available as quantitative values on this portal:
+      </p>
+      <ul>
+        <li>aantal campingplaatsen</li>
+        <li>aantal campingplaatsen voor kortverblijf</li>
+        <li>aantal campingplaatsen voor lange termijn</li>
+        <li>aantal plaatsen voor tenten</li>
+        <li>aantal staanplaatsen</li>
+        <li>aantal toeristische campingplaatsen</li>
+        <li>aantal wandelaarshutten</li>
+        <li>aantal wooneenheden</li>
+        <li>aantal wooneenheden te huur</li>
+        <li>normale capaciteit</li>
+      </ul>
+      <p>
+        Example: retrieve the number of <em>wooneenheden</em> for all logies:
+      </p>
+      <pre class="au-u-margin-top-none"><code class="language-plaintext" {{highlight}}>PREFIX mu: &lt;http://mu.semte.ch/vocabularies/core/&gt;
+PREFIX schema: &lt;http://schema.org/&gt;
+PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
+PREFIX logies: &lt;https://data.vlaanderen.be/ns/logies#&gt;
+
+SELECT ?uri ?name ?value
+WHERE {
+  ?uri a logies:Logies ;
+    schema:name ?name ;
+    logies:capaciteit ?quantitativeValue .
+  ?quantitativeValue schema:value ?value ;
+    schema:unitText ?unitText .
+  VALUES ?unitText {
+    "aantal wooneenheden"@nl
+  }
+}</code></pre>
+    </AuContent>
+
+    <AuContent class="au-u-margin-top-large">
+      <AuHeading @level="3" @skin="3">Rating</AuHeading>
+      <p>
+        Ratings are modelled using the <AuLinkExternal href="https://data.vlaanderen.be/doc/applicatieprofiel/logies-basis/#Beoordeling">Beoordeling</AuLinkExternal> class, linked to a Logies via <code>schema:starRating</code>. Each rating carries a <code>schema:ratingValue</code> identifying the awarded category. The following rating values are available on this portal:
+      </p>
+      <ul>
+        <li>1 *</li>
+        <li>1 * sup</li>
+        <li>2 *</li>
+        <li>2 * sup</li>
+        <li>3 *</li>
+        <li>3 * sup</li>
+        <li>4 *</li>
+        <li>4 * sup</li>
+        <li>5 *</li>
+        <li>5 * sup</li>
+        <li>Basic</li>
+        <li>Comfort</li>
+        <li>Standard</li>
+      </ul>
+      <p>
+        Example: retrieve all logies with a 4 * rating:
+      </p>
+      <pre class="au-u-margin-top-none"><code class="language-plaintext" {{highlight}}>PREFIX mu: &lt;http://mu.semte.ch/vocabularies/core/&gt;
+PREFIX schema: &lt;http://schema.org/&gt;
+PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
+PREFIX logies: &lt;https://data.vlaanderen.be/ns/logies#&gt;
+
+SELECT ?uri ?name ?value
+WHERE {
+  ?uri a logies:Logies ;
+    schema:name ?name ;
+    schema:starRating ?rating .
+  ?rating schema:ratingValue ?value .
+  VALUES ?value {
+    "4 *"
+  }
+}</code></pre>
+    </AuContent>
+
+    <AuContent class="au-u-margin-top-large">
+      <AuHeading @level="3" @skin="3">Codelists</AuHeading>
+      <p>
+        Some property values are drawn from a controlled vocabulary rather than being free-form text. These vocabularies are modelled using <strong>skos:ConceptScheme</strong>, a named set of concepts, where each individual value is a <strong>skos:Concept</strong>. Using controlled vocabularies ensures consistent, machine-readable values across all published data.
+      </p>
+      <p>The following codelists are available on this portal:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>URI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Product categories</td>
+            <td><AuLinkExternal href="http://linked.toerismevlaanderen.be/id/conceptschemes/153e1799-e59a-4052-a1ad-f6f1defad372">http://linked.toerismevlaanderen.be/id/conceptschemes/153e1799-e59a-4052-a1ad-f6f1defad372</AuLinkExternal></td>
+          </tr>
+          <tr>
+            <td>Location types</td>
+            <td><AuLinkExternal href="http://linked.toerismevlaanderen.be/id/conceptschemes/3926090c-7a31-45b5-8c68-8ed2c138d7ed">http://linked.toerismevlaanderen.be/id/conceptschemes/3926090c-7a31-45b5-8c68-8ed2c138d7ed</AuLinkExternal></td>
+          </tr>
+          <tr>
+            <td>Registration Status</td>
+            <td><AuLinkExternal href="http://linked.toerismevlaanderen.be/id/conceptschemes/48c5b233-44bc-49d1-93a7-b5005586baa2">http://linked.toerismevlaanderen.be/id/conceptschemes/48c5b233-44bc-49d1-93a7-b5005586baa2</AuLinkExternal></td>
+          </tr>
+          <tr>
+            <td>Contact types</td>
+            <td><AuLinkExternal href="http://linked.toerismevlaanderen.be/id/conceptschemes/50459fe4-967e-488d-8460-739abd4a1128">http://linked.toerismevlaanderen.be/id/conceptschemes/50459fe4-967e-488d-8460-739abd4a1128</AuLinkExternal></td>
+          </tr>
+          <tr>
+            <td>Product types</td>
+            <td><AuLinkExternal href="http://linked.toerismevlaanderen.be/id/conceptschemes/718f7e3d-90a8-41b6-a14e-b8439e566a94">http://linked.toerismevlaanderen.be/id/conceptschemes/718f7e3d-90a8-41b6-a14e-b8439e566a94</AuLinkExternal></td>
+          </tr>
+          <tr>
+            <td>FOD Lodging types</td>
+            <td><AuLinkExternal href="http://linked.toerismevlaanderen.be/id/conceptschemes/86054872-af5e-4fe8-892b-75cfb933068c">http://linked.toerismevlaanderen.be/id/conceptschemes/86054872-af5e-4fe8-892b-75cfb933068c</AuLinkExternal></td>
+          </tr>
+          <tr>
+            <td>Accommodation Categories</td>
+            <td><AuLinkExternal href="http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5">http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5</AuLinkExternal></td>
+          </tr>
+          <tr>
+            <td>Accommodation registration types</td>
+            <td><AuLinkExternal href="http://linked.toerismevlaanderen.be/id/conceptschemes/d59411cd-6d71-44d9-a0b3-cf958d89858d">http://linked.toerismevlaanderen.be/id/conceptschemes/d59411cd-6d71-44d9-a0b3-cf958d89858d</AuLinkExternal></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        To retrieve all codelists via SPARQL:
+      </p>
+      <pre class="au-u-margin-top-none au-u-margin-bottom-none"><code class="language-plaintext" {{highlight}}>SELECT * WHERE {
+  ?s a &lt;http://www.w3.org/2004/02/skos/core#ConceptScheme&gt; ;
+    &lt;http://www.w3.org/2004/02/skos/core#prefLabel&gt; ?label .
+  FILTER(LANG(?label) = "nl")
+}</code></pre>
+      <p>
+        To retrieve all concepts within a specific codelist:
+      </p>
+      <pre class="au-u-margin-top-none"><code class="language-plaintext" {{highlight}}>SELECT * WHERE {
+  ?scheme a &lt;http://www.w3.org/2004/02/skos/core#ConceptScheme&gt; .
+  ?concept &lt;http://www.w3.org/2004/02/skos/core#inScheme&gt; ?scheme ;
+    &lt;http://www.w3.org/2004/02/skos/core#prefLabel&gt; ?label .
+  FILTER(LANG(?label) = "nl")
+  VALUES ?scheme {
+    &lt;http://linked.toerismevlaanderen.be/id/conceptschemes/48c5b233-44bc-49d1-93a7-b5005586baa2&gt;
+  }
+}</code></pre>
+    </AuContent>
+  </div>
+</div>
