@@ -29,5 +29,30 @@
         </p>
       {{/each}}
     </div>
+
+    <AuContent class="au-u-margin-top-large">
+      <AuHeading @level="3" @skin="3">Data model</AuHeading>
+      <p>
+        Datasets are published as part of a DCAT catalog. Each dataset in the catalog is represented as a <code>dcat:Dataset</code>. A dataset has one or more distributions (<code>dcat:Distribution</code>), one per representation of the dataset. Each distribution contains a URL to download the dataset.
+      </p>
+      <p>
+        There is a public dataset containing all public data about Lodgings in TTL format. Next to this there are multiple private subsets available. Contact Tourism Flanders to get more information about access to the private datasets.
+      </p>
+      <p>
+        Updated datasets are published daily. The following SPARQL query gives the most recent datasets, based on their publication date, together with their download URL:
+      </p>
+      <pre class="au-u-margin-top-none au-u-margin-bottom-none"><code class="language-plaintext" {{highlight}}>PREFIX dcat: &lt;http://www.w3.org/ns/dcat#&gt;
+PREFIX dct: &lt;http://purl.org/dc/terms/&gt;
+
+SELECT ?dataset ?title ?issued ?distribution ?format ?downloadUrl
+WHERE {
+  ?dataset a dcat:Dataset ;
+    dct:title ?title ;
+    dcat:distribution ?distribution ;
+    dct:issued ?issued .
+  ?distribution dct:format ?format ;
+    dcat:downloadURL ?downloadUrl
+} ORDER BY DESC(?issued)</code></pre>
+    </AuContent>
   </div>
 </div>
